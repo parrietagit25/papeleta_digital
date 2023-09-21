@@ -18,7 +18,7 @@ services:
       - ./my_database.sql:/docker-entrypoint-initdb.d/masterdd.sql
     environment:
       MYSQL_ROOT_PASSWORD: rootpass
-      MYSQL_DATABASE: subastas  
+      MYSQL_DATABASE: papeleta_digital  
       MYSQL_USER: parrieta
       MYSQL_PASSWORD: Papeleta2023
 
