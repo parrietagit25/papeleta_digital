@@ -700,10 +700,10 @@ if (isset($_GET['counter_detail'])) { ?>
     <div class="container">
         <br>
         <br>
-        <button type="button" class="btn btn-danger" style="width:100%" onclick="enviar_revicion()">Enviar a Revision</button>
+        <a class="btn btn-danger" style="width:100%" onclick="enviar_revicion()">Enviar a Revision</a>
         <br>
         <br>
-        <button type="button" class="btn btn-success" style="width:100%" onclick="finalizar()">Finalizar</button>
+        <a class="btn btn-success" style="width:100%" onclick="finalizar()">Finalizar</a>
         <input type="hidden" id="id" value="<?php echo $_GET['id']; ?>">
     </div>
     <br>
