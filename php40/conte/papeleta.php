@@ -701,6 +701,9 @@ $rows = $ultimo_id->fetchAll(PDO::FETCH_ASSOC);
         }
 
         async function guardarCanvas() {
+
+            document.getElementById('enviar_correo').disabled = true;
+
             let canvas = document.getElementById('miCanvas');
             let firma = document.getElementById('firmaCanvas');
             let formData = new FormData();
@@ -761,6 +764,7 @@ $rows = $ultimo_id->fetchAll(PDO::FETCH_ASSOC);
             if(respuesta.ok) {
                 let data = await respuesta.text();
                 alert('Actualizado con éxito!');
+                console.log(data);
                 location.reload();
             } else {
                 console.error("Error en la respuesta del servidor:", respuesta.statusText);

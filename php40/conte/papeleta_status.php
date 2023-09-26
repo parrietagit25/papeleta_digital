@@ -213,7 +213,7 @@ if (isset($_GET['counter_detail'])) { ?>
         <div class="container">
             <br>
             <br>
-            <button type="button" class="btn btn-primary" style="width:100%" onclick="guardarCanvas()">Enviar</button>
+            <button id="enviar_correo" type="button" class="btn btn-primary" style="width:100%" onclick="guardarCanvas()">Enviar</button>
             <input type="hidden" id="id" value="<?php echo $_GET['id']; ?>">
         </div>
         <br>
@@ -350,61 +350,89 @@ if (isset($_GET['counter_detail'])) { ?>
     $mail = new PHPMailer(true);
 
     try {
-        $mail->SMTPDebug = 1;  // Habilitar salida de depuración detallada (cambiar a 0 si no quieres información de depuración)
-        $mail->isSMTP();      // Usar SMTP
-        $mail->Host       = 'smtp.tu-servidor.com';  // Especifica el servidor SMTP
-        $mail->SMTPAuth   = true;                    // Habilita autenticación SMTP
-        $mail->Username   = 'notificaciones@grupopcr.com.pa';  // Usuario SMTP
-        $mail->Password   = 'Noti2019.';         // Contraseña SMTP
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Habilita encriptación TLS (cambia a `PHPMailer::ENCRYPTION_SMTPS` si necesitas usar SSL)
-        $mail->Port       = 587;                    // Puerto TCP al que conectarse; usa 465 para `PHPMailer::ENCRYPTION_SMTPS` 
-
-        // Recipientes
+        $mail->SMTPDebug = 2;  
+        $mail->isSMTP();     
+        $mail->Host       = 'smtp.office365.com';  
+        $mail->SMTPAuth   = true;                   
+        $mail->Username   = 'notificaciones@grupopcr.com.pa';  
+        $mail->Password   = 'Noti2019.';        
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; 
+        $mail->Port       = 587;                   
         $mail->setFrom('notificaciones@grupopcr.com.pa', 'Notificaciones PCR');
-        $mail->addAddress($email, 'Cliente PCR'); // Añade un destinatario
+        $mail->addAddress($email, 'Cliente PCR'); 
 
-        // Contenido del correo
-        $mail->isHTML(true);  // Set email format to HTML
+        $poliza_seguro = ($poliza_seguro == 1) ? 'SI' : 'NO';
+        $placa_revisado = ($placa_revisado == 1) ? 'SI' : 'NO';
+        $formato_danios_menores = ($formato_danios_menores == 1) ? 'SI' : 'NO';
+        $registro_unico_vehicula = ($registro_unico_vehicula == 1) ? 'SI' : 'NO';
+        $stiker_panapass = ($stiker_panapass == 1) ? 'SI' : 'NO';
+        $pito_claxon = ($pito_claxon == 1) ? 'SI' : 'NO';
+        $luces_direccionales = ($luces_direccionales == 1) ? 'SI' : 'NO';
+        $luces_traseras = ($luces_traseras == 1) ? 'SI' : 'NO';
+        $luces_delanteras = ($luces_delanteras == 1) ? 'SI' : 'NO';
+        $aire_acondicionado = ($aire_acondicionado == 1) ? 'SI' : 'NO';
+        $limpia_parabrisas = ($limpia_parabrisas == 1) ? 'SI' : 'NO';
+        $alfombras = ($alfombras == 1) ? 'SI' : 'NO';
+        $herramientas = ($herramientas == 1) ? 'SI' : 'NO';
+        $antenas = ($antenas == 1) ? 'SI' : 'NO';
+        $placa_pipa = ($placa_pipa == 1) ? 'SI' : 'NO';
+        $extintor = ($extintor == 1) ? 'SI' : 'NO';
+        $gato = ($gato == 1) ? 'SI' : 'NO';
+        $llanta_repuesto = ($llanta_repuesto == 1) ? 'SI' : 'NO';
+        $copas_1234 = ($copas_1234 == 1) ? 'SI' : 'NO';
+        $base_antena = ($base_antena == 1) ? 'SI' : 'NO';
+        $triangulo_seguridad = ($triangulo_seguridad == 1) ? 'SI' : 'NO';
+  
+        $mail->CharSet = 'UTF-8';
+        $mail->isHTML(true);  
         $mail->Subject = 'Datos de Alquiler de Vihiculo con placa '.$placa;
         $mail->Body    = '
             <img src="cid:logogrupopcr" width="250" alt="Logo 1" />
-            <p><b>Estos son los datos de su alquiler de vehiculo</b></p>
-            <b>Contrato: </b> '.$contrato.' <br>
-            <b>Sucursal: </b> '.$sucursal.' <br>
-            <b>Placa: </b> '.$placa.' <br>
-            <b>Unidad: </b> '.$unidad.' <br>
-            <b>Odometro: </b> '.$odometro.' <br>
-            <b>Combustible: </b> '.$combustible.' <br>
-            <b>Poliza de seguro: </b> '.$poliza_seguro.' <br>
-            <b>Placa Revisado: </b> '.$placa_revisado.' <br>
-            <b>Formato deños menores: </b> '.$formato_danios_menores.' <br>
-            <b>Registro unico vehicular: </b> '.$registro_unico_vehicula.' <br>
-            <b>Stiker Panapass: </b> '.$stiker_panapass.' <br>
-            <b>Claxon: </b> '.$pito_claxon.' <br>
-            <b>Luces direccionales: </b> '.$luces_direccionales.' <br>
-            <b>Luces Traseras: </b> '.$luces_traseras.' <br>
-            <b>Luces delanteras: </b> '.$luces_delanteras.' <br>
-            <b>Aire acondicinado: </b> '.$aire_acondicionado.' <br>
-            <b>Limpia parabrisas: </b> '.$limpia_parabrisas.' <br>
-            <b>Alfombras: </b> '.$alfombras.' <br>
-            <b>Herramientas: </b> '.$herramientas.' <br>
-            <b>Antenas: </b> '.$antenas.' <br>
-            <b>Placa pipa: </b> '.$placa_pipa.' <br>
-            <b>Extindor: </b> '.$extintor.' <br>
-            <b>Gato: </b> '.$gato.' <br>
-            <b>Llanta de repuesto: </b> '.$llanta_repuesto.' <br>
-            <b>Copas 1234: </b> '.$copas_1234.' <br>
-            <b>Base Antena: </b> '.$base_antena.' <br>
-            <b>Triangulo de seguridad: </b> '.$triangulo_seguridad.' <br>
-            <p><b> Inspeccion antes de la entrega. </b></p>
-            <img src="cid:papeleta" width="250" alt="Logo 1" />
-            <p><b> Fotos. </b></p>
-            <img src="cid:foto_frente" width="250" alt="Logo 1" />
-            <img src="cid:foto_frente" width="250" alt="Logo 1" />
-            <img src="cid:foto_conductor" width="250" alt="Logo 1" />
-            <img src="cid:foto_maletero" width="250" alt="Logo 1" />
-            <p><b> Firma. </b></p>
-            <img src="cid:firma" width="250" alt="Logo 1" />
+
+            <p>Estimado cliente,</p>
+            <p>¡Bienvenido y gracias por elegir nuestros servicios de alquiler de vehículos! Estamos 
+            comprometidos en ofrecerte una experiencia excepcional y asegurarnos de que tu viaje sea seguro y cómodo.</p>
+            <p>A continuación, te proporcionamos los detalles de tu alquiler para que puedas revisar toda la información pertinente:</p>
+
+            <ul>
+                <li><b>Contrato:</b> '.$contrato.'</li>
+                <li><b>Sucursal:</b> '.$sucursal.'</li>
+                <li><b>Placa:</b> '.$placa.'</li>
+                <li><b>Unidad:</b> '.$unidad.'</li>
+                <li><b>Odómetro:</b> '.$odometro.'</li>
+                <li><b>Combustible:</b> '.$combustible.'</li>
+                <li><b>Póliza de seguro:</b> '.$poliza_seguro.'</li>
+                <li><b>Placa Revisado:</b> '.$placa_revisado.'</li>
+                <li><b>Formato daños menores:</b> '.$formato_danios_menores.'</li>
+                <li><b>Registro único vehicular:</b> '.$registro_unico_vehicula.'</li>
+                <li><b>Stiker Panapass:</b> '.$stiker_panapass.'</li>
+                <li><b>Claxon:</b> '.$pito_claxon.'</li>
+                <li><b>Luces direccionales:</b> '.$luces_direccionales.'</li>
+                <li><b>Luces Traseras:</b> '.$luces_traseras.'</li>
+                <li><b>Luces delanteras:</b> '.$luces_delanteras.'</li>
+                <li><b>Aire acondicionado:</b> '.$aire_acondicionado.'</li>
+                <li><b>Limpia parabrisas:</b> '.$limpia_parabrisas.'</li>
+                <li><b>Alfombras:</b> '.$alfombras.'</li>
+                <li><b>Herramientas:</b> '.$herramientas.'</li>
+                <li><b>Antenas:</b> '.$antenas.'</li>
+                <li><b>Placa pipa:</b> '.$placa_pipa.'</li>
+                <li><b>Extintor:</b> '.$extintor.'</li>
+                <li><b>Gato:</b> '.$gato.'</li>
+                <li><b>Llanta de repuesto:</b> '.$llanta_repuesto.'</li>
+                <li><b>Copas 1234:</b> '.$copas_1234.'</li>
+                <li><b>Base Antena:</b> '.$base_antena.'</li>
+                <li><b>Triángulo de seguridad:</b> '.$triangulo_seguridad.'</li>
+            </ul>
+
+            <p><b>Inspección antes de la entrega:</b></p>
+            <img src="cid:papeleta" width="250" alt="Inspección" />
+            <p><b>Fotos:</b></p>
+            <img src="cid:foto_frente" width="250" alt="Foto Frente" />
+            <img src="cid:foto_conductor" width="250" alt="Foto Lado Conductor" />
+            <img src="cid:foto_maletero" width="250" alt="Foto Maletero" />
+            <img src="cid:foto_pasajero" width="250" alt="Foto Lado Pasajero" />
+            <p><b>Firma:</b></p>
+            <img src="cid:firma" width="250" alt="Firma" />
         ';
 
         $mail->AddEmbeddedImage('../img/logo20años.png', 'logogrupopcr');
