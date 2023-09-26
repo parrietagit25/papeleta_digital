@@ -10,7 +10,7 @@ if (isset($_GET['counter_detail'])) { ?>
     
 <label for="">Email</label>
 <input type="text" name="email_cliente" class="form-control" require>
-<label for="">Conrtrato</label>
+<label for="">Contrato</label>
 <input type="text" name="contrato" class="form-control" require>
 <label for="">Sucursal</label>
 <input type="text" name="sucursal" class="form-control">
@@ -29,9 +29,10 @@ if (isset($_GET['counter_detail'])) { ?>
 ?>
     
     <div class="container">
+        
+        <div class="container text-center" style="border: solid 1px #df3232; padding:20px;">
         <h2>Counter</h2>
         <br>
-        <div class="container text-center">
             <div class="row">
                 <div class="col-4">
                     <h4>Email del cliente</h4>
@@ -48,9 +49,10 @@ if (isset($_GET['counter_detail'])) { ?>
             </div>
         </div>
         <br>
+        
+        <div class="container text-center" style="border: solid 1px #df3232; padding:20px;">
         <h2>Operaciones</h2>
         <br>
-        <div class="container text-center">
             <div class="row">
                 <div class="col-4">
                     <h4>Unidad</h4>
@@ -67,9 +69,10 @@ if (isset($_GET['counter_detail'])) { ?>
             </div>
         </div>
         <br>
+        
+        <div class="container text-center" style="border: solid 1px #df3232; padding:20px;">
         <h2>Combustible</h2>
         <br>
-        <div class="container text-center">
             <div class="row">
                 <div class="col-4">
                     <input class="form-check-input" type="radio" id="combustible" name="combustible" value="Empty" <?php echo ($value['combustible'] == "Empty" ? "checked" : ""); ?>>
@@ -108,9 +111,9 @@ if (isset($_GET['counter_detail'])) { ?>
             </div>
         </div>
         <br>
-        <div class="container text-center">
+        <div class="container text-left" style="border: solid 1px #df3232; padding:20px;">
             <div class="row">
-                <div class="col-4">
+                <div class="col-4" style="border: solid 1px #df3232;">
                     <h2>Documentacion</h2>
                     <input class="form-check-input" type="checkbox" id="poliza_seguro" value="1" <?php echo ($value['poliza_seguro'] == 1 ? 'checked' : ''); ?>>
                     <label>Poliza de seguro</label>
@@ -128,7 +131,7 @@ if (isset($_GET['counter_detail'])) { ?>
                     <label>Sticker de Panapass</label>
                     <br><br>
                 </div>
-                <div class="col-4">
+                <div class="col-4" style="border: solid 1px #df3232;">
                     <h2>Operatividad</h2>
                     
                     <input class="form-check-input" type="checkbox" id="pito_claxon" value="1" <?php echo ($value['pito_claxon'] == 1 ? 'checked' : ''); ?>>
@@ -156,7 +159,7 @@ if (isset($_GET['counter_detail'])) { ?>
                     <br><br>
 
                 </div>
-                <div class="col-4">
+                <div class="col-4" style="border: solid 1px #df3232;">
                     <h2>Accesorios</h2>
                     
                     <input class="form-check-input" type="checkbox" id="alfombras" value="1" <?php echo ($value['alfombras'] == 1 ? 'checked' : ''); ?>>
@@ -202,7 +205,7 @@ if (isset($_GET['counter_detail'])) { ?>
             </div>
         </div>
         <br>
-        <div class="container text-center">
+        <div class="container text-center" style="border: solid 1px #df3232; padding:20px;">
         <h2>Inspeccion</h2>
         <br>
             <canvas id="miCanvas" width="500" height="500" style="background-color:white;"></canvas><br>
@@ -213,10 +216,10 @@ if (isset($_GET['counter_detail'])) { ?>
         </div>
         <br>
 
-        <div class="row text-center" >
+        <div class="row text-center" style="border: solid 1px #df3232; padding:20px;">
             <h2>Fotos</h2>
             <br>
-            <div class="col-6">
+            <div class="col-6" style="padding:20px;">
             <label for="file1" class="custom-file-upload">
                 <i class="camera-icon"></i>
             </label>
@@ -224,7 +227,7 @@ if (isset($_GET['counter_detail'])) { ?>
             <p id="frente" style="display:block"> FRENTE</p> 
                 <img id="preview1" width="150">
             </div>
-            <div class="col-6">
+            <div class="col-6" style="padding:20px;">
             <label for="file2" class="custom-file-upload">
                 <i class="camera-icon"></i>
             </label>
@@ -232,7 +235,7 @@ if (isset($_GET['counter_detail'])) { ?>
                 <p id="lado_conductor" style="display:block"> LADO DEL CONDUCTOR</p>
                 <img id="preview2" width="150">
             </div>
-            <div class="col-6">
+            <div class="col-6" style="padding:20px;">
             <label for="file3" class="custom-file-upload">
                 <i class="camera-icon"></i>
             </label>
@@ -240,7 +243,7 @@ if (isset($_GET['counter_detail'])) { ?>
                 <p id="maletero" style="display:block"> MALETERO</p>
                 <img id="preview3" width="150">
             </div>
-            <div class="col-6">
+            <div class="col-6" style="padding:20px;">
             <label for="file4" class="custom-file-upload">
                 <i class="camera-icon"></i>
             </label>
@@ -250,10 +253,10 @@ if (isset($_GET['counter_detail'])) { ?>
             </div>
         </div>
         <br>
-        <div style="text-align: center;">
-        <h2>Firma de Cliente</h2>
-        <br>
-            <canvas id="firmaCanvas" width="500" height="500" style="border: 1px solid #000; z-index:9999"></canvas> <br>
+        <div style="text-align: center;" style="border: solid 1px #df3232; padding:20px;">
+            <h2>Firma de Cliente</h2>
+            <br>
+            <canvas id="firmaCanvas" width="500" height="250" style="border: 1px solid #000; z-index:9999"></canvas> <br>
             <button id="btnLimpiarFirma" class="btn btn-secondary">Limpiar Firma</button>
         </div>
         <br>
@@ -546,16 +549,17 @@ if (isset($_GET['counter_detail'])) { ?>
 ?>
 
 <div class="container">
+    
+    <div class="container text-center" style="border: solid 1px #df3232; padding:20px;">
     <h2>Counter</h2>
     <br>
-    <div class="container text-center">
         <div class="row">
             <div class="col-4">
                 <h4>Email</h4>
                 <input type="text" id="email" class="form-control" value="<?php echo $value['email_cliente']; ?>" readonly>
             </div>
             <div class="col-4">
-                <h4>Conrtrato</h4>
+                <h4>Contrato</h4>
                 <input type="text" id="contrato" class="form-control" value="<?php echo $value['contrato']; ?>" readonly>
             </div>
             <div class="col-4">
@@ -565,9 +569,10 @@ if (isset($_GET['counter_detail'])) { ?>
         </div>
     </div>
     <br>
+   
+    <div class="container text-center" style="border: solid 1px #df3232; padding:20px;">
     <h2>Operaciones</h2>
     <br>
-    <div class="container text-center">
         <div class="row">
             <div class="col-4">
                 <h4>Unidad</h4>
@@ -584,9 +589,10 @@ if (isset($_GET['counter_detail'])) { ?>
         </div>
     </div>
     <br>
+    
+    <div class="container text-center" style="border: solid 1px #df3232; padding:20px;">
     <h2>Combustible</h2>
     <br>
-    <div class="container text-center">
         <div class="row">
             <div class="col-4">
                 
@@ -628,9 +634,9 @@ if (isset($_GET['counter_detail'])) { ?>
         </div>
     </div>
     <br>
-    <div class="container text-center">
+    <div class="container text-left" style="border: solid 1px #df3232; padding:20px;">
         <div class="row">
-            <div class="col-4">
+            <div class="col-4" style="border: solid 1px #df3232;">
                 <h2>Documentacion</h2>
                 
                 <input class="form-check-input" type="checkbox" id="poliza_seguro" value="1" <?php echo ($value['poliza_seguro'] == 'SI' ? 'checked' : ''); ?>>
@@ -653,7 +659,7 @@ if (isset($_GET['counter_detail'])) { ?>
                 <label>Sticker de Panapass</label>
                 <br><br>
             </div>
-            <div class="col-4">
+            <div class="col-4" style="border: solid 1px #df3232;">
                 <h2>Operatividad</h2>
                 
                 <input class="form-check-input" type="checkbox" id="pito_claxon" value="1" <?php echo ($value['pito_claxon'] == 'SI' ? 'checked' : ''); ?>>
@@ -681,7 +687,7 @@ if (isset($_GET['counter_detail'])) { ?>
                 <br><br>
 
             </div>
-            <div class="col-4">
+            <div class="col-4" style="border: solid 1px #df3232;">
                 <h2>Accesorios</h2>
                 
                 <input class="form-check-input" type="checkbox" id="alfombras" value="1" <?php echo ($value['alfombras'] == 'SI' ? 'checked' : ''); ?>>
@@ -728,7 +734,7 @@ if (isset($_GET['counter_detail'])) { ?>
     </div>
     <br>
     
-    <div class="container text-center">
+    <div class="container text-center" style="border: solid 1px #df3232; padding:20px;">
     <h2>Inspeccion</h2>
     <br>
         <canvas id="miCanvas" width="500" height="500" style="background-color:white;"></canvas><br>
@@ -738,27 +744,27 @@ if (isset($_GET['counter_detail'])) { ?>
         <button class="btn btn-secondary" id="btnLimpiar">Limpiar</button>
     </div>
     <br>
-    <div class="row text-center">
+    <div class="row text-center" style="border: solid 1px #df3232; padding:20px;">
     <h2>Fotos de Salida</h2>
     <br>
-        <div class="col-6">
+        <div class="col-6" style="padding:20px;">
             <img id="" width="250" src="<?php echo $value['foto_frente']; ?>">
         </div>
-        <div class="col-6">
+        <div class="col-6" style="padding:20px;">
             <img id="" width="250" src="<?php echo $value['foto_lado_conductor']; ?>">
         </div>
-        <div class="col-6">
+        <div class="col-6" style="padding:20px;">
             <img id="" width="250" src="<?php echo $value['foto_mateleto']; ?>">
         </div>
-        <div class="col-6">
+        <div class="col-6" style="padding:20px;">
             <img id="" width="250" src="<?php echo $value['foto_lado_pasajero']; ?>">
         </div>
     </div>
     <br>
-    <div class="row text-center" >
+    <div class="row text-center" style="border: solid 1px #df3232; padding:20px;">
         <h2>Fotos de Ingreso</h2>
         <br>
-        <div class="col-6">
+        <div class="col-6" style="padding:20px;">
         <label for="file1" class="custom-file-upload">
             <i class="camera-icon"></i>
         </label>
@@ -766,7 +772,7 @@ if (isset($_GET['counter_detail'])) { ?>
         <p id="frente" style="display:block"> FRENTE</p> 
             <img id="preview1" width="150">
         </div>
-        <div class="col-6">
+        <div class="col-6" style="padding:20px;">
         <label for="file2" class="custom-file-upload">
             <i class="camera-icon"></i>
         </label>
@@ -774,7 +780,7 @@ if (isset($_GET['counter_detail'])) { ?>
             <p id="lado_conductor" style="display:block"> LADO DEL CONDUCTOR</p>
             <img id="preview2" width="150">
         </div>
-        <div class="col-6">
+        <div class="col-6" style="padding:20px;">
         <label for="file3" class="custom-file-upload">
             <i class="camera-icon"></i>
         </label>
@@ -782,7 +788,7 @@ if (isset($_GET['counter_detail'])) { ?>
             <p id="maletero" style="display:block"> MALETERO</p>
             <img id="preview3" width="150">
         </div>
-        <div class="col-6">
+        <div class="col-6" style="padding:20px;">
         <label for="file4" class="custom-file-upload">
             <i class="camera-icon"></i>
         </label>
@@ -795,7 +801,7 @@ if (isset($_GET['counter_detail'])) { ?>
     <div style="text-align: center;">
     <h2>Firma de Cliente Conforme</h2>
     <br>
-        <canvas id="firmaCanvas" width="500" height="500" style="border: 1px solid #000; z-index:9999"></canvas> <br>
+        <canvas id="firmaCanvas" width="500" height="250" style="border: 1px solid #000; z-index:9999"></canvas> <br>
         <button id="btnLimpiarFirma" class="btn btn-secondary">Limpiar Firma</button>
     <br>
     </div>
@@ -1333,27 +1339,29 @@ if (isset($_GET['counter_detail'])) { ?>
 <div class="container">
     <h1>Resumen</h1>
     <br>
-    <h2>Bitacora de Usuarios</h2>
+    <div class="container text-center" style="border: solid 1px #df3232; padding:20px;">
+        <h2>Bitacora de Usuarios</h2>
+        <br>
+        <p><b>Usuario Operaciones</b>:  <?php echo get_usuarios($value['id_user_operaciones']); ?></p>
+        <p><b>Usuario Counter</b>:  <?php echo get_usuarios($value['id_user_counter']); ?></p>
+        <p><b>Usuario Hikel Salida</b>:  <?php echo get_usuarios($value['id_user_heiker']); ?></p>
+        <?php if ($value['id_user_heiker_fin'] == '' || is_null($value['id_user_heiker_fin'])) {
+            echo '<p>Usuario no asignado</p>';
+        }else{ ?>
+        <p><b>Usuario Hikel Entrada</b>:  <?php echo get_usuarios($value['id_user_heiker_fin']); ?></p>
+        <?php } ?>
+    </div>
     <br>
-    <p><b>Usuario Operaciones</b>:  <?php echo get_usuarios($value['id_user_operaciones']); ?></p>
-    <p><b>Usuario Counter</b>:  <?php echo get_usuarios($value['id_user_counter']); ?></p>
-    <p><b>Usuario Heiker Salida</b>:  <?php echo get_usuarios($value['id_user_heiker']); ?></p>
-    <?php if ($value['id_user_heiker_fin'] == '' || is_null($value['id_user_heiker_fin'])) {
-        echo '<p>Usuario no asignado</p>';
-    }else{ ?>
-    <p><b>Usuario Heiker Entrada</b>:  <?php echo get_usuarios($value['id_user_heiker_fin']); ?></p>
-    <?php } ?>
-    <br>
+    <div class="container text-center" style="border: solid 1px #df3232; padding:20px;">
     <h2>Counter</h2>
     <br>
-    <div class="container text-center">
         <div class="row">
             <div class="col-4">
                 <h4>Email</h4>
                 <input type="text" id="email" class="form-control" value="<?php echo $value['email_cliente']; ?>" readonly>
             </div>
             <div class="col-4">
-                <h4>Conrtrato</h4>
+                <h4>Contrato</h4>
                 <input type="text" id="contrato" class="form-control" value="<?php echo $value['contrato']; ?>" readonly>
             </div>
             <div class="col-4">
@@ -1363,9 +1371,9 @@ if (isset($_GET['counter_detail'])) { ?>
         </div>
     </div>
     <br>
+    <div class="container text-center" style="border: solid 1px #df3232; padding:20px;">
     <h2>Operaciones</h2>
     <br>
-    <div class="container text-center">
         <div class="row">
             <div class="col-4">
                 <h4>Unidad</h4>
@@ -1382,9 +1390,10 @@ if (isset($_GET['counter_detail'])) { ?>
         </div>
     </div>
     <br>
-    <h2>Combustible</h2>
-    <br>
-    <div class="container text-center">
+    
+    <div class="container text-center" style="border: solid 1px #df3232; padding:20px;">
+        <h2>Combustible</h2>
+        <br>
         <div class="row">
             <div class="col-4">
                 
@@ -1432,9 +1441,9 @@ if (isset($_GET['counter_detail'])) { ?>
         </div>
     </div>
     <br>
-    <div class="container text-center">
+    <div class="container text-left" style="border: solid 1px #df3232; padding:20px;">
         <div class="row">
-            <div class="col-4">
+            <div class="col-4" style="border: solid 1px #df3232;">
                 <h2>Documentacion</h2>
                 
                 <input class="form-check-input" onclick="return false;" type="checkbox" id="poliza_seguro" value="1" <?php echo ($value['poliza_seguro'] == 1 ? 'checked' : ''); ?>>
@@ -1457,7 +1466,7 @@ if (isset($_GET['counter_detail'])) { ?>
                 <label>Sticker de Panapass</label>
                 <br><br>
             </div>
-            <div class="col-4">
+            <div class="col-4" style="border: solid 1px #df3232;">
                 <h2>Operatividad</h2>
                 
                 <input class="form-check-input" onclick="return false;" type="checkbox" id="pito_claxon" value="1" <?php echo ($value['pito_claxon'] == 1 ? 'checked' : ''); ?>>
@@ -1484,7 +1493,7 @@ if (isset($_GET['counter_detail'])) { ?>
                 <label>Limpia Parabrisas</label>
                 <br><br>
             </div>
-            <div class="col-4">
+            <div class="col-4" style="border: solid 1px #df3232;">
                 <h2>Accesorios</h2>
                 
                 <input class="form-check-input" onclick="return false;" type="checkbox" id="alfombras" value="1" <?php echo ($value['alfombras'] == 1 ? 'checked' : ''); ?>>
@@ -1531,27 +1540,27 @@ if (isset($_GET['counter_detail'])) { ?>
     </div>
     <br>
 
-    <div class="container text-center">
+    <div class="container text-center" style="border: solid 1px #df3232; padding:20px;">
     <h2>Inspeccion Operaciones</h2>
     <br>
         <img src="<?php echo $value['imspeccion']; ?>" alt="" srcset="">
     </div>
     <br>
 
-    <div class="container text-center">
+    <div class="container text-center" style="border: solid 1px #df3232; padding:20px;">
     <h2>Inspeccion Heiker Salida</h2>
     <br>
         <img src="<?php echo $value['imspeccion2']; ?>" alt="" srcset="">
     </div>
     <br>
 
-    <div class="container text-center">
+    <div class="container text-center" style="border: solid 1px #df3232; padding:20px;">
     <h2>Inspeccion Heiker Entrada</h2>
     <br>
         <img src="<?php echo $value['imspeccion3']; ?>" alt="" srcset="">
     </div>
     <br>
-    <div class="row text-center" >
+    <div class="row text-center" style="border: solid 1px #df3232; padding:20px;">>
         <h2>Fotos Salidas</h2>
         <br>
         <div class="col-6">
@@ -1568,7 +1577,7 @@ if (isset($_GET['counter_detail'])) { ?>
         </div>
     </div>
     <br>
-    <div class="row text-center" >
+    <div class="row text-center" style="border: solid 1px #df3232; padding:20px;">>
         <h2>Fotos Ingreso</h2>
         <br>
         <div class="col-6">
@@ -1615,23 +1624,26 @@ $reg_pape = $pdo -> query("SELECT * FROM papeleta_revicion WHERE id_papeleta_gen
 <div class="container">
     <h1 style="color:red;">REVISION</h1>
     <br>
-    <h2>Bitacora de Usuarios</h2>
+    <div class="container text-center" style="border: solid 1px #df3232; padding:20px;">
+        <h2>Bitacora de Usuarios</h2>
+        <br>
+        <p><b>Usuario Operaciones</b>:  <?php echo get_usuarios($value['id_user_operaciones']); ?></p>
+        <p><b>Usuario Counter</b>:  <?php echo get_usuarios($value['id_user_counter']); ?></p>
+        <p><b>Usuario Hikel Salida</b>:  <?php echo get_usuarios($value['id_user_heiker']); ?></p>
+        <p><b>Usuario Hikel Entrada</b>:  <?php echo get_usuarios($value['id_user_heiker_fin']); ?></p>
+    </div>
     <br>
-    <p><b>Usuario Operaciones</b>:  <?php echo get_usuarios($value['id_user_operaciones']); ?></p>
-    <p><b>Usuario Counter</b>:  <?php echo get_usuarios($value['id_user_counter']); ?></p>
-    <p><b>Usuario Heiker Salida</b>:  <?php echo get_usuarios($value['id_user_heiker']); ?></p>
-    <p><b>Usuario Heiker Entrada</b>:  <?php echo get_usuarios($value['id_user_heiker_fin']); ?></p>
-    <br>
-    <h2>Counter</h2>
-    <br>
-    <div class="container text-center">
+    
+    <div class="container text-center" style="border: solid 1px #df3232; padding:20px;">
+        <h2>Counter</h2>
+        <br>
         <div class="row">
             <div class="col-4">
                 <h4>Email</h4>
                 <input type="text" id="email" class="form-control" value="<?php echo $value['email_cliente']; ?>" readonly>
             </div>
             <div class="col-4">
-                <h4>Conrtrato</h4>
+                <h4>Contrato</h4>
                 <input type="text" id="contrato" class="form-control" value="<?php echo $value['contrato']; ?>" readonly>
             </div>
             <div class="col-4">
@@ -1641,9 +1653,10 @@ $reg_pape = $pdo -> query("SELECT * FROM papeleta_revicion WHERE id_papeleta_gen
         </div>
     </div>
     <br>
+ 
+    <div class="container text-center" style="border: solid 1px #df3232; padding:20px;">
     <h2>Operaciones</h2>
     <br>
-    <div class="container text-center">
         <div class="row">
             <div class="col-4">
                 <h4>Unidad</h4>
@@ -1660,9 +1673,10 @@ $reg_pape = $pdo -> query("SELECT * FROM papeleta_revicion WHERE id_papeleta_gen
         </div>
     </div>
     <br>
+   
+    <div class="container text-center" style="border: solid 1px #df3232; padding:20px;">
     <h2>Combustible</h2>
     <br>
-    <div class="container text-center">
         <div class="row">
             <div class="col-4">
                 <label>Empty</label>
@@ -1692,9 +1706,9 @@ $reg_pape = $pdo -> query("SELECT * FROM papeleta_revicion WHERE id_papeleta_gen
         </div>
     </div>
     <br>
-    <div class="container text-center">
+    <div class="container text-left" style="border: solid 1px #df3232; padding:20px;">
         <div class="row">
-            <div class="col-4">
+            <div class="col-4" style="border: solid 1px #df3232;">
                 <h2>Documentacion</h2>
                 <label>Poliza de seguro</label>
                 <input class="form-check-input" onclick="return false;" type="checkbox" id="poliza_seguro" value="1" <?php echo ($value['poliza_seguro'] == 1 ? 'checked' : ''); ?>><br><br>
@@ -1707,7 +1721,7 @@ $reg_pape = $pdo -> query("SELECT * FROM papeleta_revicion WHERE id_papeleta_gen
                 <label>Sticker de Panapass</label>
                 <input class="form-check-input" onclick="return false;" type="checkbox" id="stiker_panapass" value="1" <?php echo ($value['stiker_panapass'] == 1 ? 'checked' : ''); ?>><br><br>
             </div>
-            <div class="col-4">
+            <div class="col-4" style="border: solid 1px #df3232;">
                 <h2>Operatividad</h2>
                 <label>Pito / Claxon</label>
                 <input class="form-check-input" onclick="return false;" type="checkbox" id="pito_claxon" value="1" <?php echo ($value['pito_claxon'] == 1 ? 'checked' : ''); ?>><br><br>
@@ -1722,7 +1736,7 @@ $reg_pape = $pdo -> query("SELECT * FROM papeleta_revicion WHERE id_papeleta_gen
                 <label>Limpia Parabrisas</label>
                 <input class="form-check-input" onclick="return false;" type="checkbox" id="limpia_parabrisas" value="1" <?php echo ($value['limpia_parabrisas'] == 1 ? 'checked' : ''); ?>><br><br>
             </div>
-            <div class="col-4">
+            <div class="col-4" style="border: solid 1px #df3232;">
                 <h2>Accesorios</h2>
                 <label>Alfombras</label>
                 <input class="form-check-input" onclick="return false;" type="checkbox" id="alfombras" value="1" <?php echo ($value['alfombras'] == 1 ? 'checked' : ''); ?>><br><br>
@@ -1749,57 +1763,57 @@ $reg_pape = $pdo -> query("SELECT * FROM papeleta_revicion WHERE id_papeleta_gen
     </div>
     <br>
     
-    <div class="container text-center">
+    <div class="container text-center" style="border: solid 1px #df3232; padding:20px;">
         <h2>Inspeccion Operaciones</h2>
         <br>
         <img src="<?php echo $value['imspeccion']; ?>" alt="" srcset="">
     </div>
     <br>
     
-    <div class="container text-center">
+    <div class="container text-center" style="border: solid 1px #df3232; padding:20px;">
         <h2>Inspeccion Heiker Salida</h2>
         <br>
         <img src="<?php echo $value['imspeccion2']; ?>" alt="" srcset="">
     </div>
     <br>
     
-    <div class="container text-center">
+    <div class="container text-center" style="border: solid 1px #df3232; padding:20px;">
         <h2>Inspeccion Heiker Entrada</h2>
         <br>
         <img src="<?php echo $value['inspeccion4']; ?>" alt="" srcset="">
     </div>
     <br>
     
-    <div class="row text-center">
+    <div class="row text-center" style="border: solid 1px #df3232; padding:20px;">
         <h2>Fotos Salida</h2>
         <br>
-        <div class="col-6">
+        <div class="col-6" style="padding:20px;">
             <img id="" width="250" src="<?php echo $value['foto_frente']; ?>">
         </div>
-        <div class="col-6">
+        <div class="col-6" style="padding:20px;">
             <img id="" width="250" src="<?php echo $value['foto_lado_conductor']; ?>">
         </div>
-        <div class="col-6">
+        <div class="col-6" style="padding:20px;">
             <img id="" width="250" src="<?php echo $value['foto_mateleto']; ?>">
         </div>
-        <div class="col-6">
+        <div class="col-6" style="padding:20px;">
             <img id="" width="250" src="<?php echo $value['foto_lado_pasajero']; ?>">
         </div>
     </div>
-
-    <div class="row text-center">
+    <br>
+    <div class="row text-center" style="border: solid 1px #df3232; padding:20px;">
         <h2>Fotos Ingreso</h2>
         <br>
-        <div class="col-6">
+        <div class="col-6" style="padding:20px;">
             <img id="" width="250" src="<?php echo $value['foto_frente_ing']; ?>">
         </div>
-        <div class="col-6">
+        <div class="col-6" style="padding:20px;">
             <img id="" width="250" src="<?php echo $value['foto_conductor_ing']; ?>">
         </div>
-        <div class="col-6">
+        <div class="col-6" style="padding:20px;">
             <img id="" width="250" src="<?php echo $value['foto_maletero_ing']; ?>">
         </div>
-        <div class="col-6">
+        <div class="col-6" style="padding:20px;">
             <img id="" width="250" src="<?php echo $value['foto_pasajero_ing']; ?>">
         </div>
     </div>

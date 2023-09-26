@@ -143,7 +143,7 @@ if ($_SESSION["tipo_usuario"] == 3) {
             </div>
             <br>
 
-            <div class="container text-center" style="border: solid 1px #df3232; padding:20px;">
+            <div class="container text-left" style="border: solid 1px #df3232; padding:20px;">
                 <div class="row">
                     <div class="col-4" style="border: solid 1px #df3232; padding:20px;">
                         <h2>Documentacion</h2>

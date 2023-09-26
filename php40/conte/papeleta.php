@@ -28,7 +28,7 @@ if (isset($_POST['counter_aprobado'])) {
                                                                     id ='".$_POST['id']."'");
 
     $mensaje = '<div class="alert alert-success alert-dismissible fade show" role="alert">
-    <strong>Registro Exitoso</strong> Se envio un correo al cliente.
+    <strong>Registro Exitoso</strong>.
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>';
 }
@@ -135,7 +135,7 @@ $rows = $ultimo_id->fetchAll(PDO::FETCH_ASSOC);
       <div class="modal-dialog modal-xl">
         <div class="modal-content" style="background-color:white !important;">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Heiquer</h1>
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Hikel</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <?php // <form action="" method="post"> ?>
