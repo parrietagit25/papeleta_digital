@@ -1820,13 +1820,13 @@ $reg_pape = $pdo -> query("SELECT * FROM papeleta_revicion WHERE id_papeleta_gen
     <div class="container text-center">
     <h2>Firma Salida</h2>
     <br>
-        <img src="<?php echo $value['firma_salida']; ?>" alt="" srcset="" style="border: solid 1px #df3232; padding:20px;">>
+        <img src="<?php echo $value['firma_salida']; ?>" alt="" srcset="" style="border: solid 1px #df3232; padding:20px;">
     </div>
     <br>
     <div class="container text-center">
     <h2>Firma Revision</h2>
     <br>
-        <img src="<?php echo $value['firma_revicion']; ?>" alt="" srcset="" style="border: solid 1px #df3232; padding:20px;">>
+        <img src="<?php echo $value['firma_revicion']; ?>" alt="" srcset="" style="border: solid 1px #df3232; padding:20px;">
     </div>
     <br>
     <br>
