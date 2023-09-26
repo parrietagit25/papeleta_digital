@@ -10,7 +10,7 @@ if ($_SESSION["tipo_usuario"] == 3) {
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
   <?php include '../includes/head.php'; ?>
-  <body class="align-items-center py-4 bg-body-tertiary" style="color:#df3232;">
+  <body class="align-items-center py-4 bg-body-tertiary" style="color:#df3232; background-color:white !important;">
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
       <symbol id="check2" viewBox="0 0 16 16">
         <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
@@ -100,28 +100,43 @@ if ($_SESSION["tipo_usuario"] == 3) {
               <div class="container text-center">
                   <div class="row">
                       <div class="col-4">
+                          
+                          <input class="form-check-input" type="radio" id="combustible" name="combustible" value="Empty">
                           <label>Empty</label>
-                          <input class="form-check-input" type="radio" id="combustible" name="combustible" value="Empty"><br><br>
+                          <br><br>
+                          
+                          <input class="form-check-input" type="radio" id="combustible" name="combustible" value="3/8">
                           <label>3/8</label>
-                          <input class="form-check-input" type="radio" id="combustible" name="combustible" value="3/8"><br><br>
+                          <br><br>
+                          
+                          <input class="form-check-input" type="radio" id="combustible" name="combustible" value="3/4">
                           <label>3/4</label>
-                          <input class="form-check-input" type="radio" id="combustible" name="combustible" value="3/4"><br><br>
+                          <br><br>
                       </div>
                       <div class="col-4">
+                          <input class="form-check-input" type="radio" id="combustible" name="combustible" value="1/8">
                           <label>1/8</label>
-                          <input class="form-check-input" type="radio" id="combustible" name="combustible" value="1/8"><br><br>
+                          <br><br>
+                          <input class="form-check-input" type="radio" id="combustible" name="combustible" value="1/2">
                           <label>1/2</label>
-                          <input class="form-check-input" type="radio" id="combustible" name="combustible" value="1/2"><br><br>
+                          <br><br>
+                          <input class="form-check-input" type="radio" id="combustible" name="combustible" value="7/8">
                           <label>7/8</label>
-                          <input class="form-check-input" type="radio" id="combustible" name="combustible" value="7/8"><br><br>
+                          <br><br>
                       </div>
                       <div class="col-4">
+                          
+                          <input class="form-check-input" type="radio" id="combustible" name="combustible" value="1/4">
                           <label>1/4</label>
-                          <input class="form-check-input" type="radio" id="combustible" name="combustible" value="1/4"><br><br>
+                          <br><br>
+                          
+                          <input class="form-check-input" type="radio" id="combustible" name="combustible" value="5/8">
                           <label>5/8</label>
-                          <input class="form-check-input" type="radio" id="combustible" name="combustible" value="5/8"><br><br>
+                          <br><br>
+                          
+                          <input class="form-check-input" type="radio" id="combustible" name="combustible" value="Full">
                           <label>Full</label>
-                          <input class="form-check-input" type="radio" id="combustible" name="combustible" value="Full"><br><br>
+                          <br><br>
                       </div>
                   </div>
               </div>
@@ -132,54 +147,74 @@ if ($_SESSION["tipo_usuario"] == 3) {
                 <div class="row">
                     <div class="col-4" style="border: solid 1px #df3232; padding:20px;">
                         <h2>Documentacion</h2>
+                        <input class="form-check-input" type="checkbox" id="poliza_seguro" value="1">
                         <label>Poliza de seguro</label>
-                        <input class="form-check-input" type="checkbox" id="poliza_seguro" value="1"><br><br>
-                        <label>Placa y Revisado</label>
-                        <input class="form-check-input" type="checkbox" id="placa_revisado" value="1"><br><br>
+                        <br><br>
+                        <input class="form-check-input" type="checkbox" id="placa_revisado" value="1"><label>Placa y Revisado</label>
+                        <br><br>
+                        <input class="form-check-input" type="checkbox" id="formato_danios_menores" value="1">
                         <label>Formato de Daños Menores</label>
-                        <input class="form-check-input" type="checkbox" id="formato_danios_menores" value="1"><br><br>
+                        <br><br>          
+                        <input class="form-check-input" type="checkbox" id="registro_unico_vehicula" value="1">
                         <label>Registro Unico Vehicular</label>
-                        <input class="form-check-input" type="checkbox" id="registro_unico_vehicula" value="1"><br><br>
+                        <br><br>
+                        <input class="form-check-input" type="checkbox" id="stiker_panapass" value="1">
                         <label>Sticker de Panapass</label>
-                        <input class="form-check-input" type="checkbox" id="stiker_panapass" value="1"><br><br>
+                        <br><br>
                     </div>
                     <div class="col-4" style="border: solid 1px #df3232; padding:20px;">
                         <h2>Operatividad</h2>
+                        <input class="form-check-input" type="checkbox" id="pito_claxon" value="1">
                         <label>Pito / Claxon</label>
-                        <input class="form-check-input" type="checkbox" id="pito_claxon" value="1"><br><br>
+                        <br><br>
+                        <input class="form-check-input" type="checkbox" id="luces_direccionales" value="1">
                         <label>Luces Direccionales</label>
-                        <input class="form-check-input" type="checkbox" id="luces_direccionales" value="1"><br><br>
+                        <br><br>
+                        <input class="form-check-input" type="checkbox" id="luces_traseras" value="1">
                         <label>Luces Traseras</label>
-                        <input class="form-check-input" type="checkbox" id="luces_traseras" value="1"><br><br>
+                        <br><br>
+                        <input class="form-check-input" type="checkbox" id="luces_delanteras" value="1">
                         <label>Luces Delanteras</label>
-                        <input class="form-check-input" type="checkbox" id="luces_delanteras" value="1"><br><br>
+                        <br><br>
+                        <input class="form-check-input" type="checkbox" id="aire_acondicinado" value="1">
                         <label>Aire Acondicionado</label>
-                        <input class="form-check-input" type="checkbox" id="aire_acondicinado" value="1"><br><br>
+                        <br><br>
+                        <input class="form-check-input" type="checkbox" id="limpia_parabrisas" value="1">
                         <label>Limpia Parabrisas</label>
-                        <input class="form-check-input" type="checkbox" id="limpia_parabrisas" value="1"><br><br>
+                        <br><br>
                     </div>
                     <div class="col-4" style="border: solid 1px #df3232; padding:20px;">
                         <h2>Accesorios</h2>
+                        <input class="form-check-input" type="checkbox" id="alfombras" value="1">
                         <label>Alfombras</label>
-                        <input class="form-check-input" type="checkbox" id="alfombras" value="1"><br><br>
+                        <br><br>
+                        <input class="form-check-input" type="checkbox" id="herramientas" value="1">
                         <label>Herramientas</label>
-                        <input class="form-check-input" type="checkbox" id="herramientas" value="1"><br><br>
+                        <br><br>
+                        <input class="form-check-input" type="checkbox" id="antenas" value="1">
                         <label>Antena</label>
-                        <input class="form-check-input" type="checkbox" id="antenas" value="1"><br><br>
+                        <br><br>
+                        <input class="form-check-input" type="checkbox" id="placa_pipa" value="1">
                         <label>Palanca / Pipa</label>
-                        <input class="form-check-input" type="checkbox" id="placa_pipa" value="1"><br><br>
+                        <br><br>
+                        <input class="form-check-input" type="checkbox" id="extintor" value="1">
                         <label>Extintor</label>
-                        <input class="form-check-input" type="checkbox" id="extintor" value="1"><br><br>
+                        <br><br>
+                        <input class="form-check-input" type="checkbox" id="gato" value="1">
                         <label>Gato</label>
-                        <input class="form-check-input" type="checkbox" id="gato" value="1"><br><br>
+                        <br><br>
+                        <input class="form-check-input" type="checkbox" id="llanta_repuesto" value="1">
                         <label>Llanta de Repuesto</label>
-                        <input class="form-check-input" type="checkbox" id="llanta_repuesto" value="1"><br><br>
+                        <br><br>
+                        <input class="form-check-input" type="checkbox" id="copas_1234" value="1">
                         <label>Copas 1 2 3 4</label>
-                        <input class="form-check-input" type="checkbox" id="copas_1234" value="1"><br><br>
+                        <br><br>
+                        <input class="form-check-input" type="checkbox" id="base_antena" value="1">
                         <label>Base de Antena</label>
-                        <input class="form-check-input" type="checkbox" id="base_antena" value="1"><br><br>
+                        <br><br>
+                        <input class="form-check-input" type="checkbox" id="triangulo_seguridad" value="1">
                         <label>Triangulo de Seguridad</label>
-                        <input class="form-check-input" type="checkbox" id="triangulo_seguridad" value="1"><br><br>
+                        <br><br>
                     </div>
                 </div>
             </div>

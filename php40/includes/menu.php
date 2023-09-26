@@ -15,8 +15,8 @@
                 <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Registros</a>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="papeleta.php">Papeletas</a></li>
-                    <li><a class="dropdown-item" href="papeleta_end.php">Papeletas Finalizadas</a></li>
-                    <li><a class="dropdown-item" href="papeleta_review.php">Papeletas Revicion</a></li>
+                    <li><a class="dropdown-item" href="papeleta_finalizadas.php">Papeletas Finalizadas</a></li>
+                    <li><a class="dropdown-item" href="papeletas_revicion.php">Papeletas Revicion</a></li>
                 </ul>
                 </li>
                 <li class="nav-item">

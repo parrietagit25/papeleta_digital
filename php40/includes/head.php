@@ -5,7 +5,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.115.4">
-    <title>Mantenimiento de subastas</title>
+    <title>Papeleta Digital</title>
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
     <link href="https://getbootstrap.com/docs/5.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -113,20 +113,29 @@
         input[type="checkbox"] {
             transform: scale(1.5); 
             margin-top:15px;
-            margin-left:5px;
+            margin-right:5px;
             border: 1px solid #df3232;
+            background-color:white;
         }
 
         input[type="radio"] {
             transform: scale(1.5); 
             margin-top:15px;
-            margin-left:5px;
+            margin-right:5px;
             border: 1px solid #df3232;
+            background-color:white;
         }
 
         input[type="text"] {
             border: 1px solid #df3232;
+            background-color:white;
+            color: black;
         }
+
+        body{
+          background-color:white !important;
+        }
+
     </style>
 
     

@@ -48,6 +48,8 @@ if(isset($_POST['ing_sal']) && $_POST['ing_sal'] == 2){
   $where .= " AND stat = 2 ";
 }elseif (isset($_POST['ing_sal']) && $_POST['ing_sal'] == 3) {
   $where .= " AND stat = 3 ";
+}else{
+  $where .= " AND stat in(1,2,3) ";
 }
 
 $ultimo_id = $pdo -> query("SELECT * FROM papeleta_general WHERE $where");
@@ -56,7 +58,7 @@ $rows = $ultimo_id->fetchAll(PDO::FETCH_ASSOC);
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
   <?php include '../includes/head.php'; ?>
-  <body class="align-items-center py-4 bg-body-tertiary" style="color:#df3232;">
+  <body class="align-items-center py-4 bg-body-tertiary" style="color:#df3232; background-color:white !important;">
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
       <symbol id="check2" viewBox="0 0 16 16">
         <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
@@ -112,7 +114,7 @@ $rows = $ultimo_id->fetchAll(PDO::FETCH_ASSOC);
     <!-- Modal Counter -->
     <div class="modal fade" id="counter" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content" style="background-color:white !important;">
           <div class="modal-header">
             <h1 class="modal-title fs-5" id="exampleModalLabel">Counter</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -131,7 +133,7 @@ $rows = $ultimo_id->fetchAll(PDO::FETCH_ASSOC);
     <!-- Modal heiker -->
     <div class="modal fade" id="heiker" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-xl">
-        <div class="modal-content">
+        <div class="modal-content" style="background-color:white !important;">
           <div class="modal-header">
             <h1 class="modal-title fs-5" id="exampleModalLabel">Heiquer</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -150,7 +152,7 @@ $rows = $ultimo_id->fetchAll(PDO::FETCH_ASSOC);
     <!-- Modal heiker recibe -->
     <div class="modal fade" id="heiker_recibe" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-xl">
-        <div class="modal-content">
+        <div class="modal-content" style="background-color:white !important;">
           <div class="modal-header">
             <h1 class="modal-title fs-5" id="exampleModalLabel">Recibir Vehiculo</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -168,7 +170,7 @@ $rows = $ultimo_id->fetchAll(PDO::FETCH_ASSOC);
     <!-- Modal Eliminar registro -->
     <div class="modal fade" id="eliminar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content" style="background-color:white !important;">
           <div class="modal-header">
             <h1 class="modal-title fs-5" id="exampleModalLabel">Counter</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -187,7 +189,7 @@ $rows = $ultimo_id->fetchAll(PDO::FETCH_ASSOC);
     <!-- Modal ver detalles -->
     <div class="modal fade" id="ver_detallesModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-xl">
-        <div class="modal-content">
+        <div class="modal-content" style="background-color:white !important;">
           <div class="modal-header">
             <h1 class="modal-title fs-5" id="exampleModalLabel">Ver detalles</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -204,7 +206,7 @@ $rows = $ultimo_id->fetchAll(PDO::FETCH_ASSOC);
     <!-- Modal ver detalles revision -->
     <div class="modal fade" id="ver_detallesModalRevi" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-xl">
-        <div class="modal-content">
+        <div class="modal-content" style="background-color:white !important;">
           <div class="modal-header">
             <h1 class="modal-title fs-5" id="exampleModalLabel">Ver Revision</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>

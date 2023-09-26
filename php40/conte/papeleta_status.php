@@ -72,28 +72,37 @@ if (isset($_GET['counter_detail'])) { ?>
         <div class="container text-center">
             <div class="row">
                 <div class="col-4">
+                    <input class="form-check-input" type="radio" id="combustible" name="combustible" value="Empty" <?php echo ($value['combustible'] == "Empty" ? "checked" : ""); ?>>
                     <label>Empty</label>
-                    <input class="form-check-input" type="radio" id="combustible" name="combustible" value="Empty" <?php echo ($value['combustible'] == "Empty" ? "checked" : ""); ?>><br><br>
+                    <br><br>
+                    <input class="form-check-input" type="radio" id="combustible" name="combustible" value="3/8" <?php echo ($value['combustible'] == "3/8" ? "checked" : ""); ?>>
                     <label>3/8</label>
-                    <input class="form-check-input" type="radio" id="combustible" name="combustible" value="3/8" <?php echo ($value['combustible'] == "3/8" ? "checked" : ""); ?>><br><br>
+                    <br><br>
+                    <input class="form-check-input" type="radio" id="combustible" name="combustible" value="3/4" <?php echo ($value['combustible'] == "3/4" ? "checked" : ""); ?>>
                     <label>3/4</label>
-                    <input class="form-check-input" type="radio" id="combustible" name="combustible" value="3/4" <?php echo ($value['combustible'] == "3/4" ? "checked" : ""); ?>><br><br>
+                    <br><br>
                 </div>
                 <div class="col-4">
+                    <input class="form-check-input" type="radio" id="combustible" name="combustible" value="1/8" <?php echo ($value['combustible'] == "1/8" ? "checked" : ""); ?>>
                     <label>1/8</label>
-                    <input class="form-check-input" type="radio" id="combustible" name="combustible" value="1/8" <?php echo ($value['combustible'] == "1/8" ? "checked" : ""); ?>><br><br>
+                    <br><br>
+                    <input class="form-check-input" type="radio" id="combustible" name="combustible" value="1/2" <?php echo ($value['combustible'] == "1/2" ? "checked" : ""); ?>>
                     <label>1/2</label>
-                    <input class="form-check-input" type="radio" id="combustible" name="combustible" value="1/2" <?php echo ($value['combustible'] == "1/2" ? "checked" : ""); ?>><br><br>
+                    <br><br>
+                    <input class="form-check-input" type="radio" id="combustible" name="combustible" value="7/8" <?php echo ($value['combustible'] == "7/8" ? "checked" : ""); ?>>
                     <label>7/8</label>
-                    <input class="form-check-input" type="radio" id="combustible" name="combustible" value="7/8" <?php echo ($value['combustible'] == "7/8" ? "checked" : ""); ?>><br><br>
+                    <br><br>
                 </div>
                 <div class="col-4">
+                    <input class="form-check-input" type="radio" id="combustible" name="combustible" value="1/4" <?php echo ($value['combustible'] == "1/4" ? "checked" : ""); ?>>
                     <label>1/4</label>
-                    <input class="form-check-input" type="radio" id="combustible" name="combustible" value="1/4" <?php echo ($value['combustible'] == "1/4" ? "checked" : ""); ?>><br><br>
+                    <br><br>
+                    <input class="form-check-input" type="radio" id="combustible" name="combustible" value="5/8" <?php echo ($value['combustible'] == "5/8" ? "checked" : ""); ?>>
                     <label>5/8</label>
-                    <input class="form-check-input" type="radio" id="combustible" name="combustible" value="5/8" <?php echo ($value['combustible'] == "5/8" ? "checked" : ""); ?>><br><br>
+                    <br><br>
+                    <input class="form-check-input" type="radio" id="combustible" name="combustible" value="Full" <?php echo ($value['combustible'] == "Full" ? "checked" : ""); ?>>
                     <label>Full</label>
-                    <input class="form-check-input" type="radio" id="combustible" name="combustible" value="Full" <?php echo ($value['combustible'] == "Full" ? "checked" : ""); ?>><br><br>
+                    <br><br>
                 </div>
 
             </div>
@@ -103,54 +112,92 @@ if (isset($_GET['counter_detail'])) { ?>
             <div class="row">
                 <div class="col-4">
                     <h2>Documentacion</h2>
+                    <input class="form-check-input" type="checkbox" id="poliza_seguro" value="1" <?php echo ($value['poliza_seguro'] == 1 ? 'checked' : ''); ?>>
                     <label>Poliza de seguro</label>
-                    <input class="form-check-input" type="checkbox" id="poliza_seguro" value="1" <?php echo ($value['poliza_seguro'] == 1 ? 'checked' : ''); ?>><br><br>
+                    <br><br>
+                    <input class="form-check-input" type="checkbox" id="placa_revisado" value="1" <?php echo ($value['placa_revisado'] == 1 ? 'checked' : ''); ?>>
                     <label>Placa y Revisado</label>
-                    <input class="form-check-input" type="checkbox" id="placa_revisado" value="1" <?php echo ($value['placa_revisado'] == 1 ? 'checked' : ''); ?>><br><br>
-                    <label>Formato de Daños Menores</label>
-                    <input class="form-check-input" type="checkbox" id="formato_danios_menores" value="1" <?php echo ($value['formato_danios_menores'] == 1 ? 'checked' : ''); ?>><br><br>
+                    <br><br>
+                    <input class="form-check-input" type="checkbox" id="formato_danios_menores" value="1" <?php echo ($value['formato_danios_menores'] == 1 ? 'checked' : ''); ?>>
+                    <label>Formato de Daños Menor</label>
+                    <br><br>
+                    <input class="form-check-input" type="checkbox" id="registro_unico_vehicula" value="1" <?php echo ($value['registro_unico_vehicula'] == 1 ? 'checked' : ''); ?>>
                     <label>Registro Unico Vehicular</label>
-                    <input class="form-check-input" type="checkbox" id="registro_unico_vehicula" value="1" <?php echo ($value['registro_unico_vehicula'] == 1 ? 'checked' : ''); ?>><br><br>
+                    <br><br>
+                    <input class="form-check-input" type="checkbox" id="stiker_panapass" value="1" <?php echo ($value['stiker_panapass'] == 1 ? 'checked' : ''); ?>>
                     <label>Sticker de Panapass</label>
-                    <input class="form-check-input" type="checkbox" id="stiker_panapass" value="1" <?php echo ($value['stiker_panapass'] == 1 ? 'checked' : ''); ?>><br><br>
+                    <br><br>
                 </div>
                 <div class="col-4">
                     <h2>Operatividad</h2>
+                    
+                    <input class="form-check-input" type="checkbox" id="pito_claxon" value="1" <?php echo ($value['pito_claxon'] == 1 ? 'checked' : ''); ?>>
                     <label>Pito / Claxon</label>
-                    <input class="form-check-input" type="checkbox" id="pito_claxon" value="1" <?php echo ($value['pito_claxon'] == 1 ? 'checked' : ''); ?>><br><br>
+                    <br><br>
+                    
+                    <input class="form-check-input" type="checkbox" id="luces_direccionales" value="1" <?php echo ($value['luces_direccionales'] == 1 ? 'checked' : ''); ?>>
                     <label>Luces Direccionales</label>
-                    <input class="form-check-input" type="checkbox" id="luces_direccionales" value="1" <?php echo ($value['luces_direccionales'] == 1 ? 'checked' : ''); ?>><br><br>
+                    <br><br>
+                    
+                    <input class="form-check-input" type="checkbox" id="luces_traseras" value="1" <?php echo ($value['luces_traseras'] == 1 ? 'checked' : ''); ?>>
                     <label>Luces Traseras</label>
-                    <input class="form-check-input" type="checkbox" id="luces_traseras" value="1" <?php echo ($value['luces_traseras'] == 1 ? 'checked' : ''); ?>><br><br>
+                    <br><br>
+                    
+                    <input class="form-check-input" type="checkbox" id="luces_delanteras" value="1" <?php echo ($value['luces_delanteras'] == 1 ? 'checked' : ''); ?>>
                     <label>Luces Delanteras</label>
-                    <input class="form-check-input" type="checkbox" id="luces_delanteras" value="1" <?php echo ($value['luces_delanteras'] == 1 ? 'checked' : ''); ?>><br><br>
+                    <br><br>
+                    
+                    <input class="form-check-input" type="checkbox" id="aire_acondicinado" value="1" <?php echo ($value['aire_acondicinado'] == 1 ? 'checked' : ''); ?>>
                     <label>Aire Acondicionado</label>
-                    <input class="form-check-input" type="checkbox" id="aire_acondicinado" value="1" <?php echo ($value['aire_acondicinado'] == 1 ? 'checked' : ''); ?>><br><br>
+                    <br><br>
+                    
+                    <input class="form-check-input" type="checkbox" id="limpia_parabrisas" value="1" <?php echo ($value['limpia_parabrisas'] == 1 ? 'checked' : ''); ?>>
                     <label>Limpia Parabrisas</label>
-                    <input class="form-check-input" type="checkbox" id="limpia_parabrisas" value="1" <?php echo ($value['limpia_parabrisas'] == 1 ? 'checked' : ''); ?>><br><br>
+                    <br><br>
+
                 </div>
                 <div class="col-4">
                     <h2>Accesorios</h2>
+                    
+                    <input class="form-check-input" type="checkbox" id="alfombras" value="1" <?php echo ($value['alfombras'] == 1 ? 'checked' : ''); ?>>
                     <label>Alfombras</label>
-                    <input class="form-check-input" type="checkbox" id="alfombras" value="1" <?php echo ($value['alfombras'] == 1 ? 'checked' : ''); ?>><br><br>
+                    <br><br>
+                    
+                    <input class="form-check-input" type="checkbox" id="herramientas" value="1" <?php echo ($value['herramientas'] == 1 ? 'checked' : ''); ?>>
                     <label>Herramientas</label>
-                    <input class="form-check-input" type="checkbox" id="herramientas" value="1" <?php echo ($value['herramientas'] == 1 ? 'checked' : ''); ?>><br><br>
+                    <br><br>
+                    
+                    <input class="form-check-input" type="checkbox" id="antenas" value="1" <?php echo ($value['antenas'] == 1 ? 'checked' : ''); ?>>
                     <label>Antena</label>
-                    <input class="form-check-input" type="checkbox" id="antenas" value="1" <?php echo ($value['antenas'] == 1 ? 'checked' : ''); ?>><br><br>
+                    <br><br>
+                    
+                    <input class="form-check-input" type="checkbox" id="placa_pipa" value="1" <?php echo ($value['placa_pipa'] == 1 ? 'checked' : ''); ?>>
                     <label>Palanca / Pipa</label>
-                    <input class="form-check-input" type="checkbox" id="placa_pipa" value="1" <?php echo ($value['placa_pipa'] == 1 ? 'checked' : ''); ?>><br><br>
+                    <br><br>
+                    
+                    <input class="form-check-input" type="checkbox" id="extintor" value="1" <?php echo ($value['extintor'] == 1 ? 'checked' : ''); ?>>
                     <label>Extintor</label>
-                    <input class="form-check-input" type="checkbox" id="extintor" value="1" <?php echo ($value['extintor'] == 1 ? 'checked' : ''); ?>><br><br>
+                    <br><br>
+                    
+                    <input class="form-check-input" type="checkbox" id="gato" value="1" <?php echo ($value['gato'] == 1 ? 'checked' : ''); ?>>
                     <label>Gato</label>
-                    <input class="form-check-input" type="checkbox" id="gato" value="1" <?php echo ($value['gato'] == 1 ? 'checked' : ''); ?>><br><br>
+                    <br><br>
+                    
+                    <input class="form-check-input" type="checkbox" id="llanta_repuesto" value="1" <?php echo ($value['llanta_repuesto'] == 1 ? 'checked' : ''); ?>>
                     <label>Llanta de Repuesto</label>
-                    <input class="form-check-input" type="checkbox" id="llanta_repuesto" value="1" <?php echo ($value['llanta_repuesto'] == 1 ? 'checked' : ''); ?>><br><br>
+                    <br><br>
+                    
+                    <input class="form-check-input" type="checkbox" id="copas_1234" value="1" <?php echo ($value['copas_1234'] == 1 ? 'checked' : ''); ?>>
                     <label>Copas 1 2 3 4</label>
-                    <input class="form-check-input" type="checkbox" id="copas_1234" value="1" <?php echo ($value['copas_1234'] == 1 ? 'checked' : ''); ?>><br><br>
+                    <br><br>
+                    
+                    <input class="form-check-input" type="checkbox" id="base_antena" value="1" <?php echo ($value['base_antena'] == 1 ? 'checked' : ''); ?>>
                     <label>Base de Antena</label>
-                    <input class="form-check-input" type="checkbox" id="base_antena" value="1" <?php echo ($value['base_antena'] == 1 ? 'checked' : ''); ?>><br><br>
+                    <br><br>
+                    
+                    <input class="form-check-input" type="checkbox" id="triangulo_seguridad" value="1" <?php echo ($value['triangulo_seguridad'] == 1 ? 'checked' : ''); ?>>
                     <label>Triangulo de Seguridad</label>
-                    <input class="form-check-input" type="checkbox" id="triangulo_seguridad" value="1" <?php echo ($value['triangulo_seguridad'] == 1 ? 'checked' : ''); ?>><br><br>
+                    <br><br>
                 </div>
             </div>
         </div>
@@ -542,28 +589,40 @@ if (isset($_GET['counter_detail'])) { ?>
     <div class="container text-center">
         <div class="row">
             <div class="col-4">
+                
+                <input class="form-check-input" type="radio" id="combustible" name="combustible" value="Empty" <?php echo ($value['combustible'] == "Empty" ? "checked" : ""); ?>>
                 <label>Empty</label>
-                <input class="form-check-input" type="radio" id="combustible" name="combustible" value="Empty" <?php echo ($value['combustible'] == "Empty" ? "checked" : ""); ?>><br><br>
+                <br><br>
+                
+                <input class="form-check-input" type="radio" id="combustible" name="combustible" value="3/8" <?php echo ($value['combustible'] == "3/8" ? "checked" : ""); ?>>
                 <label>3/8</label>
-                <input class="form-check-input" type="radio" id="combustible" name="combustible" value="3/8" <?php echo ($value['combustible'] == "3/8" ? "checked" : ""); ?>><br><br>
+                <br><br>
+                
+                <input class="form-check-input" type="radio" id="combustible" name="combustible" value="3/4" <?php echo ($value['combustible'] == "3/4" ? "checked" : ""); ?>>
                 <label>3/4</label>
-                <input class="form-check-input" type="radio" id="combustible" name="combustible" value="3/4" <?php echo ($value['combustible'] == "3/4" ? "checked" : ""); ?>><br><br>
+                <br><br>
             </div>
             <div class="col-4">
+                <input class="form-check-input" type="radio" id="combustible" name="combustible" value="1/8" <?php echo ($value['combustible'] == "1/8" ? "checked" : ""); ?>>
                 <label>1/8</label>
-                <input class="form-check-input" type="radio" id="combustible" name="combustible" value="1/8" <?php echo ($value['combustible'] == "1/8" ? "checked" : ""); ?>><br><br>
+                <br><br>
+                <input class="form-check-input" type="radio" id="combustible" name="combustible" value="1/2" <?php echo ($value['combustible'] == "1/2" ? "checked" : ""); ?>>
                 <label>1/2</label>
-                <input class="form-check-input" type="radio" id="combustible" name="combustible" value="1/2" <?php echo ($value['combustible'] == "1/2" ? "checked" : ""); ?>><br><br>
+                <br><br>
+                <input class="form-check-input" type="radio" id="combustible" name="combustible" value="7/8" <?php echo ($value['combustible'] == "7/8" ? "checked" : ""); ?>>
                 <label>7/8</label>
-                <input class="form-check-input" type="radio" id="combustible" name="combustible" value="7/8" <?php echo ($value['combustible'] == "7/8" ? "checked" : ""); ?>><br><br>
+                <br><br>
             </div>
             <div class="col-4">
+                <input class="form-check-input" type="radio" id="combustible" name="combustible" value="1/4" <?php echo ($value['combustible'] == "1/4" ? "checked" : ""); ?>>
                 <label>1/4</label>
-                <input class="form-check-input" type="radio" id="combustible" name="combustible" value="1/4" <?php echo ($value['combustible'] == "1/4" ? "checked" : ""); ?>><br><br>
+                <br><br>
+                <input class="form-check-input" type="radio" id="combustible" name="combustible" value="5/8" <?php echo ($value['combustible'] == "5/8" ? "checked" : ""); ?>>
                 <label>5/8</label>
-                <input class="form-check-input" type="radio" id="combustible" name="combustible" value="5/8" <?php echo ($value['combustible'] == "5/8" ? "checked" : ""); ?>><br><br>
+                <br><br>
+                <input class="form-check-input" type="radio" id="combustible" name="combustible" value="Full" <?php echo ($value['combustible'] == "Full" ? "checked" : ""); ?>>
                 <label>Full</label>
-                <input class="form-check-input" type="radio" id="combustible" name="combustible" value="Full" <?php echo ($value['combustible'] == "Full" ? "checked" : ""); ?>><br><br>
+                <br><br>
             </div>
 
         </div>
@@ -573,54 +632,97 @@ if (isset($_GET['counter_detail'])) { ?>
         <div class="row">
             <div class="col-4">
                 <h2>Documentacion</h2>
+                
+                <input class="form-check-input" type="checkbox" id="poliza_seguro" value="1" <?php echo ($value['poliza_seguro'] == 'SI' ? 'checked' : ''); ?>>
                 <label>Poliza de seguro</label>
-                <input class="form-check-input" type="checkbox" id="poliza_seguro" value="1" <?php echo ($value['poliza_seguro'] == 'SI' ? 'checked' : ''); ?>><br><br>
+                <br><br>
+                
+                <input class="form-check-input" type="checkbox" id="placa_revisado" value="1" <?php echo ($value['placa_revisado'] == 'SI' ? 'checked' : ''); ?>>
                 <label>Placa y Revisado</label>
-                <input class="form-check-input" type="checkbox" id="placa_revisado" value="1" <?php echo ($value['placa_revisado'] == 'SI' ? 'checked' : ''); ?>><br><br>
-                <label>Formato de Daños Menores</label>
-                <input class="form-check-input" type="checkbox" id="formato_danios_menores" value="1" <?php echo ($value['formato_danios_menores'] == 'SI' ? 'checked' : ''); ?>><br><br>
+                <br><br>
+                
+                <input class="form-check-input" type="checkbox" id="formato_danios_menores" value="1" <?php echo ($value['formato_danios_menores'] == 'SI' ? 'checked' : ''); ?>>
+                <label>Formato de Daños Menor</label>
+                <br><br>
+                
+                <input class="form-check-input" type="checkbox" id="registro_unico_vehicula" value="1" <?php echo ($value['registro_unico_vehicula'] == 'SI' ? 'checked' : ''); ?>>
                 <label>Registro Unico Vehicular</label>
-                <input class="form-check-input" type="checkbox" id="registro_unico_vehicula" value="1" <?php echo ($value['registro_unico_vehicula'] == 'SI' ? 'checked' : ''); ?>><br><br>
+                <br><br>
+                
+                <input class="form-check-input" type="checkbox" id="stiker_panapass" value="1" <?php echo ($value['stiker_panapass'] == 'SI' ? 'checked' : ''); ?>>
                 <label>Sticker de Panapass</label>
-                <input class="form-check-input" type="checkbox" id="stiker_panapass" value="1" <?php echo ($value['stiker_panapass'] == 'SI' ? 'checked' : ''); ?>><br><br>
+                <br><br>
             </div>
             <div class="col-4">
                 <h2>Operatividad</h2>
+                
+                <input class="form-check-input" type="checkbox" id="pito_claxon" value="1" <?php echo ($value['pito_claxon'] == 'SI' ? 'checked' : ''); ?>>
                 <label>Pito / Claxon</label>
-                <input class="form-check-input" type="checkbox" id="pito_claxon" value="1" <?php echo ($value['pito_claxon'] == 'SI' ? 'checked' : ''); ?>><br><br>
+                <br><br>
+                
+                <input class="form-check-input" type="checkbox" id="luces_direccionales" value="1" <?php echo ($value['luces_direccionales'] == 'SI' ? 'checked' : ''); ?>>
                 <label>Luces Direccionales</label>
-                <input class="form-check-input" type="checkbox" id="luces_direccionales" value="1" <?php echo ($value['luces_direccionales'] == 'SI' ? 'checked' : ''); ?>><br><br>
+                <br><br>
+                
+                <input class="form-check-input" type="checkbox" id="luces_traseras" value="1" <?php echo ($value['luces_traseras'] == 'SI' ? 'checked' : ''); ?>>
                 <label>Luces Traseras</label>
-                <input class="form-check-input" type="checkbox" id="luces_traseras" value="1" <?php echo ($value['luces_traseras'] == 'SI' ? 'checked' : ''); ?>><br><br>
+                <br><br>
+                
+                <input class="form-check-input" type="checkbox" id="luces_delanteras" value="1" <?php echo ($value['luces_delanteras'] == 'SI' ? 'checked' : ''); ?>>
                 <label>Luces Delanteras</label>
-                <input class="form-check-input" type="checkbox" id="luces_delanteras" value="1" <?php echo ($value['luces_delanteras'] == 'SI' ? 'checked' : ''); ?>><br><br>
+                <br><br>
+                
+                <input class="form-check-input" type="checkbox" id="aire_acondicinado" value="1" <?php echo ($value['aire_acondicinado'] == 'SI' ? 'checked' : ''); ?>>
                 <label>Aire Acondicionado</label>
-                <input class="form-check-input" type="checkbox" id="aire_acondicinado" value="1" <?php echo ($value['aire_acondicinado'] == 'SI' ? 'checked' : ''); ?>><br><br>
+                <br><br>
+                
+                <input class="form-check-input" type="checkbox" id="limpia_parabrisas" value="1" <?php echo ($value['limpia_parabrisas'] == 'SI' ? 'checked' : ''); ?>>
                 <label>Limpia Parabrisas</label>
-                <input class="form-check-input" type="checkbox" id="limpia_parabrisas" value="1" <?php echo ($value['limpia_parabrisas'] == 'SI' ? 'checked' : ''); ?>><br><br>
+                <br><br>
+
             </div>
             <div class="col-4">
                 <h2>Accesorios</h2>
+                
+                <input class="form-check-input" type="checkbox" id="alfombras" value="1" <?php echo ($value['alfombras'] == 'SI' ? 'checked' : ''); ?>>
                 <label>Alfombras</label>
-                <input class="form-check-input" type="checkbox" id="alfombras" value="1" <?php echo ($value['alfombras'] == 'SI' ? 'checked' : ''); ?>><br><br>
+                <br><br>
+                
+                <input class="form-check-input" type="checkbox" id="herramientas" value="1" <?php echo ($value['herramientas'] == 'SI' ? 'checked' : ''); ?>>
                 <label>Herramientas</label>
-                <input class="form-check-input" type="checkbox" id="herramientas" value="1" <?php echo ($value['herramientas'] == 'SI' ? 'checked' : ''); ?>><br><br>
+                <br><br>
+                
+                <input class="form-check-input" type="checkbox" id="antenas" value="1" <?php echo ($value['antenas'] == 'SI' ? 'checked' : ''); ?>>
                 <label>Antena</label>
-                <input class="form-check-input" type="checkbox" id="antenas" value="1" <?php echo ($value['antenas'] == 'SI' ? 'checked' : ''); ?>><br><br>
+                <br><br>
+                
+                <input class="form-check-input" type="checkbox" id="placa_pipa" value="1" <?php echo ($value['placa_pipa'] == 'SI' ? 'checked' : ''); ?>>
                 <label>Palanca / Pipa</label>
-                <input class="form-check-input" type="checkbox" id="placa_pipa" value="1" <?php echo ($value['placa_pipa'] == 'SI' ? 'checked' : ''); ?>><br><br>
+                <br><br>
+                
+                <input class="form-check-input" type="checkbox" id="extintor" value="1" <?php echo ($value['extintor'] == 'SI' ? 'checked' : ''); ?>>
                 <label>Extintor</label>
-                <input class="form-check-input" type="checkbox" id="extintor" value="1" <?php echo ($value['extintor'] == 'SI' ? 'checked' : ''); ?>><br><br>
+                <br><br>
+                
+                <input class="form-check-input" type="checkbox" id="gato" value="1" <?php echo ($value['gato'] == 'SI' ? 'checked' : ''); ?>>
                 <label>Gato</label>
-                <input class="form-check-input" type="checkbox" id="gato" value="1" <?php echo ($value['gato'] == 'SI' ? 'checked' : ''); ?>><br><br>
+                <br><br>
+                
+                <input class="form-check-input" type="checkbox" id="llanta_repuesto" value="1" <?php echo ($value['llanta_repuesto'] == 'SI' ? 'checked' : ''); ?>>
                 <label>Llanta de Repuesto</label>
-                <input class="form-check-input" type="checkbox" id="llanta_repuesto" value="1" <?php echo ($value['llanta_repuesto'] == 'SI' ? 'checked' : ''); ?>><br><br>
+                <br><br>
+                
+                <input class="form-check-input" type="checkbox" id="copas_1234" value="1" <?php echo ($value['copas_1234'] == 'SI' ? 'checked' : ''); ?>>
                 <label>Copas 1 2 3 4</label>
-                <input class="form-check-input" type="checkbox" id="copas_1234" value="1" <?php echo ($value['copas_1234'] == 'SI' ? 'checked' : ''); ?>><br><br>
+                <br><br>
+                
+                <input class="form-check-input" type="checkbox" id="base_antena" value="1" <?php echo ($value['base_antena'] == 'SI' ? 'checked' : ''); ?>>
                 <label>Base de Antena</label>
-                <input class="form-check-input" type="checkbox" id="base_antena" value="1" <?php echo ($value['base_antena'] == 'SI' ? 'checked' : ''); ?>><br><br>
+                <br><br>
+                
+                <input class="form-check-input" type="checkbox" id="triangulo_seguridad" value="1" <?php echo ($value['triangulo_seguridad'] == 'SI' ? 'checked' : ''); ?>>
                 <label>Triangulo de Seguridad</label>
-                <input class="form-check-input" type="checkbox" id="triangulo_seguridad" value="1" <?php echo ($value['triangulo_seguridad'] == 'SI' ? 'checked' : ''); ?>><br><br>
+                <br><br>
             </div>
         </div>
     </div>
@@ -1285,28 +1387,46 @@ if (isset($_GET['counter_detail'])) { ?>
     <div class="container text-center">
         <div class="row">
             <div class="col-4">
+                
+                <input class="form-check-input" disabled type="radio" id="combustible" name="combustible" value="Empty" <?php echo ($value['combustible'] == "Empty" ? "checked" : ""); ?>>
                 <label>Empty</label>
-                <input class="form-check-input" disabled type="radio" id="combustible" name="combustible" value="Empty" <?php echo ($value['combustible'] == "Empty" ? "checked" : ""); ?>><br><br>
+                <br><br>
+                
+                <input class="form-check-input" disabled type="radio" id="combustible" name="combustible" value="3/8" <?php echo ($value['combustible'] == "3/8" ? "checked" : ""); ?>>
                 <label>3/8</label>
-                <input class="form-check-input" disabled type="radio" id="combustible" name="combustible" value="3/8" <?php echo ($value['combustible'] == "3/8" ? "checked" : ""); ?>><br><br>
+                <br><br>
+                
+                <input class="form-check-input" disabled type="radio" id="combustible" name="combustible" value="3/4" <?php echo ($value['combustible'] == "3/4" ? "checked" : ""); ?>>
                 <label>3/4</label>
-                <input class="form-check-input" disabled type="radio" id="combustible" name="combustible" value="3/4" <?php echo ($value['combustible'] == "3/4" ? "checked" : ""); ?>><br><br>
+                <br><br>
             </div>
             <div class="col-4">
+                
+                <input class="form-check-input" disabled type="radio" id="combustible" name="combustible" value="1/8" <?php echo ($value['combustible'] == "1/8" ? "checked" : ""); ?>>
                 <label>1/8</label>
-                <input class="form-check-input" disabled type="radio" id="combustible" name="combustible" value="1/8" <?php echo ($value['combustible'] == "1/8" ? "checked" : ""); ?>><br><br>
+                <br><br>
+                
+                <input class="form-check-input" disabled type="radio" id="combustible" name="combustible" value="1/2" <?php echo ($value['combustible'] == "1/2" ? "checked" : ""); ?>>
                 <label>1/2</label>
-                <input class="form-check-input" disabled type="radio" id="combustible" name="combustible" value="1/2" <?php echo ($value['combustible'] == "1/2" ? "checked" : ""); ?>><br><br>
+                <br><br>
+                
+                <input class="form-check-input" disabled type="radio" id="combustible" name="combustible" value="7/8" <?php echo ($value['combustible'] == "7/8" ? "checked" : ""); ?>>
                 <label>7/8</label>
-                <input class="form-check-input" disabled type="radio" id="combustible" name="combustible" value="7/8" <?php echo ($value['combustible'] == "7/8" ? "checked" : ""); ?>><br><br>
+                <br><br>
             </div>
             <div class="col-4">
+                
+                <input class="form-check-input" disabled type="radio" id="combustible" name="combustible" value="1/4" <?php echo ($value['combustible'] == "1/4" ? "checked" : ""); ?>>
                 <label>1/4</label>
-                <input class="form-check-input" disabled type="radio" id="combustible" name="combustible" value="1/4" <?php echo ($value['combustible'] == "1/4" ? "checked" : ""); ?>><br><br>
+                <br><br>
+                
+                <input class="form-check-input" disabled type="radio" id="combustible" name="combustible" value="5/8" <?php echo ($value['combustible'] == "5/8" ? "checked" : ""); ?>>
                 <label>5/8</label>
-                <input class="form-check-input" disabled type="radio" id="combustible" name="combustible" value="5/8" <?php echo ($value['combustible'] == "5/8" ? "checked" : ""); ?>><br><br>
+                <br><br>
+                
+                <input class="form-check-input" disabled type="radio" id="combustible" name="combustible" value="Full" <?php echo ($value['combustible'] == "Full" ? "checked" : ""); ?>>
                 <label>Full</label>
-                <input class="form-check-input" disabled type="radio" id="combustible" name="combustible" value="Full" <?php echo ($value['combustible'] == "Full" ? "checked" : ""); ?>><br><br>
+                <br><br>
             </div>
 
         </div>
@@ -1316,54 +1436,96 @@ if (isset($_GET['counter_detail'])) { ?>
         <div class="row">
             <div class="col-4">
                 <h2>Documentacion</h2>
+                
+                <input class="form-check-input" onclick="return false;" type="checkbox" id="poliza_seguro" value="1" <?php echo ($value['poliza_seguro'] == 1 ? 'checked' : ''); ?>>
                 <label>Poliza de seguro</label>
-                <input class="form-check-input" onclick="return false;" type="checkbox" id="poliza_seguro" value="1" <?php echo ($value['poliza_seguro'] == 1 ? 'checked' : ''); ?>><br><br>
+                <br><br>
+                
+                <input class="form-check-input" onclick="return false;" type="checkbox" id="placa_revisado" value="1" <?php echo ($value['placa_revisado'] == 1 ? 'checked' : ''); ?>>
                 <label>Placa y Revisado</label>
-                <input class="form-check-input" onclick="return false;" type="checkbox" id="placa_revisado" value="1" <?php echo ($value['placa_revisado'] == 1 ? 'checked' : ''); ?>><br><br>
-                <label>Formato de Daños Menores</label>
-                <input class="form-check-input" onclick="return false;" type="checkbox" id="formato_danios_menores" value="1" <?php echo ($value['formato_danios_menores'] == 1 ? 'checked' : ''); ?>><br><br>
+                <br><br>
+                
+                <input class="form-check-input" onclick="return false;" type="checkbox" id="formato_danios_menores" value="1" <?php echo ($value['formato_danios_menores'] == 1 ? 'checked' : ''); ?>>
+                <label>Formato de Daños Menor</label>
+                <br><br>
+                
+                <input class="form-check-input" onclick="return false;" type="checkbox" id="registro_unico_vehicula" value="1" <?php echo ($value['registro_unico_vehicula'] == 1 ? 'checked' : ''); ?>>
                 <label>Registro Unico Vehicular</label>
-                <input class="form-check-input" onclick="return false;" type="checkbox" id="registro_unico_vehicula" value="1" <?php echo ($value['registro_unico_vehicula'] == 1 ? 'checked' : ''); ?>><br><br>
+                <br><br>
+                
+                <input class="form-check-input" onclick="return false;" type="checkbox" id="stiker_panapass" value="1" <?php echo ($value['stiker_panapass'] == 1 ? 'checked' : ''); ?>>
                 <label>Sticker de Panapass</label>
-                <input class="form-check-input" onclick="return false;" type="checkbox" id="stiker_panapass" value="1" <?php echo ($value['stiker_panapass'] == 1 ? 'checked' : ''); ?>><br><br>
+                <br><br>
             </div>
             <div class="col-4">
                 <h2>Operatividad</h2>
+                
+                <input class="form-check-input" onclick="return false;" type="checkbox" id="pito_claxon" value="1" <?php echo ($value['pito_claxon'] == 1 ? 'checked' : ''); ?>>
                 <label>Pito / Claxon</label>
-                <input class="form-check-input" onclick="return false;" type="checkbox" id="pito_claxon" value="1" <?php echo ($value['pito_claxon'] == 1 ? 'checked' : ''); ?>><br><br>
+                <br><br>
+                
+                <input class="form-check-input" onclick="return false;" type="checkbox" id="luces_direccionales" value="1" <?php echo ($value['luces_direccionales'] == 1 ? 'checked' : ''); ?>>
                 <label>Luces Direccionales</label>
-                <input class="form-check-input" onclick="return false;" type="checkbox" id="luces_direccionales" value="1" <?php echo ($value['luces_direccionales'] == 1 ? 'checked' : ''); ?>><br><br>
+                <br><br>
+                
+                <input class="form-check-input" onclick="return false;" type="checkbox" id="luces_traseras" value="1" <?php echo ($value['luces_traseras'] == 1 ? 'checked' : ''); ?>>
                 <label>Luces Traseras</label>
-                <input class="form-check-input" onclick="return false;" type="checkbox" id="luces_traseras" value="1" <?php echo ($value['luces_traseras'] == 1 ? 'checked' : ''); ?>><br><br>
+                <br><br>
+                
+                <input class="form-check-input" onclick="return false;" type="checkbox" id="luces_delanteras" value="1" <?php echo ($value['luces_delanteras'] == 1 ? 'checked' : ''); ?>>
                 <label>Luces Delanteras</label>
-                <input class="form-check-input" onclick="return false;" type="checkbox" id="luces_delanteras" value="1" <?php echo ($value['luces_delanteras'] == 1 ? 'checked' : ''); ?>><br><br>
+                <br><br>
+                
+                <input class="form-check-input" onclick="return false;" type="checkbox" id="aire_acondicinado" value="1" <?php echo ($value['aire_acondicinado'] == 1 ? 'checked' : ''); ?>>
                 <label>Aire Acondicionado</label>
-                <input class="form-check-input" onclick="return false;" type="checkbox" id="aire_acondicinado" value="1" <?php echo ($value['aire_acondicinado'] == 1 ? 'checked' : ''); ?>><br><br>
+                <br><br>
+                
+                <input class="form-check-input" onclick="return false;" type="checkbox" id="limpia_parabrisas" value="1" <?php echo ($value['limpia_parabrisas'] == 1 ? 'checked' : ''); ?>>
                 <label>Limpia Parabrisas</label>
-                <input class="form-check-input" onclick="return false;" type="checkbox" id="limpia_parabrisas" value="1" <?php echo ($value['limpia_parabrisas'] == 1 ? 'checked' : ''); ?>><br><br>
+                <br><br>
             </div>
             <div class="col-4">
                 <h2>Accesorios</h2>
+                
+                <input class="form-check-input" onclick="return false;" type="checkbox" id="alfombras" value="1" <?php echo ($value['alfombras'] == 1 ? 'checked' : ''); ?>>
                 <label>Alfombras</label>
-                <input class="form-check-input" onclick="return false;" type="checkbox" id="alfombras" value="1" <?php echo ($value['alfombras'] == 1 ? 'checked' : ''); ?>><br><br>
+                <br><br>
+                
+                <input class="form-check-input" onclick="return false;" type="checkbox" id="herramientas" value="1" <?php echo ($value['herramientas'] == 1 ? 'checked' : ''); ?>>
                 <label>Herramientas</label>
-                <input class="form-check-input" onclick="return false;" type="checkbox" id="herramientas" value="1" <?php echo ($value['herramientas'] == 1 ? 'checked' : ''); ?>><br><br>
+                <br><br>
+                
+                <input class="form-check-input" onclick="return false;" type="checkbox" id="antenas" value="1" <?php echo ($value['antenas'] == 1 ? 'checked' : ''); ?>>
                 <label>Antena</label>
-                <input class="form-check-input" onclick="return false;" type="checkbox" id="antenas" value="1" <?php echo ($value['antenas'] == 1 ? 'checked' : ''); ?>><br><br>
+                <br><br>
+                
+                <input class="form-check-input" onclick="return false;" type="checkbox" id="placa_pipa" value="1" <?php echo ($value['placa_pipa'] == 1 ? 'checked' : ''); ?>>
                 <label>Palanca / Pipa</label>
-                <input class="form-check-input" onclick="return false;" type="checkbox" id="placa_pipa" value="1" <?php echo ($value['placa_pipa'] == 1 ? 'checked' : ''); ?>><br><br>
+                <br><br>
+                
+                <input class="form-check-input" onclick="return false;" type="checkbox" id="extintor" value="1" <?php echo ($value['extintor'] == 1 ? 'checked' : ''); ?>>
                 <label>Extintor</label>
-                <input class="form-check-input" onclick="return false;" type="checkbox" id="extintor" value="1" <?php echo ($value['extintor'] == 1 ? 'checked' : ''); ?>><br><br>
+                <br><br>
+                
+                <input class="form-check-input" onclick="return false;" type="checkbox" id="gato" value="1" <?php echo ($value['gato'] == 1 ? 'checked' : ''); ?>>
                 <label>Gato</label>
-                <input class="form-check-input" onclick="return false;" type="checkbox" id="gato" value="1" <?php echo ($value['gato'] == 1 ? 'checked' : ''); ?>><br><br>
+                <br><br>
+                
+                <input class="form-check-input" onclick="return false;" type="checkbox" id="llanta_repuesto" value="1" <?php echo ($value['llanta_repuesto'] == 1 ? 'checked' : ''); ?>>
                 <label>Llanta de Repuesto</label>
-                <input class="form-check-input" onclick="return false;" type="checkbox" id="llanta_repuesto" value="1" <?php echo ($value['llanta_repuesto'] == 1 ? 'checked' : ''); ?>><br><br>
+                <br><br>
+                
+                <input class="form-check-input" onclick="return false;" type="checkbox" id="copas_1234" value="1" <?php echo ($value['copas_1234'] == 1 ? 'checked' : ''); ?>>
                 <label>Copas 1 2 3 4</label>
-                <input class="form-check-input" onclick="return false;" type="checkbox" id="copas_1234" value="1" <?php echo ($value['copas_1234'] == 1 ? 'checked' : ''); ?>><br><br>
+                <br><br>
+                
+                <input class="form-check-input" onclick="return false;" type="checkbox" id="base_antena" value="1" <?php echo ($value['base_antena'] == 1 ? 'checked' : ''); ?>>
                 <label>Base de Antena</label>
-                <input class="form-check-input" onclick="return false;" type="checkbox" id="base_antena" value="1" <?php echo ($value['base_antena'] == 1 ? 'checked' : ''); ?>><br><br>
+                <br><br>
+                
+                <input class="form-check-input" onclick="return false;" type="checkbox" id="triangulo_seguridad" value="1" <?php echo ($value['triangulo_seguridad'] == 1 ? 'checked' : ''); ?>>
                 <label>Triangulo de Seguridad</label>
-                <input class="form-check-input" onclick="return false;" type="checkbox" id="triangulo_seguridad" value="1" <?php echo ($value['triangulo_seguridad'] == 1 ? 'checked' : ''); ?>><br><br>
+                <br><br>
             </div>
         </div>
     </div>
