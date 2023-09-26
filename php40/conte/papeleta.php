@@ -44,6 +44,10 @@ if (isset($_POST['eliminar_reg'])) {
 
 $where = ' (1=1) ';
 
+if ($_SESSION["tipo_usuario"] == 3) {
+  $where .= " AND stat = 1 ";
+}
+
 if(isset($_POST['ing_sal']) && $_POST['ing_sal'] == 2){ 
   $where .= " AND stat = 2 ";
 }elseif (isset($_POST['ing_sal']) && $_POST['ing_sal'] == 3) {
@@ -135,7 +139,7 @@ $rows = $ultimo_id->fetchAll(PDO::FETCH_ASSOC);
       <div class="modal-dialog modal-xl">
         <div class="modal-content" style="background-color:white !important;">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Hikel</h1>
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Hiker</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <?php // <form action="" method="post"> ?>
@@ -230,9 +234,9 @@ $rows = $ultimo_id->fetchAll(PDO::FETCH_ASSOC);
             <?php if ($_SESSION["tipo_usuario"] == 4) { ?>
             <form id="miFormulario" action="" method="post">
                 <div style="text-align: center;">
-                    <label for="salida">Salida</label>
+                    <label for="salida">Check-out</label>
                     <input type="radio" name="ing_sal" id="salida" value="2" <?php if(isset($_POST['ing_sal']) && $_POST['ing_sal'] == 2){ echo 'checked'; } ?>>
-                    <label for="ingreso">Ingreso</label>
+                    <label for="ingreso">Check-In</label>
                     <input type="radio" name="ing_sal" id="ingreso" value="3" <?php if(isset($_POST['ing_sal']) && $_POST['ing_sal'] == 3){ echo 'checked'; } ?>>
                 </div>
             </form>
@@ -261,9 +265,9 @@ $rows = $ultimo_id->fetchAll(PDO::FETCH_ASSOC);
                         <td><?php if ($row['stat'] == 1) {
                               echo 'Esperando asigancion';
                               }elseif ($row['stat'] == 2) {
-                                echo 'Esperando Salida';
+                                echo 'Esperando Check-out';
                               }elseif ($row['stat'] == 3) {
-                                echo 'Salida';
+                                echo 'Check-out';
                               }elseif ($row['stat'] == 4) {
                                 echo 'Finalizado';
                               }elseif ($row['stat'] == 5) {

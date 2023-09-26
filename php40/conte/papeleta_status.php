@@ -435,44 +435,176 @@ if (isset($_GET['counter_detail'])) { ?>
   
         $mail->CharSet = 'UTF-8';
         $mail->isHTML(true);  
-        $mail->Subject = 'Datos de Alquiler de Vihiculo con placa '.$placa;
+        $mail->Subject = 'Dollar Panama Hoja de Inspeccion';
         $mail->Body    = '
             <img src="cid:logogrupopcr" width="250" alt="Logo 1" />
-
+            <p>Su papeleta de inspeccion de salida para el contrato '.$contrato.'</p>
             <p>Estimado cliente,</p>
             <p>¡Bienvenido y gracias por elegir nuestros servicios de alquiler de vehículos! Estamos 
             comprometidos en ofrecerte una experiencia excepcional y asegurarnos de que tu viaje sea seguro y cómodo.</p>
             <p>A continuación, te proporcionamos los detalles de tu alquiler para que puedas revisar toda la información pertinente:</p>
 
-            <ul>
-                <li><b>Contrato:</b> '.$contrato.'</li>
-                <li><b>Sucursal:</b> '.$sucursal.'</li>
-                <li><b>Placa:</b> '.$placa.'</li>
-                <li><b>Unidad:</b> '.$unidad.'</li>
-                <li><b>Odómetro:</b> '.$odometro.'</li>
-                <li><b>Combustible:</b> '.$combustible.'</li>
-                <li><b>Póliza de seguro:</b> '.$poliza_seguro.'</li>
-                <li><b>Placa Revisado:</b> '.$placa_revisado.'</li>
-                <li><b>Formato daños menores:</b> '.$formato_danios_menores.'</li>
-                <li><b>Registro único vehicular:</b> '.$registro_unico_vehicula.'</li>
-                <li><b>Stiker Panapass:</b> '.$stiker_panapass.'</li>
-                <li><b>Claxon:</b> '.$pito_claxon.'</li>
-                <li><b>Luces direccionales:</b> '.$luces_direccionales.'</li>
-                <li><b>Luces Traseras:</b> '.$luces_traseras.'</li>
-                <li><b>Luces delanteras:</b> '.$luces_delanteras.'</li>
-                <li><b>Aire acondicionado:</b> '.$aire_acondicionado.'</li>
-                <li><b>Limpia parabrisas:</b> '.$limpia_parabrisas.'</li>
-                <li><b>Alfombras:</b> '.$alfombras.'</li>
-                <li><b>Herramientas:</b> '.$herramientas.'</li>
-                <li><b>Antenas:</b> '.$antenas.'</li>
-                <li><b>Placa pipa:</b> '.$placa_pipa.'</li>
-                <li><b>Extintor:</b> '.$extintor.'</li>
-                <li><b>Gato:</b> '.$gato.'</li>
-                <li><b>Llanta de repuesto:</b> '.$llanta_repuesto.'</li>
-                <li><b>Copas 1234:</b> '.$copas_1234.'</li>
-                <li><b>Base Antena:</b> '.$base_antena.'</li>
-                <li><b>Triángulo de seguridad:</b> '.$triangulo_seguridad.'</li>
-            </ul>
+    <div style="display: flex; justify-content: space-between;">
+        <div style="flex: 1; margin-right: 10px;">
+            <table style="border-collapse: collapse; width: 100%;">
+                <thead>
+                    <tr>
+                        <th style="border: 1px solid #df3232;">Contrato</th>
+                        <th style="border: 1px solid #df3232;">Sucursal</th>
+                        <th style="border: 1px solid #df3232;">Placa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="border: 1px solid #df3232;">'.$contrato.'</td>
+                        <td style="border: 1px solid #df3232;">'.$sucursal.'</td>
+                        <td style="border: 1px solid #df3232;">'.$placa.'</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="flex: 1;">
+            <table style="border-collapse: collapse; width: 100%;">
+                <thead>
+                    <tr>
+                        <th style="border: 1px solid #df3232;">Unidad</th>
+                        <th style="border: 1px solid #df3232;">Odómetro</th>
+                        <th style="border: 1px solid #df3232;">Combustible</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="border: 1px solid #df3232;">'.$unidad.'</td>
+                        <td style="border: 1px solid #df3232;">'.$odometro.'</td>
+                        <td style="border: 1px solid #df3232;">'.$combustible.'</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+                <br>
+
+    <div style="display: flex; justify-content: space-between;">
+        <div style="flex: 1; margin-right: 10px;">
+            <table style="border-collapse: collapse; width: 100%;">
+                <thead>
+                    <tr>
+                        <th style="border: 1px solid #df3232;" colspan="2">Documentacion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="border: 1px solid #df3232;">Poliza de seguro</td>
+                        <td style="border: 1px solid #df3232;">'.$poliza_seguro.'</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #df3232;">Placa Revisado</td>
+                        <td style="border: 1px solid #df3232;">'.$placa_revisado.'</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #df3232;">Formato daños menores</td>
+                        <td style="border: 1px solid #df3232;">'.$formato_danios_menores.'</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #df3232;">Registro Unico Vehicular</td>
+                        <td style="border: 1px solid #df3232;">'.$registro_unico_vehicula.'</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #df3232;">Sticker de Panapass</td>
+                        <td style="border: 1px solid #df3232;">'.$stiker_panapass.'</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>   
+        <div style="flex: 1; margin-right: 10px;">
+            <table style="border-collapse: collapse; width: 100%;">
+                <thead>
+                    <tr>
+                        <th style="border: 1px solid #df3232;" colspan="2">Operatividad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="border: 1px solid #df3232;">Pito / Claxon</td>
+                        <td style="border: 1px solid #df3232;">'.$pito_claxon.'</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #df3232;">Luces Direccionales</td>
+                        <td style="border: 1px solid #df3232;">'.$luces_direccionales.'</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #df3232;">Luces Traseras</td>
+                        <td style="border: 1px solid #df3232;">'.$luces_traseras.'</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #df3232;">Luces Delanteras</td>
+                        <td style="border: 1px solid #df3232;">'.$luces_delanteras.'</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #df3232;">Aire Acondicionado</td>
+                        <td style="border: 1px solid #df3232;">'.$aire_acondicionado.'</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #df3232;">Limpia Parabrisas</td>
+                        <td style="border: 1px solid #df3232;">'.$limpia_parabrisas.'</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div style="flex: 1;">
+            <table style="border-collapse: collapse; width: 100%;">
+                <thead>
+                    <tr>
+                        <th style="border: 1px solid #df3232;" colspan="2">Accesorios</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="border: 1px solid #df3232;">Pito / Claxon</td>
+                        <td style="border: 1px solid #df3232;">'.$alfombras.'</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #df3232;">Luces Direccionales</td>
+                        <td style="border: 1px solid #df3232;">'.$herramientas.'</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #df3232;">Luces Traseras</td>
+                        <td style="border: 1px solid #df3232;">'.$antenas.'</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #df3232;">Luces Delanteras</td>
+                        <td style="border: 1px solid #df3232;">'.$placa_pipa.'</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #df3232;">Aire Acondicionado</td>
+                        <td style="border: 1px solid #df3232;">'.$extintor.'</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #df3232;">Limpia Parabrisas</td>
+                        <td style="border: 1px solid #df3232;">'.$gato.'</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #df3232;">Luces Traseras</td>
+                        <td style="border: 1px solid #df3232;">'.$llanta_repuesto.'</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #df3232;">Luces Delanteras</td>
+                        <td style="border: 1px solid #df3232;">'.$copas_1234.'</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #df3232;">Aire Acondicionado</td>
+                        <td style="border: 1px solid #df3232;">'.$base_antena.'</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #df3232;">Limpia Parabrisas</td>
+                        <td style="border: 1px solid #df3232;">'.$triangulo_seguridad.'</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+            <br>
 
             <p><b>Inspección antes de la entrega:</b></p>
             <img src="cid:papeleta" width="250" alt="Inspección" />
@@ -485,7 +617,7 @@ if (isset($_GET['counter_detail'])) { ?>
             <img src="cid:firma" width="250" alt="Firma" />
         ';
 
-        $mail->AddEmbeddedImage('../img/logo20años.png', 'logogrupopcr');
+        $mail->AddEmbeddedImage('../img/290x128.png', 'logogrupopcr');
         $mail->AddEmbeddedImage($imagen, 'papeleta');
         $mail->AddEmbeddedImage($foto_frente, 'foto_frente');
         $mail->AddEmbeddedImage($foto_lado_conductor, 'foto_conductor');
@@ -745,7 +877,7 @@ if (isset($_GET['counter_detail'])) { ?>
     </div>
     <br>
     <div class="row text-center" style="border: solid 1px #df3232; padding:20px;">
-    <h2>Fotos de Salida</h2>
+    <h2>Fotos de Check-out</h2>
     <br>
         <div class="col-6" style="padding:20px;">
             <img id="" width="250" src="<?php echo $value['foto_frente']; ?>">
@@ -1344,11 +1476,11 @@ if (isset($_GET['counter_detail'])) { ?>
         <br>
         <p><b>Usuario Operaciones</b>:  <?php echo get_usuarios($value['id_user_operaciones']); ?></p>
         <p><b>Usuario Counter</b>:  <?php echo get_usuarios($value['id_user_counter']); ?></p>
-        <p><b>Usuario Hikel Salida</b>:  <?php echo get_usuarios($value['id_user_heiker']); ?></p>
+        <p><b>Usuario Hiker Check-out</b>:  <?php echo get_usuarios($value['id_user_heiker']); ?></p>
         <?php if ($value['id_user_heiker_fin'] == '' || is_null($value['id_user_heiker_fin'])) {
             echo '<p>Usuario no asignado</p>';
         }else{ ?>
-        <p><b>Usuario Hikel Entrada</b>:  <?php echo get_usuarios($value['id_user_heiker_fin']); ?></p>
+        <p><b>Usuario Hiker Check-In</b>:  <?php echo get_usuarios($value['id_user_heiker_fin']); ?></p>
         <?php } ?>
     </div>
     <br>
@@ -1548,20 +1680,20 @@ if (isset($_GET['counter_detail'])) { ?>
     <br>
 
     <div class="container text-center" style="border: solid 1px #df3232; padding:20px;">
-    <h2>Inspeccion Heiker Salida</h2>
+    <h2>Inspeccion Hiker Check-out</h2>
     <br>
         <img src="<?php echo $value['imspeccion2']; ?>" alt="" srcset="">
     </div>
     <br>
 
     <div class="container text-center" style="border: solid 1px #df3232; padding:20px;">
-    <h2>Inspeccion Heiker Entrada</h2>
+    <h2>Inspeccion Hiker Check-In</h2>
     <br>
         <img src="<?php echo $value['imspeccion3']; ?>" alt="" srcset="">
     </div>
     <br>
     <div class="row text-center" style="border: solid 1px #df3232; padding:20px;">>
-        <h2>Fotos Salidas</h2>
+        <h2>Fotos Check-out</h2>
         <br>
         <div class="col-6">
             <img id="" width="250" src="<?php echo $value['foto_frente']; ?>" >
@@ -1595,7 +1727,7 @@ if (isset($_GET['counter_detail'])) { ?>
     </div>
     <br>
     <div class="container text-center">
-    <h2>Firma Salida</h2>
+    <h2>Firma Check-out</h2>
     <br>
         <img src="<?php echo $value['firma_salida']; ?>" style="border: solid 1px #df3232; padding:20px;">
     </div>
@@ -1629,8 +1761,8 @@ $reg_pape = $pdo -> query("SELECT * FROM papeleta_revicion WHERE id_papeleta_gen
         <br>
         <p><b>Usuario Operaciones</b>:  <?php echo get_usuarios($value['id_user_operaciones']); ?></p>
         <p><b>Usuario Counter</b>:  <?php echo get_usuarios($value['id_user_counter']); ?></p>
-        <p><b>Usuario Hikel Salida</b>:  <?php echo get_usuarios($value['id_user_heiker']); ?></p>
-        <p><b>Usuario Hikel Entrada</b>:  <?php echo get_usuarios($value['id_user_heiker_fin']); ?></p>
+        <p><b>Usuario Hiker Check-out</b>:  <?php echo get_usuarios($value['id_user_heiker']); ?></p>
+        <p><b>Usuario Hiker Check-In</b>:  <?php echo get_usuarios($value['id_user_heiker_fin']); ?></p>
     </div>
     <br>
     
@@ -1771,21 +1903,21 @@ $reg_pape = $pdo -> query("SELECT * FROM papeleta_revicion WHERE id_papeleta_gen
     <br>
     
     <div class="container text-center" style="border: solid 1px #df3232; padding:20px;">
-        <h2>Inspeccion Heiker Salida</h2>
+        <h2>Inspeccion Hiker Check-out</h2>
         <br>
         <img src="<?php echo $value['imspeccion2']; ?>" alt="" srcset="">
     </div>
     <br>
     
     <div class="container text-center" style="border: solid 1px #df3232; padding:20px;">
-        <h2>Inspeccion Heiker Entrada</h2>
+        <h2>Inspeccion Hiker Check-In</h2>
         <br>
         <img src="<?php echo $value['inspeccion4']; ?>" alt="" srcset="">
     </div>
     <br>
     
     <div class="row text-center" style="border: solid 1px #df3232; padding:20px;">
-        <h2>Fotos Salida</h2>
+        <h2>Fotos Check-out</h2>
         <br>
         <div class="col-6" style="padding:20px;">
             <img id="" width="250" src="<?php echo $value['foto_frente']; ?>">
@@ -1818,7 +1950,7 @@ $reg_pape = $pdo -> query("SELECT * FROM papeleta_revicion WHERE id_papeleta_gen
         </div>
     </div>
     <div class="container text-center">
-    <h2>Firma Salida</h2>
+    <h2>Firma Check-out</h2>
     <br>
         <img src="<?php echo $value['firma_salida']; ?>" alt="" srcset="" style="border: solid 1px #df3232; padding:20px;">
     </div>
@@ -1832,6 +1964,7 @@ $reg_pape = $pdo -> query("SELECT * FROM papeleta_revicion WHERE id_papeleta_gen
     <br>
     <br>
 </div> 
+<input type="hidden" value="<?php echo $value['id']; ?>" name="id_revicion">
     
 <?php } 
 

@@ -11,6 +11,7 @@ $mensaje = "";
 $where = "";
 
 
+
 if (isset($_POST['eliminar_reg'])) { 
   $actulizar_counter = $pdo -> query("DELETE FROM papeleta_general WHERE id ='".$_POST['id']."'");
 
@@ -19,6 +20,17 @@ if (isset($_POST['eliminar_reg'])) {
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>';
 }
+
+if (isset($_POST['finalizar_revisado'])) { 
+    $actulizar_counter = $pdo -> query("UPDATE papeleta_general set stat = 4 WHERE id ='".$_POST['id_revicion']."'");
+  
+      $mensaje = '<div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Registro finalizado</strong> 
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>';
+  }
+
+
 
 $where = ' (1=1) ';
 
@@ -46,62 +58,7 @@ $rows = $ultimo_id->fetchAll(PDO::FETCH_ASSOC);
     </svg>
 
     <?php include '../includes/menu.php'; ?>
-    <!-- Modal Counter -->
-    <div class="modal fade" id="counter" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content" style="background-color:white !important;">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Counter</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <form action="" method="post">
-            <div class="modal-body" id="counter_detail">
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="cancelar">Cerrar</button>
-              <button type="submit" class="btn btn-success" name="counter_aprobado" id="enviar">Enviar</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-    <!-- Modal heiker -->
-    <div class="modal fade" id="heiker" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-xl">
-        <div class="modal-content" style="background-color:white !important;">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Heiquer</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <?php // <form action="" method="post"> ?>
-            <div class="modal-body" id="heiker_detail">
-            </div>
-            <div class="modal-footer">
-              <!--<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="cancelar">Cerrar</button>
-              <button type="submit" class="btn btn-success" name="counter_aprobado" id="enviar">Enviar</button>-->
-            </div>
-          <?php // </form> ?>
-        </div>
-      </div>
-    </div>
-    <!-- Modal heiker recibe -->
-    <div class="modal fade" id="heiker_recibe" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-xl">
-        <div class="modal-content" style="background-color:white !important;">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Recibir Vehiculo</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <?php // <form action="" method="post"> ?>
-            <div class="modal-body" id="heiker_detail_recibe">
-            </div>
-            <div class="modal-footer">
-              
-            </div>
-          <?php // </form> ?>
-        </div>
-      </div>
-    </div>
+
     <!-- Modal Eliminar registro -->
     <div class="modal fade" id="eliminar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -121,23 +78,7 @@ $rows = $ultimo_id->fetchAll(PDO::FETCH_ASSOC);
         </div>
       </div>
     </div>
-    <!-- Modal ver detalles -->
-    <div class="modal fade" id="ver_detallesModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-xl">
-        <div class="modal-content" style="background-color:white !important;">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Ver detalles</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-            <div class="modal-body" id="ver_detalles">
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="cancelar">Cerrar</button>
-              <!--<button type="submit" class="btn btn-success" name="counter_aprobado" id="enviar">Enviar</button>-->
-            </div>
-        </div>
-      </div>
-    </div>
+
     <!-- Modal ver detalles revision -->
     <div class="modal fade" id="ver_detallesModalRevi" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-xl">
@@ -146,12 +87,14 @@ $rows = $ultimo_id->fetchAll(PDO::FETCH_ASSOC);
             <h1 class="modal-title fs-5" id="exampleModalLabel">Ver Revision</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
+          <form action="" method="post">
             <div class="modal-body" id="ver_detalles_revision">
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="cancelar">Cerrar</button>
-              <!--<button type="submit" class="btn btn-success" name="counter_aprobado" id="enviar">Enviar</button>-->
+              <button type="submit" class="btn btn-success" name="finalizar_revisado" id="enviar">Finalizar</button>
             </div>
+           </form>
         </div>
       </div>
     </div>
@@ -165,9 +108,9 @@ $rows = $ultimo_id->fetchAll(PDO::FETCH_ASSOC);
             <?php if ($_SESSION["tipo_usuario"] == 4) { ?>
             <form id="miFormulario" action="" method="post">
                 <div style="text-align: center;">
-                    <label for="salida">Salida</label>
+                    <label for="salida">Check-out</label>
                     <input type="radio" name="ing_sal" id="salida" value="2" <?php if(isset($_POST['ing_sal']) && $_POST['ing_sal'] == 2){ echo 'checked'; } ?>>
-                    <label for="ingreso">Ingreso</label>
+                    <label for="ingreso">Check-In</label>
                     <input type="radio" name="ing_sal" id="ingreso" value="3" <?php if(isset($_POST['ing_sal']) && $_POST['ing_sal'] == 3){ echo 'checked'; } ?>>
                 </div>
             </form>
@@ -196,9 +139,9 @@ $rows = $ultimo_id->fetchAll(PDO::FETCH_ASSOC);
                         <td><?php if ($row['stat'] == 1) {
                               echo 'Esperando asigancion';
                               }elseif ($row['stat'] == 2) {
-                                echo 'Esperando Salida';
+                                echo 'Esperando Check-out';
                               }elseif ($row['stat'] == 3) {
-                                echo 'Salida';
+                                echo 'Check-out';
                               }elseif ($row['stat'] == 4) {
                                 echo 'Finalizado';
                               }elseif ($row['stat'] == 5) {
