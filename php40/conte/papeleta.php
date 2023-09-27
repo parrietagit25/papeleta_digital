@@ -135,8 +135,8 @@ $rows = $ultimo_id->fetchAll(PDO::FETCH_ASSOC);
       </div>
     </div>
     <!-- Modal heiker -->
-    <div class="modal fade" id="heiker" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-xl" style="width:100%">
+    <div class="modal fade" id="heiker" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+      <div class="modal-dialog modal-xl">
         <div class="modal-content" style="background-color:white !important;">
           <div class="modal-header">
             <h1 class="modal-title fs-5" id="exampleModalLabel">Hiker</h1>
@@ -761,7 +761,6 @@ $rows = $ultimo_id->fetchAll(PDO::FETCH_ASSOC);
             formData.append('heiker_guardar', '1');
             formData.append('id', document.getElementById('id').value);
 
-            console.log('antes de entrar al fetch');
             let respuesta = await fetch('papeleta_status.php', {
                 method: 'POST',
                 body: formData

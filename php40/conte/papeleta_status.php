@@ -1747,7 +1747,7 @@ if (isset($_GET['counter_detail'])) { ?>
 }elseif(isset($_GET['ver_detalles_revision'])){ 
 
     
-$reg_pape = $pdo -> query("SELECT * FROM papeleta_revicion WHERE id_papeleta_general = '".$_GET['id']."' and stat = 5");
+    $reg_pape = $pdo -> query("SELECT * FROM papeleta_revicion WHERE id_papeleta_general = '".$_GET['id']."' and stat = 5");
     $rows = $reg_pape->fetchAll(PDO::FETCH_ASSOC);
     foreach ($rows as $key => $value) {
     
@@ -1968,4 +1968,21 @@ $reg_pape = $pdo -> query("SELECT * FROM papeleta_revicion WHERE id_papeleta_gen
     
 <?php } 
 
+}elseif (isset($_POST['placa_papeleta'])) {
+
+    $reg_pape = $pdo -> query("SELECT imspeccion3 FROM papeleta_general WHERE 
+                                id = (SELECT 
+                                        max(id)
+                                        FROM 
+                                        papeleta_general 
+                                        WHERE 
+                                        placa = '".$_POST['placa']."' 
+                                        and 
+                                        stat = 4) AND placa = '".$_POST['placa']."' AND stat = 4");
+
+    $rows = $reg_pape->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($rows as $key => $value) {
+        echo $value['imspeccion3'];
+     }
+    
 } ?>

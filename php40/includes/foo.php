@@ -4,25 +4,70 @@ var canvas = document.getElementById("miCanvas");
 var ctx = canvas.getContext("2d");
 var figuraSeleccionada = null;
 
+async function buscar_placa_papeleta(){
+    var placa = document.querySelector("#placa").value;
+    console.log(placa);
+
+    if (placa.length >= 6) {
+
+      let formData = new FormData();
+      formData.append('placa', placa);
+      formData.append('placa_papeleta', 1);
+
+      let respuesta = await fetch('papeleta_status.php', {
+          method: 'POST',
+          body: formData
+      });
+
+      if(respuesta.ok) {
+          let data = await respuesta.text();
+
+          var imagen = new Image();
+              imagen.src = data; //"../img/img.png"; 
+
+              imagen.onload = function() {
+                ctx.drawImage(imagen, 0, 0, canvas.width, canvas.height);
+              }
+              canvas.addEventListener("click", function(e) {
+                var rect = canvas.getBoundingClientRect();
+                var x = e.clientX - rect.left;
+                var y = e.clientY - rect.top;
+
+                if (figuraSeleccionada === "triangulo") {
+                  dibujarTriangulo(x, y);
+                } else if (figuraSeleccionada === "cuadrado") {
+                  dibujarCuadrado(x, y);
+                } else if (figuraSeleccionada === "circulo") {
+                  dibujarCirculo(x, y);
+                }
+              });
+          
+      } else {
+          console.error("Error en la respuesta del servidor:", respuesta.statusText);
+      } 
+    }
+  }
 
 var imagen = new Image();
-imagen.src = "../img/img.png";  
-imagen.onload = function() {
-  ctx.drawImage(imagen, 0, 0, canvas.width, canvas.height);
-}
-canvas.addEventListener("click", function(e) {
-  var rect = canvas.getBoundingClientRect();
-  var x = e.clientX - rect.left;
-  var y = e.clientY - rect.top;
+    imagen.src = "../img/img.png"; 
 
-  if (figuraSeleccionada === "triangulo") {
-    dibujarTriangulo(x, y);
-  } else if (figuraSeleccionada === "cuadrado") {
-    dibujarCuadrado(x, y);
-  } else if (figuraSeleccionada === "circulo") {
-    dibujarCirculo(x, y);
-  }
-});
+    imagen.onload = function() {
+      ctx.drawImage(imagen, 0, 0, canvas.width, canvas.height);
+    }
+    canvas.addEventListener("click", function(e) {
+      var rect = canvas.getBoundingClientRect();
+      var x = e.clientX - rect.left;
+      var y = e.clientY - rect.top;
+
+      if (figuraSeleccionada === "triangulo") {
+        dibujarTriangulo(x, y);
+      } else if (figuraSeleccionada === "cuadrado") {
+        dibujarCuadrado(x, y);
+      } else if (figuraSeleccionada === "circulo") {
+        dibujarCirculo(x, y);
+      }
+    });
+
 function seleccionarFigura(figura) {
   figuraSeleccionada = figura;
 }

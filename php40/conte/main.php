@@ -83,7 +83,7 @@ if ($_SESSION["tipo_usuario"] == 3) {
                     </div>
                     <div class="col-4">
                         <h4>Placa</h4>
-                        <input type="text" id="placa" class="form-control">
+                        <input type="text" id="placa" class="form-control" onkeyup="buscar_placa_papeleta()">
                     </div>
                     <div class="col-4">
                         <h4>Odometro</h4>
