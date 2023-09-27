@@ -16,7 +16,7 @@
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="papeleta.php">Papeletas</a></li>
                     <li><a class="dropdown-item" href="papeleta_finalizadas.php">Papeletas Finalizadas</a></li>
-                    <li><a class="dropdown-item" href="papeletas_revicion.php">Papeletas Revicion</a></li>
+                    <li><a class="dropdown-item" href="papeletas_revicion.php">Papeletas Revision</a></li>
                 </ul>
                 </li>
                 <li class="nav-item">
