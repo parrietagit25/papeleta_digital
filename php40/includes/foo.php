@@ -23,6 +23,108 @@ async function buscar_placa_papeleta(){
           let data = await respuesta.text();
 
           var imagen = new Image();
+          imagen.src = data;
+
+          imagen.onload = function() {
+              ctx.drawImage(imagen, 0, 0, canvas.width, canvas.height);
+          }
+          
+      } else {
+          console.error("Error en la respuesta del servidor:", respuesta.statusText);
+      } 
+    }
+}
+
+function seleccionarFigura(figura) {
+  figuraSeleccionada = figura;
+}
+
+function dibujarFigura(e) {
+  var rect = canvas.getBoundingClientRect();
+  var x = e.clientX - rect.left;
+  var y = e.clientY - rect.top;
+
+  if (figuraSeleccionada === "triangulo") {
+    dibujarTriangulo(x, y);
+  } else if (figuraSeleccionada === "cuadrado") {
+    dibujarCuadrado(x, y);
+  } else if (figuraSeleccionada === "circulo") {
+    dibujarCirculo(x, y);
+  }
+}
+
+canvas.addEventListener("click", dibujarFigura);
+
+// Oyentes para eventos táctiles
+canvas.addEventListener("touchstart", function(e) {
+  e.preventDefault();
+  var touch = e.touches[0];
+  dibujarFigura(touch);
+});
+
+function dibujarTriangulo(x, y) {
+  ctx.beginPath();
+  ctx.moveTo(x, y);
+  ctx.lineTo(x + 25, y + 50);
+  ctx.lineTo(x - 25, y + 50);
+  ctx.closePath();
+  
+  ctx.lineWidth = 3;
+  ctx.strokeStyle = 'blue';
+  ctx.stroke();
+}
+
+function dibujarCuadrado(x, y) {
+  ctx.beginPath();
+  ctx.rect(x - 25, y - 25, 50, 50);
+  
+  ctx.lineWidth = 3;
+  ctx.strokeStyle = 'green';
+  ctx.stroke();
+}
+
+function dibujarCirculo(x, y) {
+  ctx.beginPath();
+  ctx.arc(x, y, 25, 0, Math.PI * 2);
+  
+  ctx.lineWidth = 3;
+  ctx.strokeStyle = 'red';
+  ctx.stroke();
+}
+
+function limpiarCanvas() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  var imagen = new Image();
+  imagen.src = "../img/img.png"; 
+  imagen.onload = function() {
+    ctx.drawImage(imagen, 0, 0, canvas.width, canvas.height);
+  }
+}
+
+/*
+var canvas = document.getElementById("miCanvas");
+var ctx = canvas.getContext("2d");
+var figuraSeleccionada = null;
+
+async function buscar_placa_papeleta(){
+    var placa = document.querySelector("#placa").value;
+    console.log(placa);
+
+    if (placa.length >= 6) {
+
+      let formData = new FormData();
+      formData.append('placa', placa);
+      formData.append('placa_papeleta', 1);
+
+      let respuesta = await fetch('papeleta_status.php', {
+          method: 'POST',
+          body: formData
+      });
+
+      if(respuesta.ok) {
+          let data = await respuesta.text();
+
+          var imagen = new Image();
               imagen.src = data; //"../img/img.png"; 
 
               imagen.onload = function() {
@@ -101,7 +203,7 @@ function dibujarCirculo(x, y) {
 function limpiarCanvas() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.drawImage(imagen, 0, 0, canvas.width, canvas.height);
-}
+} */
 
 
 async function guardarCanvas() {

@@ -444,23 +444,54 @@ $rows = $ultimo_id->fetchAll(PDO::FETCH_ASSOC);
 
                 // firma digital
 
+                /*
+                  let firmaCanvas = document.getElementById("firmaCanvas");
+                  let ctxFirma = firmaCanvas.getContext("2d");
+                  let firmando = false; */
+
                   let firmaCanvas = document.getElementById("firmaCanvas");
                   let ctxFirma = firmaCanvas.getContext("2d");
                   let firmando = false;
 
-                  firmaCanvas.addEventListener("mousedown", function(e) {
+                  /*firmaCanvas.addEventListener("mousedown", function(e) {
                       firmando = true;
                       dibujar(e);
                       console.log('maus abajo');
+                  }); */
+
+                  firmaCanvas.addEventListener("mousedown", function(e) {
+                      firmando = true;
+                      dibujar(e);
                   });
 
-                  firmaCanvas.addEventListener("mousemove", dibujar);
+                  /*firmaCanvas.addEventListener("mousemove", dibujar);
 
                   firmaCanvas.addEventListener("mouseup", function() {
                       firmando = false;
                       ctxFirma.beginPath();
                       console.log('maus arriba');
+                  }); */
+
+                  firmaCanvas.addEventListener("mousemove", dibujar);
+                  firmaCanvas.addEventListener("mouseup", function() {
+                      firmando = false;
+                      ctxFirma.beginPath();
                   });
+
+                      // Eventos para touch
+                      firmaCanvas.addEventListener("touchstart", function(e) {
+                          firmando = true;
+                          dibujar(e.touches[0]);  // Usamos e.touches[0] para obtener el primer toque
+                          e.preventDefault();     // Prevenir el comportamiento por defecto
+                      });
+                      firmaCanvas.addEventListener("touchmove", function(e) {
+                          dibujar(e.touches[0]);  // Usamos e.touches[0] para obtener el primer toque
+                          e.preventDefault();     // Prevenir el comportamiento por defecto
+                      });
+                      firmaCanvas.addEventListener("touchend", function() {
+                          firmando = false;
+                          ctxFirma.beginPath();
+                      });
 
                   function dibujar(e) {
                       if (!firmando) return;
@@ -549,7 +580,23 @@ $rows = $ultimo_id->fetchAll(PDO::FETCH_ASSOC);
               imagen.onload = function() {
               ctx.drawImage(imagen, 0, 0, canvas.width, canvas.height);
               }
+
+              function obtenerCoordenadas(e, canvasElem) {
+                  if (e.touches) { // Si es un evento táctil
+                      return {
+                          x: e.touches[0].clientX - canvasElem.getBoundingClientRect().left,
+                          y: e.touches[0].clientY - canvasElem.getBoundingClientRect().top
+                      };
+                  } else { // Si es un evento de mouse
+                      return {
+                          x: e.clientX - canvasElem.getBoundingClientRect().left,
+                          y: e.clientY - canvasElem.getBoundingClientRect().top
+                      };
+                  }
+              }
+
               canvas.addEventListener("click", function(e) {
+              const coords = obtenerCoordenadas(e, canvas);
               var rect = canvas.getBoundingClientRect();
               var x = e.clientX - rect.left;
               var y = e.clientY - rect.top;
@@ -614,6 +661,11 @@ $rows = $ultimo_id->fetchAll(PDO::FETCH_ASSOC);
                 let ctxFirma = firmaCanvas.getContext("2d");
                 let firmando = false;
 
+                function empezarDibujo(e) {
+                    firmando = true;
+                    dibujar(e);
+                }
+
                 firmaCanvas.addEventListener("mousedown", function(e) {
                     firmando = true;
                     dibujar(e);
@@ -628,6 +680,7 @@ $rows = $ultimo_id->fetchAll(PDO::FETCH_ASSOC);
 
                 function dibujar(e) {
                     if (!firmando) return;
+                    const coords = obtenerCoordenadas(e, firmaCanvas);
 
                     var rect = firmaCanvas.getBoundingClientRect();
                     var x = e.clientX - rect.left;
@@ -644,6 +697,21 @@ $rows = $ultimo_id->fetchAll(PDO::FETCH_ASSOC);
 
                     console.log(x, y);
                 }
+
+                function terminarDibujo() {
+                    firmando = false;
+                    ctxFirma.beginPath();
+                }
+
+                    // Agregando eventos para mouse
+                    firmaCanvas.addEventListener("mousedown", empezarDibujo);
+                    firmaCanvas.addEventListener("mousemove", dibujar);
+                    firmaCanvas.addEventListener("mouseup", terminarDibujo);
+
+                    // Agregando eventos para táctiles
+                    firmaCanvas.addEventListener("touchstart", empezarDibujo);
+                    firmaCanvas.addEventListener("touchmove", dibujar);
+                    firmaCanvas.addEventListener("touchend", terminarDibujo);
 
                 document.getElementById("btnLimpiarFirma").addEventListener("click", function() {
                     ctxFirma.clearRect(0, 0, firmaCanvas.width, firmaCanvas.height);
