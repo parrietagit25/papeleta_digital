@@ -81,7 +81,7 @@ $rows = $ultimo_id->fetchAll(PDO::FETCH_ASSOC);
 
     <!-- Modal ver detalles revision -->
     <div class="modal fade" id="ver_detallesModalRevi" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-xl">
+      <div class="modal-dialog modal-xl" style="max-width:100%;">
         <div class="modal-content" style="background-color:white !important;">
           <div class="modal-header">
             <h1 class="modal-title fs-5" id="exampleModalLabel">Ver Revision</h1>

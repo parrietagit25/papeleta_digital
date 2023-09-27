@@ -136,7 +136,7 @@ $rows = $ultimo_id->fetchAll(PDO::FETCH_ASSOC);
     </div>
     <!-- Modal heiker -->
     <div class="modal fade" id="heiker" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
-      <div class="modal-dialog modal-xl">
+      <div class="modal-dialog modal-xl" style="max-width:100%;">
         <div class="modal-content" style="background-color:white !important;">
           <div class="modal-header">
             <h1 class="modal-title fs-5" id="exampleModalLabel">Hiker</h1>
@@ -155,7 +155,7 @@ $rows = $ultimo_id->fetchAll(PDO::FETCH_ASSOC);
     </div>
     <!-- Modal heiker recibe -->
     <div class="modal fade" id="heiker_recibe" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-xl" style="width:100%">
+      <div class="modal-dialog modal-xl" style="max-width:100%">
         <div class="modal-content" style="background-color:white !important;">
           <div class="modal-header">
             <h1 class="modal-title fs-5" id="exampleModalLabel">Recibir Vehiculo</h1>
@@ -192,7 +192,7 @@ $rows = $ultimo_id->fetchAll(PDO::FETCH_ASSOC);
     </div>
     <!-- Modal ver detalles -->
     <div class="modal fade" id="ver_detallesModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-xl" style="width:100%">
+      <div class="modal-dialog modal-xl" style="max-width:100%;">
         <div class="modal-content" style="background-color:white !important;">
           <div class="modal-header">
             <h1 class="modal-title fs-5" id="exampleModalLabel">Ver detalles</h1>
@@ -209,7 +209,7 @@ $rows = $ultimo_id->fetchAll(PDO::FETCH_ASSOC);
     </div>
     <!-- Modal ver detalles revision -->
     <div class="modal fade" id="ver_detallesModalRevi" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-xl" style="width:100%">
+      <div class="modal-dialog modal-xl" style="max-width:100%;">
         <div class="modal-content" style="background-color:white !important;">
           <div class="modal-header">
             <h1 class="modal-title fs-5" id="exampleModalLabel">Ver Revision</h1>
