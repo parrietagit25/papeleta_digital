@@ -648,6 +648,8 @@ if (isset($_GET['counter_detail'])) { ?>
             $mail->AddEmbeddedImage($firma, 'firma');
         }
 
+        $mail->AddEmbeddedImage('../img/290x128.png', 'logogrupopcr');
+
         /*
         $mail->AddEmbeddedImage('../img/290x128.png', 'logogrupopcr');
         $mail->AddEmbeddedImage($imagen, 'papeleta');
