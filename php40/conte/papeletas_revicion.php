@@ -103,18 +103,7 @@ $rows = $ultimo_id->fetchAll(PDO::FETCH_ASSOC);
       <?php // <form action="" method="post"> ?>
         <div class="container">
             <?php echo $mensaje; ?>
-            <h2>Papeletas</h2>
-
-            <?php if ($_SESSION["tipo_usuario"] == 4) { ?>
-            <form id="miFormulario" action="" method="post">
-                <div style="text-align: center;">
-                    <label for="salida">Check-out</label>
-                    <input type="radio" name="ing_sal" id="salida" value="2" <?php if(isset($_POST['ing_sal']) && $_POST['ing_sal'] == 2){ echo 'checked'; } ?>>
-                    <label for="ingreso">Check-In</label>
-                    <input type="radio" name="ing_sal" id="ingreso" value="3" <?php if(isset($_POST['ing_sal']) && $_POST['ing_sal'] == 3){ echo 'checked'; } ?>>
-                </div>
-            </form>
-            <?php } ?>
+            <h2>Papeletas en Revision</h2>
 
             <br>
             <br>

@@ -150,7 +150,7 @@ if (isset($_GET['counter_detail'])) { ?>
                     <label>Luces Delanteras</label>
                     <br><br>
                     
-                    <input class="form-check-input" type="checkbox" id="aire_acondicinado" value="1" <?php echo ($value['aire_acondicinado'] == 1 ? 'checked' : ''); ?>>
+                    <input class="form-check-input" type="checkbox" id="aire_acondicionado" value="1" <?php echo ($value['aire_acondicionado'] == 1 ? 'checked' : ''); ?>>
                     <label>Aire Acondicionado</label>
                     <br><br>
                     
@@ -432,6 +432,13 @@ if (isset($_GET['counter_detail'])) { ?>
         $copas_1234 = ($copas_1234 == 1) ? 'SI' : 'NO';
         $base_antena = ($base_antena == 1) ? 'SI' : 'NO';
         $triangulo_seguridad = ($triangulo_seguridad == 1) ? 'SI' : 'NO';
+
+        $papeletaExists = ($imagen != '') ? true : false;
+        $fotoFrenteExists = ($foto_frente != '') ? true : false;
+        $fotoConductorExists = ($foto_lado_conductor != '') ? true : false;
+        $fotoMaleteroExists = ($foto_maletero != '') ? true : false;
+        $fotoPasajeroExists = ($foto_lado_pasajero != '') ? true : false;
+        $firmaExists = ($firma != '') ? true : false;
   
         $mail->CharSet = 'UTF-8';
         $mail->isHTML(true);  
@@ -604,26 +611,51 @@ if (isset($_GET['counter_detail'])) { ?>
             </table>
         </div>
     </div>
-            <br>
+    <br>
 
-            <p><b>Inspección antes de la entrega:</b></p>
-            <img src="cid:papeleta" width="250" alt="Inspección" />
-            <p><b>Fotos:</b></p>
-            <img src="cid:foto_frente" width="250" alt="Foto Frente" />
-            <img src="cid:foto_conductor" width="250" alt="Foto Lado Conductor" />
-            <img src="cid:foto_maletero" width="250" alt="Foto Maletero" />
-            <img src="cid:foto_pasajero" width="250" alt="Foto Lado Pasajero" />
-            <p><b>Firma:</b></p>
-            <img src="cid:firma" width="250" alt="Firma" />
+    <p><b>Inspección antes de la entrega:</b></p>'
+    . ($papeletaExists ? '<img src="cid:papeleta" width="250" alt="Inspección" />' : '') . '
+    <p><b>Fotos:</b></p>'
+    . ($fotoFrenteExists ? '<img src="cid:foto_frente" width="250" alt="Foto Frente" />' : '')
+    . ($fotoConductorExists ? '<img src="cid:foto_conductor" width="250" alt="Foto Lado Conductor" />' : '')
+    . ($fotoMaleteroExists ? '<img src="cid:foto_maletero" width="250" alt="Foto Maletero" />' : '')
+    . ($fotoPasajeroExists ? '<img src="cid:foto_pasajero" width="250" alt="Foto Lado Pasajero" />' : '') . '
+    <p><b>Firma:</b></p>'
+    . ($firmaExists ? '<img src="cid:firma" width="250" alt="Firma" />' : '') . '
         ';
 
+        if ($papeletaExists) {
+            $mail->AddEmbeddedImage($imagen, 'papeleta');
+        }
+        
+        if ($fotoFrenteExists) {
+            $mail->AddEmbeddedImage($foto_frente, 'foto_frente');
+        }
+        
+        if ($fotoConductorExists) {
+            $mail->AddEmbeddedImage($foto_lado_conductor, 'foto_conductor');
+        }
+        
+        if ($fotoMaleteroExists) {
+            $mail->AddEmbeddedImage($foto_maletero, 'foto_maletero');
+        }
+        
+        if ($fotoPasajeroExists) {
+            $mail->AddEmbeddedImage($foto_lado_pasajero, 'foto_pasajero');
+        }
+        
+        if ($firmaExists) {
+            $mail->AddEmbeddedImage($firma, 'firma');
+        }
+
+        /*
         $mail->AddEmbeddedImage('../img/290x128.png', 'logogrupopcr');
         $mail->AddEmbeddedImage($imagen, 'papeleta');
         $mail->AddEmbeddedImage($foto_frente, 'foto_frente');
         $mail->AddEmbeddedImage($foto_lado_conductor, 'foto_conductor');
         $mail->AddEmbeddedImage($foto_mateleto, 'foto_maletero');
         $mail->AddEmbeddedImage($foto_lado_pasajero, 'foto_pasajero');
-        $mail->AddEmbeddedImage($firma, 'firma');
+        $mail->AddEmbeddedImage($firma, 'firma'); */
 
         $mail->AltBody = '';
 
@@ -810,7 +842,7 @@ if (isset($_GET['counter_detail'])) { ?>
                 <label>Luces Delanteras</label>
                 <br><br>
                 
-                <input class="form-check-input" type="checkbox" id="aire_acondicinado" value="1" <?php echo ($value['aire_acondicinado'] == 'SI' ? 'checked' : ''); ?>>
+                <input class="form-check-input" type="checkbox" id="aire_acondicionado" value="1" <?php echo ($value['aire_acondicionado'] == 'SI' ? 'checked' : ''); ?>>
                 <label>Aire Acondicionado</label>
                 <br><br>
                 
@@ -1617,7 +1649,7 @@ if (isset($_GET['counter_detail'])) { ?>
                 <label>Luces Delanteras</label>
                 <br><br>
                 
-                <input class="form-check-input" onclick="return false;" type="checkbox" id="aire_acondicinado" value="1" <?php echo ($value['aire_acondicinado'] == 1 ? 'checked' : ''); ?>>
+                <input class="form-check-input" onclick="return false;" type="checkbox" id="aire_acondicionado" value="1" <?php echo ($value['aire_acondicionado'] == 1 ? 'checked' : ''); ?>>
                 <label>Aire Acondicionado</label>
                 <br><br>
                 
@@ -1964,7 +1996,7 @@ if (isset($_GET['counter_detail'])) { ?>
     <br>
     <br>
 </div> 
-<input type="hidden" value="<?php echo $value['id']; ?>" name="id_revicion">
+<input type="hidden" value="<?php echo $_GET['id']; ?>" name="id_revicion">
     
 <?php } 
 

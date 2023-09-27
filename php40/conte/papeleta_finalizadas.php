@@ -20,9 +20,17 @@ if (isset($_POST['eliminar_reg'])) {
     </div>';
 }
 
-$where = ' (1=1) ';
+$where = ' (1=1) AND stat = 4';
 
-$ultimo_id = $pdo -> query("SELECT * FROM papeleta_general WHERE stat = 4");
+if ($_SESSION["tipo_usuario"] == 3) {
+  $where = " (1=1) AND stat = 11 ";
+}
+
+if ($_SESSION["tipo_usuario"] == 2) {
+  $where = " (1=1) AND stat = 11 ";
+}
+
+$ultimo_id = $pdo -> query("SELECT * FROM papeleta_general WHERE $where");
 $rows = $ultimo_id->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!doctype html>
@@ -160,18 +168,7 @@ $rows = $ultimo_id->fetchAll(PDO::FETCH_ASSOC);
       <?php // <form action="" method="post"> ?>
         <div class="container">
             <?php echo $mensaje; ?>
-            <h2>Papeletas</h2>
-
-            <?php if ($_SESSION["tipo_usuario"] == 4) { ?>
-            <form id="miFormulario" action="" method="post">
-                <div style="text-align: center;">
-                    <label for="salida">Salida</label>
-                    <input type="radio" name="ing_sal" id="salida" value="2" <?php if(isset($_POST['ing_sal']) && $_POST['ing_sal'] == 2){ echo 'checked'; } ?>>
-                    <label for="ingreso">Ingreso</label>
-                    <input type="radio" name="ing_sal" id="ingreso" value="3" <?php if(isset($_POST['ing_sal']) && $_POST['ing_sal'] == 3){ echo 'checked'; } ?>>
-                </div>
-            </form>
-            <?php } ?>
+            <h2>Papeletas Finalizadas</h2>
 
             <br>
             <br>

@@ -48,6 +48,10 @@ if ($_SESSION["tipo_usuario"] == 3) {
   $where .= " AND stat = 1 ";
 }
 
+if ($_SESSION["tipo_usuario"] == 2) {
+  $where .= " AND stat = 11 ";
+}
+
 if(isset($_POST['ing_sal']) && $_POST['ing_sal'] == 2){ 
   $where .= " AND stat = 2 ";
 }elseif (isset($_POST['ing_sal']) && $_POST['ing_sal'] == 3) {
@@ -267,7 +271,7 @@ $rows = $ultimo_id->fetchAll(PDO::FETCH_ASSOC);
                               }elseif ($row['stat'] == 2) {
                                 echo 'Esperando Check-out';
                               }elseif ($row['stat'] == 3) {
-                                echo 'Check-out';
+                                echo 'Esperando Check-in';
                               }elseif ($row['stat'] == 4) {
                                 echo 'Finalizado';
                               }elseif ($row['stat'] == 5) {
