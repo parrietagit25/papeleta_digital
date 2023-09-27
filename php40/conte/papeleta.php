@@ -657,65 +657,68 @@ $rows = $ultimo_id->fetchAll(PDO::FETCH_ASSOC);
 
               // firma digital
 
-                let firmaCanvas = document.getElementById("firmaCanvas");
-                let ctxFirma = firmaCanvas.getContext("2d");
-                let firmando = false;
+              let firmaCanvas = document.getElementById("firmaCanvas");
+              let ctxFirma = firmaCanvas.getContext("2d");
+              let firmando = false;
 
-                function empezarDibujo(e) {
-                    firmando = true;
-                    dibujar(e);
-                }
+              function obtenerCoordenadas(e, canvas) {
+                  var rect = canvas.getBoundingClientRect();
+                  if (e.touches) {  // Si es un evento táctil
+                      return {
+                          x: e.touches[0].clientX - rect.left,
+                          y: e.touches[0].clientY - rect.top
+                      };
+                  } else {  // Si es un evento de mouse
+                      return {
+                          x: e.clientX - rect.left,
+                          y: e.clientY - rect.top
+                      };
+                  }
+              }
 
-                firmaCanvas.addEventListener("mousedown", function(e) {
-                    firmando = true;
-                    dibujar(e);
-                });
+              function empezarDibujo(e) {
+                  firmando = true;
+                  dibujar(e);
+              }
 
-                firmaCanvas.addEventListener("mousemove", dibujar);
+              function dibujar(e) {
+                  if (!firmando) return;
 
-                firmaCanvas.addEventListener("mouseup", function() {
-                    firmando = false;
-                    ctxFirma.beginPath();
-                });
+                  const coords = obtenerCoordenadas(e, firmaCanvas);
 
-                function dibujar(e) {
-                    if (!firmando) return;
-                    const coords = obtenerCoordenadas(e, firmaCanvas);
+                  ctxFirma.lineWidth = 5;
+                  ctxFirma.lineCap = "round";
+                  ctxFirma.strokeStyle = "#000";
 
-                    var rect = firmaCanvas.getBoundingClientRect();
-                    var x = e.clientX - rect.left;
-                    var y = e.clientY - rect.top;
+                  ctxFirma.lineTo(coords.x, coords.y);
+                  ctxFirma.stroke();
+                  ctxFirma.beginPath();
+                  ctxFirma.moveTo(coords.x, coords.y);
 
-                    ctxFirma.lineWidth = 5;  // ajustar el grosor de la línea
-                    ctxFirma.lineCap = "round"; // Esto hará que la línea sea más suave
-                    ctxFirma.strokeStyle = "#000";  // Color de la firma
+                  console.log(coords.x, coords.y);
+              }
 
-                    ctxFirma.lineTo(x, y);
-                    ctxFirma.stroke();
-                    ctxFirma.beginPath();
-                    ctxFirma.moveTo(x, y);
+              function terminarDibujo() {
+                  firmando = false;
+                  ctxFirma.beginPath();
+              }
 
-                    console.log(x, y);
-                }
+              // Eventos de mouse
+              firmaCanvas.addEventListener("mousedown", empezarDibujo);
+              firmaCanvas.addEventListener("mousemove", dibujar);
+              firmaCanvas.addEventListener("mouseup", terminarDibujo);
 
-                function terminarDibujo() {
-                    firmando = false;
-                    ctxFirma.beginPath();
-                }
+              // Eventos táctiles
+              firmaCanvas.addEventListener("touchstart", empezarDibujo);
+              firmaCanvas.addEventListener("touchmove", function(e) {
+                  e.preventDefault(); // Previene el scrolling cuando se dibuja
+                  dibujar(e);
+              });
+              firmaCanvas.addEventListener("touchend", terminarDibujo);
 
-                    // Agregando eventos para mouse
-                    firmaCanvas.addEventListener("mousedown", empezarDibujo);
-                    firmaCanvas.addEventListener("mousemove", dibujar);
-                    firmaCanvas.addEventListener("mouseup", terminarDibujo);
-
-                    // Agregando eventos para táctiles
-                    firmaCanvas.addEventListener("touchstart", empezarDibujo);
-                    firmaCanvas.addEventListener("touchmove", dibujar);
-                    firmaCanvas.addEventListener("touchend", terminarDibujo);
-
-                document.getElementById("btnLimpiarFirma").addEventListener("click", function() {
-                    ctxFirma.clearRect(0, 0, firmaCanvas.width, firmaCanvas.height);
-                })
+              document.getElementById("btnLimpiarFirma").addEventListener("click", function() {
+                  ctxFirma.clearRect(0, 0, firmaCanvas.width, firmaCanvas.height);
+              });
 
                 // fotos
 
