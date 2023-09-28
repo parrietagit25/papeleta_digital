@@ -25,3 +25,13 @@ function get_usuarios($id_user){
     return $nombre;
 
 }
+
+function generarCadenaAleatoria($longitud = 10) {
+    $caracteres = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $numCaracteres = strlen($caracteres);
+    $cadenaAleatoria = '';
+    for ($i = 0; $i < $longitud; $i++) {
+        $cadenaAleatoria .= $caracteres[rand(0, $numCaracteres - 1)];
+    }
+    return $cadenaAleatoria;
+}

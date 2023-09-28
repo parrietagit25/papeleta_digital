@@ -523,6 +523,26 @@ $rows = $ultimo_id->fetchAll(PDO::FETCH_ASSOC);
                   })
 
                   // fotos
+                  /*
+                  document.getElementById('file1').addEventListener('change', function() {
+                      previewImage(this, 'preview1');
+                      document.querySelector('#frente').style.display = "none";
+                  });
+
+                  document.getElementById('file2').addEventListener('change', function() {
+                      previewImage(this, 'preview2');
+                      document.querySelector('#lado_conductor').style.display = "none";
+                  });
+
+                  document.getElementById('file3').addEventListener('change', function() {
+                      previewImage(this, 'preview3');
+                      document.querySelector('#maletero').style.display = "none";
+                  });
+
+                  document.getElementById('file4').addEventListener('change', function() {
+                      previewImage(this, 'preview4');
+                      document.querySelector('#lado_pasajero').style.display = "none";
+                  });*/
 
                   document.getElementById('file1').addEventListener('change', function() {
                       previewImage(this, 'preview1');
@@ -827,11 +847,23 @@ $rows = $ultimo_id->fetchAll(PDO::FETCH_ASSOC);
             formData.append('copas_1234', getCheckedValue('copas_1234') ? 1 : 0);
             formData.append('base_antena', getCheckedValue('base_antena') ? 1 : 0);
             formData.append('triangulo_seguridad', getCheckedValue('triangulo_seguridad') ? 1 : 0);
-
+            /*
             formData.append('foto1', document.getElementById('file1').files[0]);
             formData.append('foto2', document.getElementById('file2').files[0]);
             formData.append('foto3', document.getElementById('file3').files[0]);
-            formData.append('foto4', document.getElementById('file4').files[0]);
+            formData.append('foto4', document.getElementById('file4').files[0]); */
+
+            const blob1 = await getResizedImageBlob(document.getElementById('file1'), 400, 400);
+            formData.append('foto1', blob1);
+
+            const blob2 = await getResizedImageBlob(document.getElementById('file2'), 400, 400);
+            formData.append('foto2', blob2);
+
+            const blob3 = await getResizedImageBlob(document.getElementById('file3'), 400, 400);
+            formData.append('foto3', blob3);
+
+            const blob4 = await getResizedImageBlob(document.getElementById('file4'), 400, 400);
+            formData.append('foto4', blob4);
 
             formData.append('heiker_guardar', '1');
             formData.append('id', document.getElementById('id').value);
@@ -845,7 +877,7 @@ $rows = $ultimo_id->fetchAll(PDO::FETCH_ASSOC);
                 let data = await respuesta.text();
                 alert('Actualizado con éxito!');
                 console.log(data);
-                location.reload();
+                //location.reload();
             } else {
                 console.error("Error en la respuesta del servidor:", respuesta.statusText);
             }
@@ -895,11 +927,23 @@ $rows = $ultimo_id->fetchAll(PDO::FETCH_ASSOC);
             formData.append('copas_1234', getCheckedValue('copas_1234') ? 1 : 0);
             formData.append('base_antena', getCheckedValue('base_antena') ? 1 : 0);
             formData.append('triangulo_seguridad', getCheckedValue('triangulo_seguridad') ? 1 : 0);
-
+            /*
             formData.append('foto1', document.getElementById('file1').files[0]);
             formData.append('foto2', document.getElementById('file2').files[0]);
             formData.append('foto3', document.getElementById('file3').files[0]);
-            formData.append('foto4', document.getElementById('file4').files[0]); 
+            formData.append('foto4', document.getElementById('file4').files[0]);  */
+
+            const blob1 = await getResizedImageBlob(document.getElementById('file1'), 400, 400);
+            formData.append('foto1', blob1);
+
+            const blob2 = await getResizedImageBlob(document.getElementById('file2'), 400, 400);
+            formData.append('foto2', blob2);
+
+            const blob3 = await getResizedImageBlob(document.getElementById('file3'), 400, 400);
+            formData.append('foto3', blob3);
+
+            const blob4 = await getResizedImageBlob(document.getElementById('file4'), 400, 400);
+            formData.append('foto4', blob4);
 
             formData.append('mandar_revicion', '1');
             formData.append('id', document.getElementById('id').value);
@@ -966,11 +1010,23 @@ $rows = $ultimo_id->fetchAll(PDO::FETCH_ASSOC);
             formData.append('base_antena', getCheckedValue('base_antena') ? 1 : 0);
             formData.append('triangulo_seguridad', getCheckedValue('triangulo_seguridad') ? 1 : 0);
 
-            
+            /*
             formData.append('foto1', document.getElementById('file1').files[0]);
             formData.append('foto2', document.getElementById('file2').files[0]);
             formData.append('foto3', document.getElementById('file3').files[0]);
-            formData.append('foto4', document.getElementById('file4').files[0]); 
+            formData.append('foto4', document.getElementById('file4').files[0]);  */
+
+            const blob1 = await getResizedImageBlob(document.getElementById('file1'), 400, 400);
+            formData.append('foto1', blob1);
+
+            const blob2 = await getResizedImageBlob(document.getElementById('file2'), 400, 400);
+            formData.append('foto2', blob2);
+
+            const blob3 = await getResizedImageBlob(document.getElementById('file3'), 400, 400);
+            formData.append('foto3', blob3);
+
+            const blob4 = await getResizedImageBlob(document.getElementById('file4'), 400, 400);
+            formData.append('foto4', blob4);
 
             formData.append('finalizar', '1');
             formData.append('id', document.getElementById('id').value);
@@ -1041,6 +1097,67 @@ $rows = $ultimo_id->fetchAll(PDO::FETCH_ASSOC);
                   });
               });
           });
+
+          function previewImage(input, previewId) {
+              const file = input.files[0];
+              if (file) {
+                  resizeImage(file, 800, 800, function (resizedImgBase64) {
+                      // Muestra la imagen en la vista previa.
+                      const preview = document.getElementById(previewId);
+                      preview.src = resizedImgBase64;
+                  });
+              }
+          }
+
+          function resizeImage(file, maxWidth, maxHeight, callback) {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = function (event) {
+                const img = new Image();
+                img.src = event.target.result;
+                img.onload = function () {
+                    let width = img.width;
+                    let height = img.height;
+
+                    if (width > height) {
+                        if (width > maxWidth) {
+                            height *= maxWidth / width;
+                            width = maxWidth;
+                        }
+                    } else {
+                        if (height > maxHeight) {
+                            width *= maxHeight / height;
+                            height = maxHeight;
+                        }
+                    }
+                    
+                    const canvas = document.createElement('canvas');
+                    canvas.width = width;
+                    canvas.height = height;
+                    canvas.getContext('2d').drawImage(img, 0, 0, width, height);
+                    
+                    callback(canvas.toDataURL());
+                }
+            }
+        }
+
+        async function getResizedImageBlob(fileInput, maxWidth, maxHeight) {
+          const file = fileInput.files[0];  
+          console.log(file);
+          return new Promise((resolve, reject) => {
+              resizeImage(file, maxWidth, maxHeight, function (resizedImgBase64) {
+                    const byteString = atob(resizedImgBase64.split(',')[1]);
+                    const arrayBuffer = new ArrayBuffer(byteString.length);
+                    const int8Array = new Uint8Array(arrayBuffer);
+                    for (let i = 0; i < byteString.length; i++) {
+                        int8Array[i] = byteString.charCodeAt(i);
+                    }
+                    const blob = new Blob([int8Array], { type: "image/jpeg" });
+                    resolve(blob);
+                });
+            });
+        }
+
     </script>
     </body>
 </html>

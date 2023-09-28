@@ -225,7 +225,7 @@ if (isset($_GET['counter_detail'])) { ?>
             </label>
             <input type="file" id="file1" accept="image/*" class="hidden-file">
             <p id="frente" style="display:block"> FRENTE</p> 
-                <img id="preview1" width="150">
+                <img id="preview1" width="150" >
             </div>
             <div class="col-6" style="padding:20px;">
             <label for="file2" class="custom-file-upload">
@@ -282,8 +282,9 @@ if (isset($_GET['counter_detail'])) { ?>
     $fileFields = ['foto1', 'foto2', 'foto3', 'foto4'];
 
     foreach ($fileFields as $field) {
+        
         if(isset($_FILES[$field])) {
-            $fileName = time() . basename($_FILES[$field]["name"]);
+            $fileName = generarCadenaAleatoria(10) . basename($_FILES[$field]["name"]);
             $targetFilePath = $fotosCarros . $fileName;
             
             if(move_uploaded_file($_FILES[$field]["tmp_name"], $targetFilePath)) {
@@ -1029,7 +1030,7 @@ if (isset($_GET['counter_detail'])) { ?>
 
     foreach ($fileFields as $field) {
         if(isset($_FILES[$field])) {
-            $fileName = time() . basename($_FILES[$field]["name"]);
+            $fileName = generarCadenaAleatoria(10) . basename($_FILES[$field]["name"]);
             $targetFilePath = $rutaFotosRes . $fileName;
             
             if(move_uploaded_file($_FILES[$field]["tmp_name"], $targetFilePath)) {
