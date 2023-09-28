@@ -217,7 +217,25 @@ if (isset($_GET['counter_detail'])) { ?>
         <br>
 
         <div class="row text-center" style="border: solid 1px #df3232; padding:20px;">
-            <h2>Fotos</h2>
+        <h2>Fotos de Operaciones</h2>
+        <br>
+            <div class="col-6" style="padding:20px;">
+                <img id="" width="250" src="<?php echo $value['op_foto_frente']; ?>">
+            </div>
+            <div class="col-6" style="padding:20px;">
+                <img id="" width="250" src="<?php echo $value['op_foto_coductor']; ?>">
+            </div>
+            <div class="col-6" style="padding:20px;">
+                <img id="" width="250" src="<?php echo $value['op_foto_cajuela']; ?>">
+            </div>
+            <div class="col-6" style="padding:20px;">
+                <img id="" width="250" src="<?php echo $value['op_foto_pasajero']; ?>">
+            </div>
+        </div>
+        <br>
+
+        <div class="row text-center" style="border: solid 1px #df3232; padding:20px;">
+            <h2>Fotos Check-out</h2>
             <br>
             <div class="col-6" style="padding:20px;">
             <label for="file1" class="custom-file-upload">
@@ -912,6 +930,23 @@ if (isset($_GET['counter_detail'])) { ?>
     </div>
     <br>
     <div class="row text-center" style="border: solid 1px #df3232; padding:20px;">
+    <h2>Fotos de Operaciones</h2>
+    <br>
+        <div class="col-6" style="padding:20px;">
+            <img id="" width="250" src="<?php echo $value['op_foto_frente']; ?>">
+        </div>
+        <div class="col-6" style="padding:20px;">
+            <img id="" width="250" src="<?php echo $value['op_foto_coductor']; ?>">
+        </div>
+        <div class="col-6" style="padding:20px;">
+            <img id="" width="250" src="<?php echo $value['op_foto_cajuela']; ?>">
+        </div>
+        <div class="col-6" style="padding:20px;">
+            <img id="" width="250" src="<?php echo $value['op_foto_pasajero']; ?>">
+        </div>
+    </div>
+    <br>
+    <div class="row text-center" style="border: solid 1px #df3232; padding:20px;">
     <h2>Fotos de Check-out</h2>
     <br>
         <div class="col-6" style="padding:20px;">
@@ -929,7 +964,7 @@ if (isset($_GET['counter_detail'])) { ?>
     </div>
     <br>
     <div class="row text-center" style="border: solid 1px #df3232; padding:20px;">
-        <h2>Fotos de Ingreso</h2>
+        <h2>Fotos de Check in</h2>
         <br>
         <div class="col-6" style="padding:20px;">
         <label for="file1" class="custom-file-upload">
@@ -1325,6 +1360,13 @@ if (isset($_GET['counter_detail'])) { ?>
         $usuario_counter = $value['id_user_counter'];
         $usuario_heaker = $value['id_user_heiker'];
 
+        // fotos opera
+
+        $op_foto_frente = $value['op_foto_frente'];
+        $op_foto_coductor = $value['op_foto_coductor'];
+        $op_foto_cajuela = $value['op_foto_cajuela'];
+        $op_foto_pasajero = $value['op_foto_pasajero'];
+
     }
 
     if (!isset($foto_frente_res) || is_null($foto_frente_res)) {
@@ -1395,6 +1437,22 @@ if (isset($_GET['counter_detail'])) { ?>
         $usuario_heaker = '';
     }
 
+    if (!isset($op_foto_frente) || is_null($op_foto_frente)) {
+        $op_foto_frente = '';
+    }
+
+    if (!isset($op_foto_coductor) || is_null($op_foto_coductor)) {
+        $op_foto_coductor = '';
+    }
+
+    if (!isset($op_foto_cajuela) || is_null($op_foto_cajuela)) {
+        $op_foto_cajuela = '';
+    }
+
+    if (!isset($op_foto_pasajero) || is_null($op_foto_pasajero)) {
+        $op_foto_pasajero = '';
+    }
+
 
     $stmt = $pdo->query("INSERT INTO papeleta_revicion (inspeccion4, 
                                                         imspeccion,
@@ -1444,7 +1502,11 @@ if (isset($_GET['counter_detail'])) { ?>
                                                         foto_frente_ing, 
                                                         foto_conductor_ing, 
                                                         foto_maletero_ing, 
-                                                        foto_pasajero_ing)VALUES(
+                                                        foto_pasajero_ing, 
+                                                        op_foto_frente,
+                                                        op_foto_coductor,
+                                                        op_foto_cajuela,
+                                                        op_foto_pasajero)VALUES(
                                                         '".$imagen."',
                                                         '".$inspeccion1."' ,
                                                         '".$inspeccion2."' ,
@@ -1493,7 +1555,11 @@ if (isset($_GET['counter_detail'])) { ?>
                                                         '".$foto_frente_res."', 
                                                         '".$foto_lado_conductor_res."', 
                                                         '".$foto_mateleto_res."', 
-                                                        '".$foto_lado_pasajero_res."')");
+                                                        '".$foto_lado_pasajero_res."', 
+                                                        '".$op_foto_frente."', 
+                                                        '".$op_foto_coductor."', 
+                                                        '".$op_foto_cajuela."', 
+                                                        '".$op_foto_pasajero."')");
     
 }elseif (isset($_GET['ver_detalles'])) { 
     
@@ -1727,36 +1793,53 @@ if (isset($_GET['counter_detail'])) { ?>
         <img src="<?php echo $value['imspeccion3']; ?>" alt="" srcset="">
     </div>
     <br>
-    <div class="row text-center" style="border: solid 1px #df3232; padding:20px;">>
+    <div class="row text-center" style="border: solid 1px #df3232; padding:20px;">
+        <h2>Fotos de Operaciones</h2>
+        <br>
+        <div class="col-6" style="padding:20px;">
+            <img id="" width="250" src="<?php echo $value['op_foto_frente']; ?>">
+        </div>
+        <div class="col-6" style="padding:20px;">
+            <img id="" width="250" src="<?php echo $value['op_foto_coductor']; ?>">
+        </div>
+        <div class="col-6" style="padding:20px;">
+            <img id="" width="250" src="<?php echo $value['op_foto_cajuela']; ?>">
+        </div>
+        <div class="col-6" style="padding:20px;">
+            <img id="" width="250" src="<?php echo $value['op_foto_pasajero']; ?>">
+        </div>
+    </div>
+    <br>
+    <div class="row text-center" style="border: solid 1px #df3232; padding:20px;">
         <h2>Fotos Check-out</h2>
         <br>
-        <div class="col-6">
+        <div class="col-6" style="padding:20px;">
             <img id="" width="250" src="<?php echo $value['foto_frente']; ?>" >
         </div>
-        <div class="col-6">
+        <div class="col-6" style="padding:20px;">
             <img id="" width="250" src="<?php echo $value['foto_lado_conductor']; ?>">
         </div>
-        <div class="col-6">
+        <div class="col-6" style="padding:20px;">
             <img id="" width="250" src="<?php echo $value['foto_mateleto']; ?>">
         </div>
-        <div class="col-6">
+        <div class="col-6" style="padding:20px;">
             <img id="" width="250" src="<?php echo $value['foto_lado_pasajero']; ?>">
         </div>
     </div>
     <br>
-    <div class="row text-center" style="border: solid 1px #df3232; padding:20px;">>
-        <h2>Fotos Ingreso</h2>
+    <div class="row text-center" style="border: solid 1px #df3232; padding:20px;">
+        <h2>Fotos Check-in</h2>
         <br>
-        <div class="col-6">
+        <div class="col-6" style="padding:20px;">
             <img id="" width="250" src="<?php echo $value['foto_frente_ing']; ?>" >
         </div>
-        <div class="col-6">
+        <div class="col-6" style="padding:20px;">
             <img id="" width="250" src="<?php echo $value['foto_conductor_ing']; ?>">
         </div>
-        <div class="col-6">
+        <div class="col-6" style="padding:20px;">
             <img id="" width="250" src="<?php echo $value['foto_maletero_ing']; ?>">
         </div>
-        <div class="col-6">
+        <div class="col-6" style="padding:20px;">
             <img id="" width="250" src="<?php echo $value['foto_pasajero_ing']; ?>">
         </div>
     </div>
@@ -1950,6 +2033,24 @@ if (isset($_GET['counter_detail'])) { ?>
         <img src="<?php echo $value['inspeccion4']; ?>" alt="" srcset="">
     </div>
     <br>
+
+    <div class="row text-center" style="border: solid 1px #df3232; padding:20px;">
+        <h2>Fotos de Operaciones</h2>
+        <br>
+        <div class="col-6" style="padding:20px;">
+            <img id="" width="250" src="<?php echo $value['op_foto_frente']; ?>">
+        </div>
+        <div class="col-6" style="padding:20px;">
+            <img id="" width="250" src="<?php echo $value['op_foto_coductor']; ?>">
+        </div>
+        <div class="col-6" style="padding:20px;">
+            <img id="" width="250" src="<?php echo $value['op_foto_cajuela']; ?>">
+        </div>
+        <div class="col-6" style="padding:20px;">
+            <img id="" width="250" src="<?php echo $value['op_foto_pasajero']; ?>">
+        </div>
+    </div>
+    <br>
     
     <div class="row text-center" style="border: solid 1px #df3232; padding:20px;">
         <h2>Fotos Check-out</h2>
@@ -1969,7 +2070,7 @@ if (isset($_GET['counter_detail'])) { ?>
     </div>
     <br>
     <div class="row text-center" style="border: solid 1px #df3232; padding:20px;">
-        <h2>Fotos Ingreso</h2>
+        <h2>Fotos Check in</h2>
         <br>
         <div class="col-6" style="padding:20px;">
             <img id="" width="250" src="<?php echo $value['foto_frente_ing']; ?>">

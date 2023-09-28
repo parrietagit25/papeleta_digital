@@ -877,7 +877,7 @@ $rows = $ultimo_id->fetchAll(PDO::FETCH_ASSOC);
                 let data = await respuesta.text();
                 alert('Actualizado con éxito!');
                 console.log(data);
-                //location.reload();
+                location.reload();
             } else {
                 console.error("Error en la respuesta del servidor:", respuesta.statusText);
             }

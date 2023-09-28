@@ -176,7 +176,7 @@ if ($_SESSION["tipo_usuario"] == 3) {
                         <input class="form-check-input" type="checkbox" id="luces_delanteras" value="1">
                         <label>Luces Delanteras</label>
                         <br><br>
-                        <input class="form-check-input" type="checkbox" id="aire_acondicinado" value="1">
+                        <input class="form-check-input" type="checkbox" id="aire_acondicionado" value="1">
                         <label>Aire Acondicionado</label>
                         <br><br>
                         <input class="form-check-input" type="checkbox" id="limpia_parabrisas" value="1">
@@ -218,6 +218,43 @@ if ($_SESSION["tipo_usuario"] == 3) {
                     </div>
                 </div>
             </div>
+            <br>
+            <div class="row text-center" style="border: solid 1px #df3232; padding:20px;">
+              <h2>Fotos</h2>
+              <br>
+              <div class="col-6" style="padding:20px;">
+              <label for="file1" class="custom-file-upload">
+                  <i class="camera-icon"></i>
+              </label>
+              <input type="file" id="file1" accept="image/*" class="hidden-file">
+              <p id="frente" style="display:block"> FRENTE</p> 
+                  <img id="preview1" width="150" >
+              </div>
+              <div class="col-6" style="padding:20px;">
+              <label for="file2" class="custom-file-upload">
+                  <i class="camera-icon"></i>
+              </label>
+                  <input type="file" id="file2" accept="image/*" class="hidden-file">
+                  <p id="lado_conductor" style="display:block"> LADO DEL CONDUCTOR</p>
+                  <img id="preview2" width="150">
+              </div>
+              <div class="col-6" style="padding:20px;">
+              <label for="file3" class="custom-file-upload">
+                  <i class="camera-icon"></i>
+              </label>
+                  <input type="file" id="file3" accept="image/*" class="hidden-file">
+                  <p id="maletero" style="display:block"> MALETERO</p>
+                  <img id="preview3" width="150">
+              </div>
+              <div class="col-6" style="padding:20px;">
+              <label for="file4" class="custom-file-upload">
+                  <i class="camera-icon"></i>
+              </label>
+                  <input type="file" id="file4" accept="image/*" class="hidden-file">
+                  <p id="lado_pasajero" style="display:block"> LADO DEL PASAJERO</p>
+                  <img id="preview4" width="150">
+              </div>
+          </div>
             <br>
             <div style="border: solid 1px #df3232; padding:20px;">
               <h2>Inspeccion</h2>
