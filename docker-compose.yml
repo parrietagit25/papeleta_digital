@@ -6,8 +6,8 @@ services:
     volumes:
       - ./php40:/var/www/html
     ports:
-      - 8090:80  
-      - 4449:443  
+      - 8080:80  
+      - 4433:443  
     restart: always
 
   db:
@@ -26,7 +26,7 @@ services:
     image: phpmyadmin/phpmyadmin
     restart: always
     ports:
-      - 8091:80  
+      - 9090:80  
     environment:
       PMA_HOST: db
       MYSQL_ROOT_PASSWORD: rootpass
