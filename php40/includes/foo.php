@@ -157,11 +157,6 @@ async function guardarCanvas() {
 
   // Agregar las imágenes redimensionadas
 
-  if (e.target.files.length === 0) {
-        console.log("Ningún archivo seleccionado");
-        return;  // Termina la ejecución si no hay archivos seleccionados
-    }
-
     const blob1 = await getResizedImageBlob(document.getElementById('file1'), 400, 400);
     if(blob1) formData.append('foto1', blob1);
 
