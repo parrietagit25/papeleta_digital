@@ -120,6 +120,19 @@ if (isset($_POST['imagen'])) {
         }
     }
 
+    if (!isset($foto_frente)) {
+        $foto_frente = '';
+    }
+    if (!isset($foto_conducto)) {
+        $foto_conducto = '';
+    }
+    if (!isset($foto_maletero)) {
+        $foto_maletero = '';
+    }
+    if (!isset($foto_pasajero)) {
+        $foto_pasajero = '';
+    }
+
     $stmt = $pdo->query("INSERT INTO papeleta_general 
     (op_foto_frente, op_foto_coductor, op_foto_cajuela, op_foto_pasajero, 
     imspeccion, id_user_operaciones, stat, unidad, placa, odometro, combustible, 
