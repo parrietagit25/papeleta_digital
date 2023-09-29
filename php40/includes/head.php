@@ -111,9 +111,9 @@
         }
 
         input[type="checkbox"] {
-            transform: scale(1.5); 
+            /*transform: scale(1.5); */
             margin-top:15px;
-            margin-right:5px;
+            /*margin-right:5px; */
             border: 1px solid #df3232;
             background-color:white;
         }
