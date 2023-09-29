@@ -136,6 +136,12 @@
           background-color:white !important;
         }
 
+        .form-check {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
     </style>
 
     

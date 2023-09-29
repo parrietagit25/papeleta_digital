@@ -144,80 +144,106 @@ if ($_SESSION["tipo_usuario"] == 3) {
             <br>
 
             <div class="container text-left" style="border: solid 1px #df3232; padding:20px;">
-                <div class="row">
-                    <div class="col-4" style="border: solid 1px #df3232; padding:20px;">
-                        <h2>Documentacion</h2>
-                        <input class="form-check-input" type="checkbox" id="poliza_seguro" value="1">
-                        <label>Poliza de seguro</label>
-                        <br><br>
-                        <input class="form-check-input" type="checkbox" id="placa_revisado" value="1"><label>Placa y Revisado</label>
-                        <br><br>
-                        <input class="form-check-input" type="checkbox" id="formato_danios_menores" value="1">
-                        <label>Formato de Daños Menores</label>
-                        <br><br>          
-                        <input class="form-check-input" type="checkbox" id="registro_unico_vehicula" value="1">
-                        <label>Registro Unico Vehicular</label>
-                        <br><br>
-                        <input class="form-check-input" type="checkbox" id="stiker_panapass" value="1">
-                        <label>Sticker de Panapass</label>
-                        <br><br>
-                    </div>
-                    <div class="col-4" style="border: solid 1px #df3232; padding:20px;">
-                        <h2>Operatividad</h2>
-                        <input class="form-check-input" type="checkbox" id="pito_claxon" value="1">
-                        <label>Pito / Claxon</label>
-                        <br><br>
-                        <input class="form-check-input" type="checkbox" id="luces_direccionales" value="1">
-                        <label>Luces Direccionales</label>
-                        <br><br>
-                        <input class="form-check-input" type="checkbox" id="luces_traseras" value="1">
-                        <label>Luces Traseras</label>
-                        <br><br>
-                        <input class="form-check-input" type="checkbox" id="luces_delanteras" value="1">
-                        <label>Luces Delanteras</label>
-                        <br><br>
-                        <input class="form-check-input" type="checkbox" id="aire_acondicionado" value="1">
-                        <label>Aire Acondicionado</label>
-                        <br><br>
-                        <input class="form-check-input" type="checkbox" id="limpia_parabrisas" value="1">
-                        <label>Limpia Parabrisas</label>
-                        <br><br>
-                    </div>
-                    <div class="col-4" style="border: solid 1px #df3232; padding:20px;">
-                        <h2>Accesorios</h2>
-                        <input class="form-check-input" type="checkbox" id="alfombras" value="1">
-                        <label>Alfombras</label>
-                        <br><br>
-                        <input class="form-check-input" type="checkbox" id="herramientas" value="1">
-                        <label>Herramientas</label>
-                        <br><br>
-                        <input class="form-check-input" type="checkbox" id="antenas" value="1">
-                        <label>Antena</label>
-                        <br><br>
-                        <input class="form-check-input" type="checkbox" id="placa_pipa" value="1">
-                        <label>Palanca / Pipa</label>
-                        <br><br>
-                        <input class="form-check-input" type="checkbox" id="extintor" value="1">
-                        <label>Extintor</label>
-                        <br><br>
-                        <input class="form-check-input" type="checkbox" id="gato" value="1">
-                        <label>Gato</label>
-                        <br><br>
-                        <input class="form-check-input" type="checkbox" id="llanta_repuesto" value="1">
-                        <label>Llanta de Repuesto</label>
-                        <br><br>
-                        <input class="form-check-input" type="checkbox" id="copas_1234" value="1">
-                        <label>Copas 1 2 3 4</label>
-                        <br><br>
-                        <input class="form-check-input" type="checkbox" id="base_antena" value="1">
-                        <label>Base de Antena</label>
-                        <br><br>
-                        <input class="form-check-input" type="checkbox" id="triangulo_seguridad" value="1">
-                        <label>Triangulo de Seguridad</label>
-                        <br><br>
-                    </div>
-                </div>
-            </div>
+              <div class="row">
+                  <div class="col-4" style="border: solid 1px #df3232; padding:20px;">
+                      <h2>Documentacion</h2>
+                      <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="poliza_seguro" value="1">
+                          <label class="form-check-label" for="poliza_seguro">Poliza de seguro</label>
+                      </div>
+                      <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="placa_revisado" value="1">
+                          <label class="form-check-label" for="placa_revisado">Placa y Revisado</label>
+                      </div>
+                      <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="formato_danios_menores" value="1">
+                          <label class="form-check-label" for="formato_danios_menores">Formato de Daños Menores</label>
+                      </div>
+                      <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="registro_unico_vehicula" value="1">
+                          <label class="form-check-label" for="registro_unico_vehicula">Registro Unico Vehicular</label>
+                      </div>
+                      <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="stiker_panapass" value="1">
+                          <label class="form-check-label" for="stiker_panapass">Sticker de Panapass</label>
+                      </div>
+                  </div>
+
+                  <div class="col-4" style="border: solid 1px #df3232; padding:20px;">
+                      <h2>Operatividad</h2>
+                      <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="pito_claxon" value="1">
+                          <label class="form-check-label" for="pito_claxon">Pito / Claxon</label>
+                      </div>
+                      <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="luces_direccionales" value="1">
+                          <label class="form-check-label" for="luces_direccionales">Luces Direccionales</label>
+                      </div>
+                      <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="luces_traseras" value="1">
+                          <label class="form-check-label" for="luces_traseras">Luces Traseras</label>
+                      </div>
+                      <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="luces_delanteras" value="1">
+                          <label class="form-check-label" for="luces_delanteras">Luces Delanteras</label>
+                      </div>
+                      <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="aire_acondicionado" value="1">
+                          <label class="form-check-label" for="aire_acondicionado">Aire Acondicionado</label>
+                      </div>
+                      <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="limpia_parabrisas" value="1">
+                          <label class="form-check-label" for="limpia_parabrisas">Limpia Parabrisas</label>
+                      </div>
+                  </div>
+
+                  <div class="col-4" style="border: solid 1px #df3232; padding:20px;">
+                      <h2>Accesorios</h2>
+                      <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="alfombras" value="1">
+                          <label class="form-check-label" for="alfombras">Alfombras</label>
+                      </div>
+                      <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="herramientas" value="1">
+                          <label class="form-check-label" for="herramientas">Herramientas</label>
+                      </div>
+                      <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="antenas" value="1">
+                          <label class="form-check-label" for="antenas">Antena</label>
+                      </div>
+                      <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="placa_pipa" value="1">
+                          <label class="form-check-label" for="placa_pipa">Palanca / Pipa</label>
+                      </div>
+                      <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="extintor" value="1">
+                          <label class="form-check-label" for="extintor">Extintor</label>
+                      </div>
+                      <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="gato" value="1">
+                          <label class="form-check-label" for="gato">Gato</label>
+                      </div>
+                      <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="llanta_repuesto" value="1">
+                          <label class="form-check-label" for="llanta_repuesto">Llanta de Repuesto</label>
+                      </div>
+                      <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="copas_1234" value="1">
+                          <label class="form-check-label" for="copas_1234">Copas 1 2 3 4</label>
+                      </div>
+                      <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="base_antena" value="1">
+                          <label class="form-check-label" for="base_antena">Base de Antena</label>
+                      </div>
+                      <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="triangulo_seguridad" value="1">
+                          <label class="form-check-label" for="triangulo_seguridad">Triangulo de Seguridad</label>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+
             <br>
             <div class="row text-center" style="border: solid 1px #df3232; padding:20px;">
               <h2>Fotos</h2>
