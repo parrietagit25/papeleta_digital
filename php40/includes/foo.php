@@ -156,14 +156,23 @@ async function guardarCanvas() {
   formData.append('triangulo_seguridad', document.getElementById('triangulo_seguridad').checked ? 1 : 0);
 
   // Agregar las imágenes redimensionadas
-  const blob1 = await getResizedImageBlob(document.getElementById('file1'), 400, 400);
-  formData.append('foto1', blob1);
-  const blob2 = await getResizedImageBlob(document.getElementById('file2'), 400, 400);
-  formData.append('foto2', blob2);
-  const blob3 = await getResizedImageBlob(document.getElementById('file3'), 400, 400);
-  formData.append('foto3', blob3);
-  const blob4 = await getResizedImageBlob(document.getElementById('file4'), 400, 400);
-  formData.append('foto4', blob4);
+
+  if (e.target.files.length === 0) {
+        console.log("Ningún archivo seleccionado");
+        return;  // Termina la ejecución si no hay archivos seleccionados
+    }
+
+    const blob1 = await getResizedImageBlob(document.getElementById('file1'), 400, 400);
+    if(blob1) formData.append('foto1', blob1);
+
+    const blob2 = await getResizedImageBlob(document.getElementById('file2'), 400, 400);
+    if(blob2) formData.append('foto2', blob2);
+
+    const blob3 = await getResizedImageBlob(document.getElementById('file3'), 400, 400);
+    if(blob3) formData.append('foto3', blob3);
+
+    const blob4 = await getResizedImageBlob(document.getElementById('file4'), 400, 400);
+    if(blob4) formData.append('foto4', blob4);
 
   // Hacer el envío al servidor
   let respuesta = await fetch('guardar_papeleta.php', {
@@ -212,6 +221,9 @@ function resizeImage(file, maxWidth, maxHeight, callback) {
 }
 
 async function getResizedImageBlob(fileInput, maxWidth, maxHeight) {
+  if (fileInput.files.length === 0) {
+        return null; 
+    }
   const file = fileInput.files[0];  
   console.log(file);
   return new Promise((resolve, reject) => {
