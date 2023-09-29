@@ -87,7 +87,7 @@ if ($_SESSION["tipo_usuario"] == 3) {
                     </div>
                     <div class="col-4">
                         <h4>Odometro</h4>
-                        <input type="text" id="odometro" class="form-control">
+                        <input type="number" id="odometro" class="form-control">
                     </div>
                 </div>
             </div>
