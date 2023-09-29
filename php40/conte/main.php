@@ -296,7 +296,7 @@ if ($_SESSION["tipo_usuario"] == 3) {
             </div>
             <br>
             <div class="container">
-              <button type="button" class="btn btn-primary" style="width:100%" onclick="guardarCanvas()">Enviar</button>
+              <button type="button" class="btn btn-primary" style="width:100%" id="boton_guardar" onclick="guardarCanvas()">Enviar</button>
             </div>
             <br>
             <br>

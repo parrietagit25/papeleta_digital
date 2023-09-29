@@ -125,6 +125,9 @@ document.getElementById('file1').addEventListener('change', function() {
 
 async function guardarCanvas() {
 
+  var btn = document.getElementById("boton_guardar");
+      btn.disabled = true;
+
   let canvas = document.getElementById('miCanvas');
   let formData = new FormData();
 
@@ -154,16 +157,6 @@ async function guardarCanvas() {
   formData.append('copas_1234', document.getElementById('copas_1234').checked ? 1 : 0);
   formData.append('base_antena', document.getElementById('base_antena').checked ? 1 : 0);
   formData.append('triangulo_seguridad', document.getElementById('triangulo_seguridad').checked ? 1 : 0);
-
-  // Agregar las imágenes redimensionadas
-  /*const blob1 = await getResizedImageBlob(document.getElementById('file1'), 400, 400);
-  formData.append('foto1', blob1);
-  const blob2 = await getResizedImageBlob(document.getElementById('file2'), 400, 400);
-  formData.append('foto2', blob2);
-  const blob3 = await getResizedImageBlob(document.getElementById('file3'), 400, 400);
-  formData.append('foto3', blob3);
-  const blob4 = await getResizedImageBlob(document.getElementById('file4'), 400, 400);
-  formData.append('foto4', blob4);*/
 
   const blob1 = await getResizedImageBlob(document.getElementById('file1'), 400, 400);
   if(blob1) formData.append('foto1', blob1);
