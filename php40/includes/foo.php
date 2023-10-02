@@ -126,12 +126,7 @@ document.getElementById('file1').addEventListener('change', function() {
 async function guardarCanvas() {
 
   var btn = document.getElementById("boton_guardar");
-  var overlay = document.getElementById("overlay");
-
-  btn.onclick = function() {
       btn.disabled = true;
-      overlay.style.display = "block"; 
-  }
 
   let canvas = document.getElementById('miCanvas');
   let formData = new FormData();

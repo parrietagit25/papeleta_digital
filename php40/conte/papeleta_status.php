@@ -1010,10 +1010,10 @@ if (isset($_GET['counter_detail'])) { ?>
     <div class="container">
         <br>
         <br>
-        <a class="btn btn-danger" style="width:100%" onclick="enviar_revicion()">Enviar a Revision</a>
+        <a class="btn btn-danger" style="width:100%" id="enviar_revicion_btn" onclick="enviar_revicion()">Enviar a Revision</a>
         <br>
         <br>
-        <a class="btn btn-success" style="width:100%" onclick="finalizar()">Finalizar</a>
+        <a class="btn btn-success" style="width:100%" id="finalizar_btn" onclick="finalizar()">Finalizar</a>
         <input type="hidden" id="id" value="<?php echo $_GET['id']; ?>">
     </div>
     <br>
