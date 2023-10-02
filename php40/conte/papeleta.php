@@ -885,6 +885,11 @@ $rows = $ultimo_id->fetchAll(PDO::FETCH_ASSOC);
 
         async function enviar_revicion(){
 
+            var btn = document.getElementById("finalizar_btn");
+            btn.disabled = true;
+            var btnrv = document.getElementById("enviar_revicion_btn");
+            btnrv.disabled = true;
+
             var btn = document.getElementById("enviar_revicion_btn");
             btn.disabled = true;
 
@@ -973,6 +978,8 @@ $rows = $ultimo_id->fetchAll(PDO::FETCH_ASSOC);
 
           var btn = document.getElementById("finalizar_btn");
           btn.disabled = true;
+          var btnrv = document.getElementById("enviar_revicion_btn");
+          btnrv.disabled = true;
 
             let canvas = document.getElementById('miCanvas');
             let firma = document.getElementById('firmaCanvas');
