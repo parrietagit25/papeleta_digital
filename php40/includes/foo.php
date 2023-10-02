@@ -125,65 +125,82 @@ document.getElementById('file1').addEventListener('change', function() {
 
 async function guardarCanvas() {
 
-  var btn = document.getElementById("boton_guardar");
-      btn.disabled = true;
+  var radios_combus = document.getElementsByName('combustible');
+    var isAnyRadioChecked = false;
+    
+    for (var i = 0; i < radios_combus.length; i++) {
+        if (radios_combus[i].checked) {
+            isAnyRadioChecked = true;
+            break;
+        }
+    }
+    
+  if (isAnyRadioChecked) {
+        
+    var btn = document.getElementById("boton_guardar");
+        btn.disabled = true;
 
-  let canvas = document.getElementById('miCanvas');
-  let formData = new FormData();
+    let canvas = document.getElementById('miCanvas');
+    let formData = new FormData();
 
-  formData.append('imagen', canvas.toDataURL());
-  formData.append('unidad', document.getElementById('unidad').value);
-  formData.append('placa', document.getElementById('placa').value);
-  formData.append('odometro', document.getElementById('odometro').value);
-  formData.append('combustible', document.querySelector('input[name="combustible"]:checked') ? document.querySelector('input[name="combustible"]:checked').value : "");
-  formData.append('poliza_seguro', document.getElementById('poliza_seguro').checked ? 1 : 0);
-  formData.append('placa_revisado', document.getElementById('placa_revisado').checked ? 1 : 0);
-  formData.append('formato_danios_menores', document.getElementById('formato_danios_menores').checked ? 1 : 0);
-  formData.append('registro_unico_vehicula', document.getElementById('registro_unico_vehicula').checked ? 1 : 0);
-  formData.append('stiker_panapass', document.getElementById('stiker_panapass').checked ? 1 : 0);
-  formData.append('pito_claxon', document.getElementById('pito_claxon').checked ? 1 : 0);
-  formData.append('luces_direccionales', document.getElementById('luces_direccionales').checked ? 1 : 0);
-  formData.append('luces_traseras', document.getElementById('luces_traseras').checked ? 1 : 0);
-  formData.append('luces_delanteras', document.getElementById('luces_delanteras').checked ? 1 : 0);
-  formData.append('aire_acondicionado', document.getElementById('aire_acondicionado').checked ? 1 : 0);
-  formData.append('limpia_parabrisas', document.getElementById('limpia_parabrisas').checked ? 1 : 0);
-  formData.append('alfombras', document.getElementById('alfombras').checked ? 1 : 0);
-  formData.append('herramientas', document.getElementById('herramientas').checked ? 1 : 0);
-  formData.append('antenas', document.getElementById('antenas').checked ? 1 : 0);
-  formData.append('placa_pipa', document.getElementById('placa_pipa').checked ? 1 : 0);
-  formData.append('extintor', document.getElementById('extintor').checked ? 1 : 0);
-  formData.append('gato', document.getElementById('gato').checked ? 1 : 0);
-  formData.append('llanta_repuesto', document.getElementById('llanta_repuesto').checked ? 1 : 0);
-  formData.append('copas_1234', document.getElementById('copas_1234').checked ? 1 : 0);
-  formData.append('base_antena', document.getElementById('base_antena').checked ? 1 : 0);
-  formData.append('triangulo_seguridad', document.getElementById('triangulo_seguridad').checked ? 1 : 0);
+    formData.append('imagen', canvas.toDataURL());
+    formData.append('unidad', document.getElementById('unidad').value);
+    formData.append('placa', document.getElementById('placa').value);
+    formData.append('odometro', document.getElementById('odometro').value);
+    formData.append('combustible', document.querySelector('input[name="combustible"]:checked') ? document.querySelector('input[name="combustible"]:checked').value : "");
+    formData.append('poliza_seguro', document.getElementById('poliza_seguro').checked ? 1 : 0);
+    formData.append('placa_revisado', document.getElementById('placa_revisado').checked ? 1 : 0);
+    formData.append('formato_danios_menores', document.getElementById('formato_danios_menores').checked ? 1 : 0);
+    formData.append('registro_unico_vehicula', document.getElementById('registro_unico_vehicula').checked ? 1 : 0);
+    formData.append('stiker_panapass', document.getElementById('stiker_panapass').checked ? 1 : 0);
+    formData.append('pito_claxon', document.getElementById('pito_claxon').checked ? 1 : 0);
+    formData.append('luces_direccionales', document.getElementById('luces_direccionales').checked ? 1 : 0);
+    formData.append('luces_traseras', document.getElementById('luces_traseras').checked ? 1 : 0);
+    formData.append('luces_delanteras', document.getElementById('luces_delanteras').checked ? 1 : 0);
+    formData.append('aire_acondicionado', document.getElementById('aire_acondicionado').checked ? 1 : 0);
+    formData.append('limpia_parabrisas', document.getElementById('limpia_parabrisas').checked ? 1 : 0);
+    formData.append('alfombras', document.getElementById('alfombras').checked ? 1 : 0);
+    formData.append('herramientas', document.getElementById('herramientas').checked ? 1 : 0);
+    formData.append('antenas', document.getElementById('antenas').checked ? 1 : 0);
+    formData.append('placa_pipa', document.getElementById('placa_pipa').checked ? 1 : 0);
+    formData.append('extintor', document.getElementById('extintor').checked ? 1 : 0);
+    formData.append('gato', document.getElementById('gato').checked ? 1 : 0);
+    formData.append('llanta_repuesto', document.getElementById('llanta_repuesto').checked ? 1 : 0);
+    formData.append('copas_1234', document.getElementById('copas_1234').checked ? 1 : 0);
+    formData.append('base_antena', document.getElementById('base_antena').checked ? 1 : 0);
+    formData.append('triangulo_seguridad', document.getElementById('triangulo_seguridad').checked ? 1 : 0);
 
-  const blob1 = await getResizedImageBlob(document.getElementById('file1'), 400, 400);
-  if(blob1) formData.append('foto1', blob1);
+    const blob1 = await getResizedImageBlob(document.getElementById('file1'), 400, 400);
+    if(blob1) formData.append('foto1', blob1);
 
-  const blob2 = await getResizedImageBlob(document.getElementById('file2'), 400, 400);
-  if(blob2) formData.append('foto2', blob2);
+    const blob2 = await getResizedImageBlob(document.getElementById('file2'), 400, 400);
+    if(blob2) formData.append('foto2', blob2);
 
-  const blob3 = await getResizedImageBlob(document.getElementById('file3'), 400, 400);
-  if(blob3) formData.append('foto3', blob3);
+    const blob3 = await getResizedImageBlob(document.getElementById('file3'), 400, 400);
+    if(blob3) formData.append('foto3', blob3);
 
-  const blob4 = await getResizedImageBlob(document.getElementById('file4'), 400, 400);
-  if(blob4) formData.append('foto4', blob4);
+    const blob4 = await getResizedImageBlob(document.getElementById('file4'), 400, 400);
+    if(blob4) formData.append('foto4', blob4);
 
 
-  // Hacer el envío al servidor
-  let respuesta = await fetch('guardar_papeleta.php', {
-    method: 'POST',
-    body: formData
-  });
+    // Hacer el envío al servidor
+    let respuesta = await fetch('guardar_papeleta.php', {
+      method: 'POST',
+      body: formData
+    });
 
-  let resultado = await respuesta.json();
-  if (resultado.success) {
-    alert('Registrado con éxito!');
-    location.reload();
+    let resultado = await respuesta.json();
+    if (resultado.success) {
+      alert('Registrado con éxito!');
+      location.reload();
+    } else {
+      alert('Ocurrió un error ');
+    }
+
   } else {
-    alert('Ocurrió un error ');
+        alert("Seleccione el nivel de combustible");
   }
+
 }
 
 
