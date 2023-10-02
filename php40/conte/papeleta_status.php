@@ -1148,6 +1148,270 @@ if (isset($_GET['counter_detail'])) { ?>
 
     $id = $_POST['id'];
 
+    // email
+
+    $mail = new PHPMailer(true);
+
+    try {
+        $mail->SMTPDebug = 2;  
+        $mail->isSMTP();     
+        $mail->Host       = 'smtp.office365.com';  
+        $mail->SMTPAuth   = true;                   
+        $mail->Username   = 'notificaciones@grupopcr.com.pa';  
+        $mail->Password   = 'Noti2019.';        
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; 
+        $mail->Port       = 587;                   
+        $mail->setFrom('notificaciones@grupopcr.com.pa', 'Notificaciones PCR');
+        $mail->addAddress($email, 'Cliente PCR'); 
+
+        $poliza_seguro = ($poliza_seguro == 1) ? 'SI' : 'NO';
+        $placa_revisado = ($placa_revisado == 1) ? 'SI' : 'NO';
+        $formato_danios_menores = ($formato_danios_menores == 1) ? 'SI' : 'NO';
+        $registro_unico_vehicula = ($registro_unico_vehicula == 1) ? 'SI' : 'NO';
+        $stiker_panapass = ($stiker_panapass == 1) ? 'SI' : 'NO';
+        $pito_claxon = ($pito_claxon == 1) ? 'SI' : 'NO';
+        $luces_direccionales = ($luces_direccionales == 1) ? 'SI' : 'NO';
+        $luces_traseras = ($luces_traseras == 1) ? 'SI' : 'NO';
+        $luces_delanteras = ($luces_delanteras == 1) ? 'SI' : 'NO';
+        $aire_acondicionado = ($aire_acondicionado == 1) ? 'SI' : 'NO';
+        $limpia_parabrisas = ($limpia_parabrisas == 1) ? 'SI' : 'NO';
+        $alfombras = ($alfombras == 1) ? 'SI' : 'NO';
+        $herramientas = ($herramientas == 1) ? 'SI' : 'NO';
+        $antenas = ($antenas == 1) ? 'SI' : 'NO';
+        $placa_pipa = ($placa_pipa == 1) ? 'SI' : 'NO';
+        $extintor = ($extintor == 1) ? 'SI' : 'NO';
+        $gato = ($gato == 1) ? 'SI' : 'NO';
+        $llanta_repuesto = ($llanta_repuesto == 1) ? 'SI' : 'NO';
+        $copas_1234 = ($copas_1234 == 1) ? 'SI' : 'NO';
+        $base_antena = ($base_antena == 1) ? 'SI' : 'NO';
+        $triangulo_seguridad = ($triangulo_seguridad == 1) ? 'SI' : 'NO';
+
+        $papeletaExists = ($imagen != '') ? true : false;
+        $fotoFrenteExists = ($foto_frente != '') ? true : false;
+        $fotoConductorExists = ($foto_lado_conductor != '') ? true : false;
+        $fotoMaleteroExists = ($foto_maletero != '') ? true : false;
+        $fotoPasajeroExists = ($foto_lado_pasajero != '') ? true : false;
+        $firmaExists = ($firma != '') ? true : false;
+  
+        $mail->CharSet = 'UTF-8';
+        $mail->isHTML(true);  
+        $mail->Subject = 'Dollar Panama Hoja de Inspeccion';
+        $mail->Body    = '
+            <img src="cid:logogrupopcr" width="250" alt="Logo 1" />
+            <p>Su papeleta de inspeccion de salida para el contrato '.$contrato.'</p>
+            <p>Estimado cliente,</p>
+            <p>¡Bienvenido y gracias por elegir nuestros servicios de alquiler de vehículos! Estamos 
+            comprometidos en ofrecerte una experiencia excepcional y asegurarnos de que tu viaje sea seguro y cómodo.</p>
+            <p>A continuación, te proporcionamos los detalles de tu alquiler para que puedas revisar toda la información pertinente:</p>
+
+    <div style="display: flex; justify-content: space-between;">
+        <div style="flex: 1; margin-right: 10px;">
+            <table style="border-collapse: collapse; width: 100%;">
+                <thead>
+                    <tr>
+                        <th style="border: 1px solid #df3232;">Contrato</th>
+                        <th style="border: 1px solid #df3232;">Sucursal</th>
+                        <th style="border: 1px solid #df3232;">Placa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="border: 1px solid #df3232;">'.$contrato.'</td>
+                        <td style="border: 1px solid #df3232;">'.$sucursal.'</td>
+                        <td style="border: 1px solid #df3232;">'.$placa.'</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="flex: 1;">
+            <table style="border-collapse: collapse; width: 100%;">
+                <thead>
+                    <tr>
+                        <th style="border: 1px solid #df3232;">Unidad</th>
+                        <th style="border: 1px solid #df3232;">Odómetro</th>
+                        <th style="border: 1px solid #df3232;">Combustible</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="border: 1px solid #df3232;">'.$unidad.'</td>
+                        <td style="border: 1px solid #df3232;">'.$odometro.'</td>
+                        <td style="border: 1px solid #df3232;">'.$combustible.'</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+                <br>
+
+    <div style="display: flex; justify-content: space-between;">
+        <div style="flex: 1; margin-right: 10px;">
+            <table style="border-collapse: collapse; width: 100%;">
+                <thead>
+                    <tr>
+                        <th style="border: 1px solid #df3232;" colspan="2">Documentacion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="border: 1px solid #df3232;">Poliza de seguro</td>
+                        <td style="border: 1px solid #df3232;">'.$poliza_seguro.'</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #df3232;">Placa Revisado</td>
+                        <td style="border: 1px solid #df3232;">'.$placa_revisado.'</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #df3232;">Formato daños menores</td>
+                        <td style="border: 1px solid #df3232;">'.$formato_danios_menores.'</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #df3232;">Registro Unico Vehicular</td>
+                        <td style="border: 1px solid #df3232;">'.$registro_unico_vehicula.'</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #df3232;">Sticker de Panapass</td>
+                        <td style="border: 1px solid #df3232;">'.$stiker_panapass.'</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>   
+        <div style="flex: 1; margin-right: 10px;">
+            <table style="border-collapse: collapse; width: 100%;">
+                <thead>
+                    <tr>
+                        <th style="border: 1px solid #df3232;" colspan="2">Operatividad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="border: 1px solid #df3232;">Pito / Claxon</td>
+                        <td style="border: 1px solid #df3232;">'.$pito_claxon.'</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #df3232;">Luces Direccionales</td>
+                        <td style="border: 1px solid #df3232;">'.$luces_direccionales.'</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #df3232;">Luces Traseras</td>
+                        <td style="border: 1px solid #df3232;">'.$luces_traseras.'</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #df3232;">Luces Delanteras</td>
+                        <td style="border: 1px solid #df3232;">'.$luces_delanteras.'</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #df3232;">Aire Acondicionado</td>
+                        <td style="border: 1px solid #df3232;">'.$aire_acondicionado.'</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #df3232;">Limpia Parabrisas</td>
+                        <td style="border: 1px solid #df3232;">'.$limpia_parabrisas.'</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div style="flex: 1;">
+            <table style="border-collapse: collapse; width: 100%;">
+                <thead>
+                    <tr>
+                        <th style="border: 1px solid #df3232;" colspan="2">Accesorios</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="border: 1px solid #df3232;">Pito / Claxon</td>
+                        <td style="border: 1px solid #df3232;">'.$alfombras.'</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #df3232;">Luces Direccionales</td>
+                        <td style="border: 1px solid #df3232;">'.$herramientas.'</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #df3232;">Luces Traseras</td>
+                        <td style="border: 1px solid #df3232;">'.$antenas.'</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #df3232;">Luces Delanteras</td>
+                        <td style="border: 1px solid #df3232;">'.$placa_pipa.'</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #df3232;">Aire Acondicionado</td>
+                        <td style="border: 1px solid #df3232;">'.$extintor.'</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #df3232;">Limpia Parabrisas</td>
+                        <td style="border: 1px solid #df3232;">'.$gato.'</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #df3232;">Luces Traseras</td>
+                        <td style="border: 1px solid #df3232;">'.$llanta_repuesto.'</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #df3232;">Luces Delanteras</td>
+                        <td style="border: 1px solid #df3232;">'.$copas_1234.'</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #df3232;">Aire Acondicionado</td>
+                        <td style="border: 1px solid #df3232;">'.$base_antena.'</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #df3232;">Limpia Parabrisas</td>
+                        <td style="border: 1px solid #df3232;">'.$triangulo_seguridad.'</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br>
+
+    <p><b>Inspección antes de la entrega:</b></p>'
+    . ($papeletaExists ? '<img src="cid:papeleta" width="250" alt="Inspección" />' : '') . '
+    <p><b>Fotos:</b></p>'
+    . ($fotoFrenteExists ? '<img src="cid:foto_frente" width="250" alt="Foto Frente" />' : '')
+    . ($fotoConductorExists ? '<img src="cid:foto_conductor" width="250" alt="Foto Lado Conductor" />' : '')
+    . ($fotoMaleteroExists ? '<img src="cid:foto_maletero" width="250" alt="Foto Maletero" />' : '')
+    . ($fotoPasajeroExists ? '<img src="cid:foto_pasajero" width="250" alt="Foto Lado Pasajero" />' : '') . '
+    <p><b>Firma:</b></p>'
+    . ($firmaExists ? '<img src="cid:firma" width="250" alt="Firma" />' : '') . '
+        ';
+
+        if ($papeletaExists) {
+            $mail->AddEmbeddedImage($imagen, 'papeleta');
+        }
+        
+        if ($fotoFrenteExists) {
+            $mail->AddEmbeddedImage($foto_frente, 'foto_frente');
+        }
+        
+        if ($fotoConductorExists) {
+            $mail->AddEmbeddedImage($foto_lado_conductor, 'foto_conductor');
+        }
+        
+        if ($fotoMaleteroExists) {
+            $mail->AddEmbeddedImage($foto_maletero, 'foto_maletero');
+        }
+        
+        if ($fotoPasajeroExists) {
+            $mail->AddEmbeddedImage($foto_lado_pasajero, 'foto_pasajero');
+        }
+        
+        if ($firmaExists) {
+            $mail->AddEmbeddedImage($firma, 'firma');
+        }
+
+        $mail->AddEmbeddedImage('../img/290x128.png', 'logogrupopcr');
+
+        $mail->AltBody = '';
+
+        $mail->send();
+        echo 'Mensaje enviado';
+    } catch (Exception $e) {
+        echo "Mensaje no enviado. Error de Mailer: {$mail->ErrorInfo}";
+    }
+
+
     $stmt = $pdo->query("UPDATE papeleta_general SET imspeccion3 = '".$imagen."',
                                                         email_cliente = '".$email."',
                                                         contrato = '".$contrato."',
