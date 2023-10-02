@@ -1148,7 +1148,43 @@ if (isset($_GET['counter_detail'])) { ?>
 
     $id = $_POST['id'];
 
-    // email
+    $stmt = $pdo->query("UPDATE papeleta_general SET imspeccion3 = '".$imagen."',
+                                                        email_cliente = '".$email."',
+                                                        contrato = '".$contrato."',
+                                                        sucursal = '".$sucursal."',
+                                                        unidad = '".$unidad."',
+                                                        placa = '".$placa."',
+                                                        odometro = '".$odometro."',
+                                                        combustible = '".$combustible."',
+                                                        poliza_seguro = '".$poliza_seguro."',
+                                                        placa_revisado = '".$placa_revisado."',
+                                                        formato_danios_menores = '".$formato_danios_menores."',
+                                                        registro_unico_vehicula = '".$registro_unico_vehicula."',
+                                                        stiker_panapass = '".$stiker_panapass."',
+                                                        pito_claxon = '".$pito_claxon."',
+                                                        luces_direccionales = '".$luces_direccionales."',
+                                                        luces_traseras = '".$luces_traseras."',
+                                                        luces_delanteras = '".$luces_delanteras."',
+                                                        aire_acondicionado = '".$aire_acondicionado."',
+                                                        limpia_parabrisas = '".$limpia_parabrisas."',
+                                                        alfombras = '".$alfombras."',
+                                                        herramientas = '".$herramientas."',
+                                                        antenas = '".$antenas."',
+                                                        placa_pipa = '".$placa_pipa."',
+                                                        extintor = '".$extintor."',
+                                                        gato = '".$gato."',
+                                                        llanta_repuesto = '".$llanta_repuesto."',
+                                                        copas_1234 = '".$copas_1234."',
+                                                        base_antena = '".$base_antena."',
+                                                        triangulo_seguridad = '".$triangulo_seguridad."',
+                                                        stat = '".$stat."',
+                                                        firma_ingreso = '".$firma."', 
+                                                        id_user_heiker_fin = '".$_SESSION["id"]."', 
+                                                        foto_frente_ing = '".$foto_frente."', 
+                                                        foto_conductor_ing = '".$foto_lado_conductor."', 
+                                                        foto_maletero_ing = '".$foto_mateleto."', 
+                                                        foto_pasajero_ing ='".$foto_lado_pasajero."'
+                             WHERE id = '".$id."'");
 
     $mail = new PHPMailer(true);
 
@@ -1192,17 +1228,17 @@ if (isset($_GET['counter_detail'])) { ?>
         $fotoMaleteroExists = ($foto_maletero != '') ? true : false;
         $fotoPasajeroExists = ($foto_lado_pasajero != '') ? true : false;
         $firmaExists = ($firma != '') ? true : false;
-  
+
         $mail->CharSet = 'UTF-8';
         $mail->isHTML(true);  
         $mail->Subject = 'Dollar Panama Hoja de Inspeccion';
         $mail->Body    = '
             <img src="cid:logogrupopcr" width="250" alt="Logo 1" />
-            <p>Su papeleta de inspeccion de salida para el contrato '.$contrato.'</p>
+            <p>Su papeleta de inspeccion de ingreso para el contrato '.$contrato.'</p>
             <p>Estimado cliente,</p>
             <p>¡Bienvenido y gracias por elegir nuestros servicios de alquiler de vehículos! Estamos 
             comprometidos en ofrecerte una experiencia excepcional y asegurarnos de que tu viaje sea seguro y cómodo.</p>
-            <p>A continuación, te proporcionamos los detalles de tu alquiler para que puedas revisar toda la información pertinente:</p>
+            <p>A continuación, te proporcionamos los detalles de tu entrega de vehiculo para que puedas revisar toda la información pertinente:</p>
 
     <div style="display: flex; justify-content: space-between;">
         <div style="flex: 1; margin-right: 10px;">
@@ -1410,45 +1446,6 @@ if (isset($_GET['counter_detail'])) { ?>
     } catch (Exception $e) {
         echo "Mensaje no enviado. Error de Mailer: {$mail->ErrorInfo}";
     }
-
-
-    $stmt = $pdo->query("UPDATE papeleta_general SET imspeccion3 = '".$imagen."',
-                                                        email_cliente = '".$email."',
-                                                        contrato = '".$contrato."',
-                                                        sucursal = '".$sucursal."',
-                                                        unidad = '".$unidad."',
-                                                        placa = '".$placa."',
-                                                        odometro = '".$odometro."',
-                                                        combustible = '".$combustible."',
-                                                        poliza_seguro = '".$poliza_seguro."',
-                                                        placa_revisado = '".$placa_revisado."',
-                                                        formato_danios_menores = '".$formato_danios_menores."',
-                                                        registro_unico_vehicula = '".$registro_unico_vehicula."',
-                                                        stiker_panapass = '".$stiker_panapass."',
-                                                        pito_claxon = '".$pito_claxon."',
-                                                        luces_direccionales = '".$luces_direccionales."',
-                                                        luces_traseras = '".$luces_traseras."',
-                                                        luces_delanteras = '".$luces_delanteras."',
-                                                        aire_acondicionado = '".$aire_acondicionado."',
-                                                        limpia_parabrisas = '".$limpia_parabrisas."',
-                                                        alfombras = '".$alfombras."',
-                                                        herramientas = '".$herramientas."',
-                                                        antenas = '".$antenas."',
-                                                        placa_pipa = '".$placa_pipa."',
-                                                        extintor = '".$extintor."',
-                                                        gato = '".$gato."',
-                                                        llanta_repuesto = '".$llanta_repuesto."',
-                                                        copas_1234 = '".$copas_1234."',
-                                                        base_antena = '".$base_antena."',
-                                                        triangulo_seguridad = '".$triangulo_seguridad."',
-                                                        stat = '".$stat."',
-                                                        firma_ingreso = '".$firma."', 
-                                                        id_user_heiker_fin = '".$_SESSION["id"]."', 
-                                                        foto_frente_ing = '".$foto_frente."', 
-                                                        foto_conductor_ing = '".$foto_lado_conductor."', 
-                                                        foto_maletero_ing = '".$foto_mateleto."', 
-                                                        foto_pasajero_ing ='".$foto_lado_pasajero."'
-                             WHERE id = '".$id."'");
 
 }elseif (isset($_POST['mandar_revicion'])) {
 
