@@ -632,7 +632,7 @@ if (isset($_GET['counter_detail'])) { ?>
     </div>
     <br>
 
-    <p><b>Inspección antes de la entrega:</b></p>'
+    <p><b>Inspección Check-in:</b></p>'
     . ($papeletaExists ? '<img src="cid:papeleta" width="250" alt="Inspección" />' : '') . '
     <p><b>Fotos:</b></p>'
     . ($fotoFrenteExists ? '<img src="cid:foto_frente" width="250" alt="Foto Frente" />' : '')
@@ -1010,10 +1010,10 @@ if (isset($_GET['counter_detail'])) { ?>
     <div class="container">
         <br>
         <br>
-        <a class="btn btn-danger" style="width:100%" id="enviar_revicion_btn" onclick="enviar_revicion()">Enviar a Revision</a>
+        <button class="btn btn-danger" style="width:100%" id="enviar_revicion_btn" onclick="enviar_revicion()">Enviar a Revision</button>
         <br>
         <br>
-        <a class="btn btn-success" style="width:100%" id="finalizar_btn" onclick="finalizar()">Finalizar</a>
+        <button class="btn btn-success" id="finalizar_btn" style="width:100%" onclick="finalizar()">Finalizar</button>
         <input type="hidden" id="id" value="<?php echo $_GET['id']; ?>">
     </div>
     <br>
@@ -1402,7 +1402,7 @@ if (isset($_GET['counter_detail'])) { ?>
     </div>
     <br>
 
-    <p><b>Inspección antes de la entrega:</b></p>'
+    <p><b>Inspección Check-out:</b></p>'
     . ($papeletaExists ? '<img src="cid:papeleta" width="250" alt="Inspección" />' : '') . '
     <p><b>Fotos:</b></p>'
     . ($fotoFrenteExists ? '<img src="cid:foto_frente" width="250" alt="Foto Frente" />' : '')
